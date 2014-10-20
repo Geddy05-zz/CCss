@@ -48,6 +48,7 @@ urlsOverview = []
 namesOverview = []
 
 graph_db = neo4j.GraphDatabaseService("http://145.24.222.101:8001/db/data/")
+batch = neo4j.WriteBatch(graph_db)
 #http://145.24.222.101:8001/db/data/
 #http://localhost:7474/db/data/
 
@@ -72,18 +73,19 @@ def getInfo():
             price = str(detailsoup.find("div",{"class":"product-price"}).getText()).replace(u"\u20ac", '')
             info = []
             names = []
+            table= detailsoup.findAll("table" , {"class": "c-productdetails-specifications-table"})
 
-            for rownames in detailsoup.findAll("td" , {"class": "column-left"}):
-                rname = rownames.text.replace(":","")
-                names.append(str(rname))
+            newNode = batch.create(node({"Name": name, "ProductUrl": producturl}))
 
-            for rowinfo in detailsoup.findAll("td" , {"class":"column-right"}):
-                rinfo = rowinfo.text
-                info.append(str(rinfo))
+            for rownames in detailsoup.findAll("tr"):
+                rname = str(rownames.find("td" , {"class": "column-left"}).getText()).replace(":","")
+                rinfo = str(rownames.find("td" , {"class":"column-right"}).getText())
+                batch.set_property(newNode,rname,rinfo)
 
+            """
             length = len(names);
             if length == 5:
-                 graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4])}))
+                 newNode, =graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4])}))
             if length == 6:
                 newNode, =  graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5])}))
             if length == 7:
@@ -100,15 +102,17 @@ def getInfo():
                 newNode, = graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6]), str(names[7]): str(info[7]),str(names[8]): str(info[8]), str(names[9]): str(info[9]), str(names[10]): str(info[10]), str(names[11]): str(info[11])}))
             if length > 13:
                 newNode, =graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6]), str(names[7]): str(info[7]),str(names[8]): str(info[8]), str(names[9]): str(info[9]), str(names[10]): str(info[10]), str(names[11]): str(info[11]),str(names[12]): str(info[12])}))
+            """
 
             label= str(namesOverview[i])
-            newNode.add_labels(label)
+            batch.add_labels(newNode,label)
 
             print (label)
             print (name)
             print (price)
             print (producturl)
         i=i+1
+        batch.submit()
 
 
 
