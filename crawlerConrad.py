@@ -74,36 +74,23 @@ def getInfo():
             info = []
             names = []
             table= detailsoup.findAll("table" , {"class": "c-productdetails-specifications-table"})
-
-            newNode = batch.create(node({"Name": name, "ProductUrl": producturl}))
+            dict = {"Name":name, "ProductUrl": producturl}
+            #newNode = batch.create(node({"Name": name, "ProductUrl": producturl}))
 
             for rownames in detailsoup.findAll("tr"):
-                rname = str(rownames.find("td" , {"class": "column-left"}).getText()).replace(":","")
-                rinfo = str(rownames.find("td" , {"class":"column-right"}).getText())
-                batch.set_property(newNode,rname,rinfo)
+                try:
+                    rname = str(rownames.find("td" , {"class": "column-left"}).getText()).replace(":","")
+                except:
+                    rname="onbekend"
+                try:
+                    rinfo = str(rownames.find("td" , {"class":"column-right"}).getText()).replace(" ","")
+                except:
+                    rinfo = "onbekend"
+                dicttemp = {rname:rinfo}
+                dict.update(dicttemp)
 
-            """
-            length = len(names);
-            if length == 5:
-                 newNode, =graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4])}))
-            if length == 6:
-                newNode, =  graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5])}))
-            if length == 7:
-                newNode, =  graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6])}))
-            if length == 8:
-                newNode, = graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6]), str(names[7]): str(info[7])}))
-            if length == 9:
-                newNode, = graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6]), str(names[7]): str(info[7]),str(names[8]): str(info[8])}))
-            if length == 10:
-                newNode, =  graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6]), str(names[7]): str(info[7]),str(names[8]): str(info[8]), str(names[9]): str(info[9])}))
-            if length == 11:
-                newNode, = graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6]), str(names[7]): str(info[7]),str(names[8]): str(info[8]), str(names[9]): str(info[9]), str(names[10]): str(info[10])}))
-            if length == 12:
-                newNode, = graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6]), str(names[7]): str(info[7]),str(names[8]): str(info[8]), str(names[9]): str(info[9]), str(names[10]): str(info[10]), str(names[11]): str(info[11])}))
-            if length > 13:
-                newNode, =graph_db.create(node({"Name": name, "ProductUrl": producturl, str(names[0]): str(info[0]), str(names[1]): str(info[1]), str(names[2]): str(info[2]), str(names[3]): str(info[3]), str(names[4]): str(info[4]),str(names[5]): str(info[5]),str(names[6]): str(info[6]), str(names[7]): str(info[7]),str(names[8]): str(info[8]), str(names[9]): str(info[9]), str(names[10]): str(info[10]), str(names[11]): str(info[11]),str(names[12]): str(info[12])}))
-            """
-
+            newNode = batch.create(node((dict)))
+            #newNode, =graph_db.create(node({dict}))
             label= str(namesOverview[i])
             batch.add_labels(newNode,label)
 
@@ -112,7 +99,7 @@ def getInfo():
             print (price)
             print (producturl)
         i=i+1
-        batch.submit()
+
 
 
 
@@ -198,3 +185,4 @@ def createLabelNames():
 createUrls()
 createLabelNames()
 getInfo()
+batch.submit()

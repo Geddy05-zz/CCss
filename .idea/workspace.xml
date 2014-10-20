@@ -12,7 +12,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/CrawlerConrad$crawlerConrad.coverage" NAME="crawlerConrad Coverage Results" MODIFIED="1413831617764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CrawlerConrad$crawlerConrad.coverage" NAME="crawlerConrad Coverage Results" MODIFIED="1413837620687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -29,8 +29,8 @@
       <file leaf-file-name="crawlerConrad.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crawlerConrad.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76082474" vertical-offset="1484" max-vertical-offset="3485">
-              <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
+            <state vertical-scroll-proportion="1.2103093" vertical-offset="2575" max-vertical-offset="3281">
+              <caret line="186" column="9" selection-start-line="186" selection-start-column="9" selection-end-line="186" selection-end-column="9" />
               <folding>
                 <element signature="e#69#98#0" expanded="true" />
               </folding>
@@ -371,8 +371,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/crawlerConrad.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76082474" vertical-offset="1484" max-vertical-offset="3485">
-          <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
+        <state vertical-scroll-proportion="1.2103093" vertical-offset="2575" max-vertical-offset="3281">
+          <caret line="186" column="9" selection-start-line="186" selection-start-column="9" selection-end-line="186" selection-end-column="9" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
           </folding>
