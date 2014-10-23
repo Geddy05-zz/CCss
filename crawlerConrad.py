@@ -8,18 +8,18 @@ import re
 import py2neo
 from py2neo import node, rel, neo4j
 
-blurayBranders= "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/drives-branders/interne-blu-ray-branders.html","Optische drives"
-dvdBranders= "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/drives-branders/interne-dvd-branders.html","Optische drives"
-bluraySpeler = "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/drives-branders/interne-blu-ray-spelers.html","Optische drives"
-dvdSpeler = "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/drives-branders/interne-dvd-spelers.html","Optische drives"
-hddIdeSsd="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-ide-ssd.html","Harde schijf"
-hddSas ="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-sas-hdd.html","Harde schijf"
-HddSata="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-sata-hdd.html","Harde schijf"
-HddSataSsd="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-sata-ssd.html","Harde schijf"
-hddSsh="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-sshd-hdd.html","Harde schijf"
-hddSasdrie="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/35-sas-hdd.html","Harde schijf"
-hddSataDrie="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/35-sata-hdd.html","Harde schijf"
-hddSshdDrie= "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/35-sshd-hdd.html","Harde schijf"
+blurayBranders= "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/drives-branders/interne-blu-ray-branders.html","Optischedrives"
+dvdBranders= "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/drives-branders/interne-dvd-branders.html","Optischedrives"
+bluraySpeler = "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/drives-branders/interne-blu-ray-spelers.html","Optischedrives"
+dvdSpeler = "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/drives-branders/interne-dvd-spelers.html","Optischedrives"
+hddIdeSsd="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-ide-ssd.html","Hardeschijf"
+hddSas ="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-sas-hdd.html","Hardeschijf"
+HddSata="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-sata-hdd.html","Hardeschijf"
+HddSataSsd="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-sata-ssd.html","Hardeschijf"
+hddSsh="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/25-sshd-hdd.html","Hardeschijf"
+hddSasdrie="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/35-sas-hdd.html","Hardeschijf"
+hddSataDrie="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/35-sata-hdd.html","Hardeschijf"
+hddSshdDrie= "https://www.conrad.nl/nl/computer-kantoor/pc-componenten/harde-schijven/interne-harde-schijven/35-sshd-hdd.html","Hardeschijf"
 ddrone="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/intern-geheugen/ddr1-geheugen.html","Geheugen"
 ddrTwo="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/intern-geheugen/ddr2-geheugen.html","Geheugen"
 ddrThree="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/intern-geheugen/ddr3-geheugen.html","Geheugen"
@@ -40,8 +40,8 @@ processor2011="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/processo
 processorFm1="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/processoren/amd-socket-fm1-cpus.html","processor"
 processorFm2="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/processoren/amd-socket-fm2-cpus.html","processor"
 processor1150="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/processoren/intel-socket-1150-cpus.html","processor"
-videokaartAMD="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/videokaarten/videokaarten-amd-chipset.html","grafische kaart"
-videokaartNVIDIA="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/videokaarten/videokaarten-nvidia-chipset.html","grafische kaart"
+videokaartAMD="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/videokaarten/videokaarten-amd-chipset.html","grafischekaart"
+videokaartNVIDIA="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/videokaarten/videokaarten-nvidia-chipset.html","grafischekaart"
 voeding="https://www.conrad.nl/nl/computer-kantoor/pc-componenten/voedingen/pc-voeding.html","voeding"
 
 urlsOverview = []
@@ -83,7 +83,7 @@ def getInfo():
                 except:
                     rname="onbekend"
                 try:
-                    rinfo = str(rownames.find("td" , {"class":"column-right"}).getText()).replace(" ","")
+                    rinfo = str(rownames.find("td" , {"class":"column-right"}).getText()).replace("`","")
                 except:
                     rinfo = "onbekend"
                 dicttemp = {rname:rinfo}
@@ -106,7 +106,6 @@ def getInfo():
 
 
 def createUrls():
-    urlsOverview.append(processorAMD[0])
     urlsOverview.append(blurayBranders[0])
     urlsOverview.append(dvdBranders[0])
     urlsOverview.append(bluraySpeler[0])
@@ -123,7 +122,6 @@ def createUrls():
     urlsOverview.append(ddrTwo[0])
     urlsOverview.append(ddrThree[0])
     urlsOverview.append(sdRam[0])
-    urlsOverview.append(processorAMD[0])
     urlsOverview.append(mbMiniITX[0])
     urlsOverview.append(mbSocket1150[0])
     urlsOverview.append(mbSocket1155[0])
@@ -144,7 +142,6 @@ def createUrls():
     urlsOverview.append(voeding[0])
 
 def createLabelNames():
-    namesOverview.append(processorAMD[1])
     namesOverview.append(blurayBranders[1])
     namesOverview.append(dvdBranders[1])
     namesOverview.append(bluraySpeler[1])
@@ -161,7 +158,6 @@ def createLabelNames():
     namesOverview.append(ddrTwo[1])
     namesOverview.append(ddrThree[1])
     namesOverview.append(sdRam[1])
-    namesOverview.append(processorAMD[1])
     namesOverview.append(mbMiniITX[1])
     namesOverview.append(mbSocket1150[1])
     namesOverview.append(mbSocket1155[1])
