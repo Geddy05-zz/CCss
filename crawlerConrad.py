@@ -60,7 +60,6 @@ namesOverview = []
 #create a connecting with the database on our server
 print ("Connecting with database")
 graph_db = neo4j.GraphDatabaseService("http://145.24.222.101:8001/db/data/")
-batch = neo4j.WriteBatch(graph_db)
 
 
 #The crawl function
@@ -76,6 +75,7 @@ def getInfo():
 
             webpage = urllib2.urlopen(url)
             soup = BeautifulSoup(webpage)
+            batch = neo4j.WriteBatch(graph_db)
 
 
             for item in soup.findAll("div", {"class" : "c-searchresult-list-item-details-inner"}):
@@ -94,7 +94,7 @@ def getInfo():
                 for rownames in detailsoup.findAll("tr"):
                     try:
 
-                        rname = str(rownames.find("td" , {"class": "column-left"}).getText()).replace(":","").split(" ").lower()
+                        rname = str(rownames.find("td" , {"class": "column-left"}).getText()).replace(":","").strip('\t\r\n\xa0').lower()
                     except:
                         rname="onbekend"
                     try:
@@ -107,8 +107,7 @@ def getInfo():
                     except:
                         rinfoParsingStorage = "onbekend"
 
-
-                    dicttemp = {rname[0]:rinfoParsingStorage}
+                    dicttemp = {rname:rinfoParsingStorage}
                     dict.update(dicttemp)
 
                 #Creating the node
@@ -118,6 +117,7 @@ def getInfo():
                 label= str(namesOverview[i])
                 batch.add_labels(newNode,label)
 
+            batch.submit()
             percentage = (100/len(urlsOverview) *(i+1))
             procces = "Percentage : "+str("%.2f" % percentage)+"% done"
             print (procces)
@@ -205,4 +205,4 @@ def createLabelNames():
 createUrls()
 createLabelNames()
 getInfo()
-batch.submit()
+
