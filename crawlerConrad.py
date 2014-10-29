@@ -3,10 +3,7 @@ try:
 except:
     import urllib2
 from bs4 import BeautifulSoup
-from lxml import html
-import re
-import py2neo ,sys,re
-from py2neo import node, rel, neo4j
+from py2neo import node, neo4j
 
 
 #product urls Optische drives
@@ -128,11 +125,7 @@ def getInfo():
     except:
         print("connection problem")
 
-
-
-
-
-
+# Fill the urlsoverview and take the key  from the dictionary
 def createUrls():
     urlsOverview.append(blurayBranders[0])
     urlsOverview.append(dvdBranders[0])
@@ -169,6 +162,7 @@ def createUrls():
     urlsOverview.append(videokaartNVIDIA[0])
     urlsOverview.append(voeding[0])
 
+# Fill the nameOverview and take the value  from the dictionary
 def createLabelNames():
     namesOverview.append(blurayBranders[1])
     namesOverview.append(dvdBranders[1])
@@ -206,6 +200,8 @@ def createLabelNames():
     namesOverview.append(voeding[1])
 
 
+# call the functions for executing. First we need te make te url/name overview before we running the real crawl function.
+# when the craw(get info()) function is finished the batch will be submit and pushed to the database
 createUrls()
 createLabelNames()
 getInfo()

@@ -82,6 +82,7 @@ def getInfo():
                     except:
                         rinfo=""
 
+                    # remove all not useful characters like &nbsp;
                     if rname != "" or rinfo !="":
                         dicttemp = {rname:rinfo}
                         dict.update(dicttemp)
@@ -93,14 +94,13 @@ def getInfo():
             label= str(namesOverview[i])
             batch.add_labels(newNode,label)
 
+
         percentage = (100/len(urlsOverview) *(i+1))
         procces = "Percentage : "+str("%.2f" % percentage)+"% done"
         print (procces)
         i=i+1
 
-
-
-
+# Fill the urlsoverview and take the key  from the dictionary
 def createUrls():
     urlsOverview.append(moederbord[0])
     urlsOverview.append(processoren[0])
@@ -115,7 +115,7 @@ def createUrls():
     urlsOverview.append(pci[0])
     urlsOverview.append(branders[0])
 
-
+# Fill the nameOverview and take the value  from the dictionary
 def createLabelNames():
     namesOverview.append(moederbord[1])
     namesOverview.append(processoren[1])
@@ -130,8 +130,8 @@ def createLabelNames():
     namesOverview.append(pci[1])
     namesOverview.append(branders[1])
 
-
-
+# call the functions for executing. First we need te make te url/name overview before we running the real crawl function.
+# when the craw(get info()) function is finished the batch will be submit and pushed to the database
 createUrls()
 createLabelNames()
 getInfo()

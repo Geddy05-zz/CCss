@@ -29,10 +29,28 @@
       <file leaf-file-name="crawlerConrad.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crawlerConrad.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5964912" vertical-offset="969" max-vertical-offset="3706">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.41055718" vertical-offset="757" max-vertical-offset="1479">
+              <caret line="61" column="76" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
               <folding>
                 <element signature="e#69#98#0" expanded="true" />
+                <element signature="e#4981#7495#0" expanded="false" />
+                <element signature="e#7579#8909#0" expanded="false" />
+                <element signature="e#9003#10367#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoolblueCrawler.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CoolblueCrawler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding>
+                <element signature="e#69#98#0" expanded="true" />
+                <element signature="e#1638#5001#0" expanded="false" />
+                <element signature="e#5085#5525#0" expanded="false" />
+                <element signature="e#5619#6071#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -48,15 +66,16 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/CoolblueCrawler.py" />
         <option value="$PROJECT_DIR$/crawlerConrad.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="768" />
-    <option name="y" value="2" />
-    <option name="width" value="768" />
-    <option name="height" value="824" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1552" />
+    <option name="height" value="842" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -93,7 +112,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CoolblueCrawler" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -296,13 +315,33 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="768" y="2" width="768" height="824" extended-state="1" />
+    <frame x="-8" y="-8" width="1552" height="842" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32957748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32957748" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49601063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -337,15 +376,59 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="5" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/crawlerConrad.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2933" max-vertical-offset="3706">
+          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+          <folding>
+            <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoolblueCrawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2482">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#1638#5001#0" expanded="false" />
+            <element signature="e#5085#5525#0" expanded="false" />
+            <element signature="e#5619#6071#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/crawlerConrad.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="3706">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlerConrad.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="3706">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -356,6 +439,9 @@
           <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -366,6 +452,9 @@
           <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -376,6 +465,9 @@
           <caret line="37" column="115" selection-start-line="37" selection-start-column="115" selection-end-line="37" selection-end-column="115" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -386,6 +478,9 @@
           <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -396,6 +491,9 @@
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -406,6 +504,9 @@
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -416,6 +517,9 @@
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -426,6 +530,9 @@
           <caret line="76" column="119" selection-start-line="76" selection-start-column="119" selection-end-line="76" selection-end-column="119" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -436,6 +543,9 @@
           <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -446,6 +556,9 @@
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -456,6 +569,9 @@
           <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -466,6 +582,9 @@
           <caret line="105" column="37" selection-start-line="105" selection-start-column="37" selection-end-line="105" selection-end-column="37" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -476,6 +595,9 @@
           <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -486,6 +608,9 @@
           <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -496,16 +621,35 @@
           <caret line="86" column="28" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoolblueCrawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#1638#5001#0" expanded="false" />
+            <element signature="e#5085#5525#0" expanded="false" />
+            <element signature="e#5619#6071#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawlerConrad.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5964912" vertical-offset="969" max-vertical-offset="3706">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.41055718" vertical-offset="757" max-vertical-offset="1479">
+          <caret line="61" column="76" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
+            <element signature="e#4981#7495#0" expanded="false" />
+            <element signature="e#7579#8909#0" expanded="false" />
+            <element signature="e#9003#10367#0" expanded="false" />
           </folding>
         </state>
       </provider>
