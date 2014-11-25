@@ -6,72 +6,70 @@ using System.Threading.Tasks;
 
 namespace MatcherPrototype
 {
+    // The class attributes needs to be of the same name as the Node properties otherwise the data
+    // will not be passed on properly.
     class Components
     {
-        private string naam { get; set; }
-        private int price { get; set; }
-        private string url { get; set; }
-        private string beschrijving { get; set; }
-        private string bedrijfsnaam { get; set; }
+        public string Naam { get; set; }
+        public string Prijs { get; set; }
+        public string Url { get; set; }
+
     }
 
     class Moederbord : Components
     {
-        private string socket { get; set; }
-        private string vormFactor { get; set; }
-        private int geheugenslot { get; set; }
-        private string geheugenkloksneleheid { get; set; }
-        private string geheugentype { get; set; }
-        private int maxgeheugen { get; set; }
-        private string aansluiting { get; set;}
+        public string Socket { get; set; }
+        public string Vormfactor { get; set; }
+        public string Geheugenslot { get; set; }
+        public string Geheugentype { get; set; }
     }
 
-    class Geheugen : Components
+    class GeheugenKaart : Components
     {
-        private string geheugenkloksnelehid { get; set; }
-        private string geheugentype { get; set; }
-        private int geheugen { get; set; }
-        private int aantal { get; set; }
+        public string Geheugenkloksnelehid { get; set; }
+        public string Geheugentype { get; set; }
+        public string Geheugen { get; set; }
+        public string Geheugenslots { get; set; }
     }
 
     class CPUKoeler : Components 
     {
-        private string socket { get; set; }
+        public string Socket { get; set; }
     }
 
     class Voeding : Components
     {
-        private int wattage { get; set; }
+        public string Wattage { get; set; }
     }
 
     class CPU : Components
     {
-        private string socket { get; set; }
-        private int kloksnelheid { get; set; }
-        private int cores { get; set; }
+        public string Socket { get; set; }
+        public string Model { get; set; }
+        public string Kloksnelheid { get; set; }
+        public string Cores { get; set; }
     }
 
     class GrafischeKaart : Components
     {
-        private string aansluiting { get; set; }
-        private int videoGeheugen { get; set; }
-        private string typeGeheugen { get; set; }
+        public string Videogeheugen { get; set; }
+        public string Typegeheugen { get; set; }
     }
 
     class Behuizing : Components
     {
-        private string vormFactor { get; set; }
+        public string Vormfactor { get; set; }
     }
 
     class Hardeschijf : Components
     {
-        private string soort { get; set; }
-        private int opslag { get; set; }
-        private string rpm { get; set;}
+        public string Soort { get; set; }
+        public string Opslag { get; set; }
     }
 
-    class OptischeDrives : Components
+    class Optischedrives : Components
     {
-        private string categorie { get; set; }
+        public string Categorie { get; set; }
     }
+
 }
