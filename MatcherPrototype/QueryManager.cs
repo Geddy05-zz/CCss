@@ -33,14 +33,9 @@ namespace MatcherPrototype
 
         public void exampleQuery(List<Moederbord> listMoederB)
         {
-            Moederbord moederboard = new Moederbord();
-            //moederboard.geheugenslot = 2;
-            CPU cpu = new CPU();
-            cpu.Model = "i5";
-            cpu.Cores = "4";
-            GeheugenKaart geheugen = new GeheugenKaart();
-            geheugen.Geheugen = "8";
-
+            // Example query to check how the system takes in the nodes and work with it.
+            // To DO's :
+            // Duplicate out of the list.
             initClientConnection();
             var result = 
                 this.client.Cypher
