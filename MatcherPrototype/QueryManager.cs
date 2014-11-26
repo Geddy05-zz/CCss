@@ -37,20 +37,17 @@ namespace MatcherPrototype
             // To DO's :
             // Duplicate out of the list.
             initClientConnection();
-            var result = 
+            var result =
                 this.client.Cypher
-                .Match(" (n:Moederbord{Geheugenslots:'2'})-[a]-(b:Processor{Model:'i5', Cores:'4'}), (n)-[c]->(d:Geheugen{Geheugen:'8gb'}),"
-                    + " (e:Grafischekaart{Videogeheugen:'4gb'}), (g:Hardeschijf{Soort:'ssd'}), (f:Optischedrives{Categorie:'dvd'})")
-                .Where(" g.Opslag>200 AND g.Opslag<500 AND b.Kloksnelheid >= 2 AND b.Kloksnelheid <= 4")
-                .Return((n,b,d,e,g) => new {
-                 listN = n.As<Moederbord>(),
-                 listB = b.As<CPU>(),
-                 listD = d.As<GeheugenKaart>(),
-                 listE = e.As<GrafischeKaart>(),
-                 listG = g.As<Hardeschijf>()
+                .Match(" (n:Moederbord{Geheugenslots:'2'})-[a]-(b:Processor{Model:'i5', Cores:'4'}), (n)-[c]->(d:Geheugen{Geheugen:'8gb'})")
+                .Where("b.Kloksnelheid >= 2 AND b.Kloksnelheid <= 4")
+                .ReturnDistinct((n) => new
+                {
+                    listN = n.As<Moederbord>(),
                 })
-                .Limit(200)
+                .Limit(999)
                 .Results;
+                
 
             foreach(var a in result)
             {

@@ -10,19 +10,18 @@ namespace MatcherPrototype
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("-------Script loopt goed-------");
+            Console.WriteLine("-------Script loopt lekker-------");
             List<Moederbord> listNodeMoederbord = new List<Moederbord>();
             QueryManager qm = new QueryManager();
             qm.exampleQuery(listNodeMoederbord);
             foreach (Moederbord m in listNodeMoederbord)
             {
-                Console.WriteLine(m.Naam);
-                Console.WriteLine(m.Prijs);
-                Console.WriteLine(m.Url);
-                Console.WriteLine(m.Vormfactor);
-                Console.WriteLine(m.Socket);
-                Console.WriteLine(m.Geheugentype);
-                //Console.WriteLine(m.WowFactor);
+                Console.WriteLine("Naam: " + m.Naam);
+                Console.WriteLine("Prijs: " + m.Prijs);
+                Console.WriteLine("url: " + m.Url);
+                Console.WriteLine("VormFactor: " +  m.Vormfactor);
+                Console.WriteLine("Socket: " + m.Socket);
+                Console.WriteLine("GeheugenType: " + m.Geheugentype);
             }
             Console.WriteLine(listNodeMoederbord.Count());
             Console.ReadKey();
