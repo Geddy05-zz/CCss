@@ -12,9 +12,11 @@ namespace MatcherPrototype
         {
             Console.WriteLine("-------Script loopt lekker-------");
             List<Moederbord> listNodeMoederbord = new List<Moederbord>();
+            List<GeheugenKaart> listNodeGeheugenKaart = new List<GeheugenKaart>();
+            List<CPU> listNodeCPU = new List<CPU>();
             QueryManager qm = new QueryManager();
-            qm.exampleQuery(listNodeMoederbord);
-            foreach (Moederbord m in listNodeMoederbord)
+            qm.exampleQueryFull(listNodeMoederbord,listNodeGeheugenKaart,listNodeCPU);
+            /*foreach (Moederbord m in listNodeMoederbord)
             {
                 Console.WriteLine("Naam: " + m.Naam);
                 Console.WriteLine("Prijs: " + m.Prijs);
@@ -22,8 +24,10 @@ namespace MatcherPrototype
                 Console.WriteLine("VormFactor: " +  m.Vormfactor);
                 Console.WriteLine("Socket: " + m.Socket);
                 Console.WriteLine("GeheugenType: " + m.Geheugentype);
-            }
-            Console.WriteLine(listNodeMoederbord.Count());
+            }*/
+            Console.WriteLine("CountMoederbord: " + listNodeMoederbord.Count() 
+                + "/n CountGeheugenkaart: " + listNodeGeheugenKaart.Count()
+                + "/n CountProcessor: " + listNodeCPU.Count());
             Console.ReadKey();
         }
     }

@@ -55,6 +55,34 @@ namespace MatcherPrototype
             }
         }
 
+        public void exampleQueryFull(List<Moederbord> listMoederBord,List<GeheugenKaart> listGeheugenKaart, List<CPU> listCPU)
+        {
+            // Example query to check how the system takes in the nodes and work with it.
+            // To DO's :
+            // Duplicate out of the list.
+            initClientConnection();
+            var result =
+                this.client.Cypher
+                .Match(" (n:Moederbord{Geheugenslots:'2'})-[a]-(b:Processor{Model:'i5', Cores:'4'}), (n)-[c]->(d:Geheugen{Geheugen:'8gb'})")
+                .Where("b.Kloksnelheid >= 2 AND b.Kloksnelheid <= 4")
+                .ReturnDistinct((n,b,d) => new
+                {
+                    listN = n.As<Moederbord>(),
+                    listD = d.As<GeheugenKaart>(),
+                    listB = b.As<CPU>()
+                })
+                .Limit(999)
+                .Results;
+
+
+            foreach (var a in result)
+            {
+                listMoederBord.Add(a.listN);
+                listCPU.Add(a.listB);
+                listGeheugenKaart.Add(a.listD);
+            }
+        }
+
         public void exampleQueryTest(List<Moederbord> listMoederB)
         {
             initClientConnection();
