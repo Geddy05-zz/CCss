@@ -1,6 +1,7 @@
 ﻿using Neo4jClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,14 @@ namespace MatcherPrototype
             // Example query to check how the system takes in the nodes and work with it.
             // To DO's :
             // Duplicate out of the list.
+
+            //Create stopwatch to measure performance
+            var watch = Stopwatch.StartNew();
+
+            List<Moederbord> listNodeDuplicatesMoederbord = new List<Moederbord>();
+            List<GeheugenKaart> listNodeDuplicatesGeheugenKaart = new List<GeheugenKaart>();
+            List<CPU> listNodeDuplicatesProcessor = new List<CPU>();
+
             initClientConnection();
             var result =
                 this.client.Cypher
@@ -74,6 +83,7 @@ namespace MatcherPrototype
                 .Limit(999)
                 .Results;
 
+            
 
             foreach (var a in result)
             {
@@ -81,6 +91,12 @@ namespace MatcherPrototype
                 listCPU.Add(a.listB);
                 listGeheugenKaart.Add(a.listD);
             }
+
+
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine("ElapsedMS: " + elapsedMs);
         }
 
         public void exampleQueryTest(List<Moederbord> listMoederB)

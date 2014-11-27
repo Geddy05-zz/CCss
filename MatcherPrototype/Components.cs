@@ -8,11 +8,35 @@ namespace MatcherPrototype
 {
     // The class attributes needs to be of the same name as the Node properties otherwise the data
     // will not be passed on properly.
-    class Components
+    class Components : IEquatable<Components>
     {
         public string Naam { get; set; }
         public string Prijs { get; set; }
         public string Url { get; set; }
+
+        public bool Equals(Components other)
+        {
+            //Check whether the compared object is null.
+            if (Object.ReferenceEquals(other, null)) return false;
+
+            //Check whether the compared object references the same data.
+            if (Object.ReferenceEquals(this, other)) return true;
+
+            //Check whether the products' properties are equal.
+            return Naam.Equals(other.Naam) && Url.Equals(other.Url);
+        }
+
+        public override int GetHashCode()
+        {
+            //Get hash code for the Name field if it is not null.
+            int hashComponentNaam = Naam == null ? 0 : Naam.GetHashCode();
+
+            //Get hash code for the Code field.
+            int hashComponentUrl = Url.GetHashCode();
+
+            //Calculate the hash code for the product.
+            return hashComponentNaam ^ hashComponentUrl;
+        }
 
     }
 
