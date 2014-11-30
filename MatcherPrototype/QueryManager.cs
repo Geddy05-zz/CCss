@@ -32,7 +32,7 @@ namespace MatcherPrototype
 
         }
 
-        public void queryMoederbord(List<Moederbord> listMoederB)
+        public void queryMoederbord(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<Moederbord> listMoederB)
         {
             // Example query to check how the system takes in the nodes and work with it.
 
@@ -42,8 +42,11 @@ namespace MatcherPrototype
             initClientConnection();
             var result =
                 this.client.Cypher
-                .Match(" (m:Moederbord{Geheugenslots:'2'})-[a]-(p:Processor{Model:'i5', Cores:'4'}), (m)-[c]->(g:Geheugen{Geheugen:'8gb'})")
-                .Where("p.Kloksnelheid >= 2 AND p.Kloksnelheid <= 4")
+                .Match(" (m:Moederbord)-[a]-(p:Processor), (m)-[c]->(g:Geheugen)")
+                .Where((Moederbord m) => m.Geheugenslot == moederbordNode.Geheugenslot)
+                .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
                 .ReturnDistinct((m) => new
                 {
                     listM = m.As<Moederbord>(),
@@ -61,7 +64,7 @@ namespace MatcherPrototype
             Console.WriteLine("queryMoederbord ElapsedMS: " + elapsedMs);
         }
 
-        public void queryProcessor(List<CPU> listProcessor)
+        public void queryProcessor(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<CPU> listProcessor)
         {
             // Example query to check how the system takes in the nodes and work with it.
 
@@ -71,8 +74,11 @@ namespace MatcherPrototype
             initClientConnection();
             var result =
                 this.client.Cypher
-                .Match(" (m:Moederbord{Geheugenslots:'2'})-[a]-(p:Processor{Model:'i5', Cores:'4'}), (m)-[c]->(g:Geheugen{Geheugen:'8gb'})")
-                .Where("p.Kloksnelheid >= 2 AND p.Kloksnelheid <= 4")
+                .Match(" (m:Moederbord)-[a]-(p:Processor), (m)-[c]->(g:Geheugen)")
+                .Where((Moederbord m) => m.Geheugenslot == moederbordNode.Geheugenslot)
+                .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
                 .ReturnDistinct((p) => new
                 {
                     listP = p.As<CPU>(),
@@ -90,7 +96,7 @@ namespace MatcherPrototype
             Console.WriteLine("queryProcessor ElapsedMS: " + elapsedMs);
         }
 
-        public void queryGeheugenKaart(List<GeheugenKaart> listGeheugenkaart)
+        public void queryGeheugenKaart(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<GeheugenKaart> listGeheugenkaart)
         {
             // Example query to check how the system takes in the nodes and work with it.
 
@@ -100,8 +106,11 @@ namespace MatcherPrototype
             initClientConnection();
             var result =
                 this.client.Cypher
-                .Match(" (m:Moederbord{Geheugenslots:'2'})-[a]-(p:Processor{Model:'i5', Cores:'4'}), (m)-[c]->(g:Geheugen{Geheugen:'8gb'})")
-                .Where("p.Kloksnelheid >= 2 AND p.Kloksnelheid <= 4")
+                .Match(" (m:Moederbord)-[a]-(p:Processor), (m)-[c]->(g:Geheugen)")
+                .Where((Moederbord m) => m.Geheugenslot == moederbordNode.Geheugenslot)
+                .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
                 .ReturnDistinct((g) => new
                 {
                     listG = g.As<GeheugenKaart>(),
@@ -148,12 +157,166 @@ namespace MatcherPrototype
             Console.WriteLine("queryOptischedrives ElapsedMS: " + elapsedMs);
         }
 
-        public void runAllQuery(List<Moederbord> ListNodeMoederbord, List<CPU> listProcessor, List<GeheugenKaart> listGeheugenkaart, List<Optischedrives> listNOptischedrives)
+        public void queryHardeschijf(List<Hardeschijf> listHardeschijf)
         {
-            queryMoederbord(ListNodeMoederbord);
-            queryProcessor(listProcessor);
-            queryGeheugenKaart(listGeheugenkaart);
+            // Example query to check how the system takes in the nodes and work with it.
+
+            //Create stopwatch to measure performance
+            var watch = Stopwatch.StartNew();
+
+            initClientConnection();
+            var result =
+                this.client.Cypher
+                .Match(" (h:Hardeschijf)")
+                .ReturnDistinct((h) => new
+                {
+                    listH = h.As<Hardeschijf>(),
+                })
+                .Limit(500)
+                .Results;
+
+
+            foreach (var a in result)
+            {
+                listHardeschijf.Add(a.listH);
+            }
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine("queryHardeschijf ElapsedMS: " + elapsedMs);
+        }
+
+        public void queryVoeding(List<Voeding> listVoeding)
+        {
+            // Example query to check how the system takes in the nodes and work with it.
+
+            //Create stopwatch to measure performance
+            var watch = Stopwatch.StartNew();
+
+            initClientConnection();
+            var result =
+                this.client.Cypher
+                .Match(" (v:Voeding)")
+                .ReturnDistinct((v) => new
+                {
+                    listV = v.As<Voeding>(),
+                })
+                .Limit(500)
+                .Results;
+
+
+            foreach (var a in result)
+            {
+                listVoeding.Add(a.listV);
+            }
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine("queryVoeding ElapsedMS: " + elapsedMs);
+        }
+
+        public void queryGrafischekaart(List<GrafischeKaart> listGrafischeKaart)
+        {
+            // Example query to check how the system takes in the nodes and work with it.
+
+            //Create stopwatch to measure performance
+            var watch = Stopwatch.StartNew();
+
+            initClientConnection();
+            var result =
+                this.client.Cypher
+                .Match(" (g:Grafischekaart)")
+                .ReturnDistinct((g) => new
+                {
+                    listG = g.As<GrafischeKaart>(),
+                })
+                .Limit(500)
+                .Results;
+
+
+            foreach (var a in result)
+            {
+                listGrafischeKaart.Add(a.listG);
+            }
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine("queryGrafischeKaart ElapsedMS: " + elapsedMs);
+        }
+
+        public void queryKoeler(CPU processorNode,List<CPUKoeler> listCPUKoeler)
+        {
+            // Example query to check how the system takes in the nodes and work with it.
+
+            //Create stopwatch to measure performance
+            var watch = Stopwatch.StartNew();
+
+            initClientConnection();
+            var result =
+                this.client.Cypher
+                .Match(" (p:Processor)-[a]-(k:Koeler)")
+                .Where((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .ReturnDistinct((k) => new
+                {
+                    listK = k.As<CPUKoeler>(),
+                })
+                .Limit(500)
+                .Results;
+
+
+            foreach (var a in result)
+            {
+                listCPUKoeler.Add(a.listK);
+            }
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine("queryKoeler ElapsedMS: " + elapsedMs);
+        }
+
+        public void queryBehuizing(Moederbord moederbordNode, List<Behuizing> listBehuizing)
+        {
+            // Example query to check how the system takes in the nodes and work with it.
+
+            //Create stopwatch to measure performance
+            var watch = Stopwatch.StartNew();
+
+            initClientConnection();
+            var result =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(b:Behuizing)")
+                .Where((Moederbord m) => m.Geheugenslot == moederbordNode.Geheugenslot)
+                .ReturnDistinct((b) => new
+                {
+                    listB = b.As<Behuizing>(),
+                })
+                .Limit(500)
+                .Results;
+
+
+            foreach (var a in result)
+            {
+                listBehuizing.Add(a.listB);
+            }
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine("queryBehuizing ElapsedMS: " + elapsedMs);
+        }
+
+        public void runAllQuery(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<Moederbord> ListNodeMoederbord, List<CPU> listProcessor, List<GeheugenKaart> listGeheugenkaart, List<Optischedrives> listNOptischedrives)
+        {
+            //Create stopwatch to measure performance
+            var watch = Stopwatch.StartNew();
+
+            queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
+            queryProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
+            queryGeheugenKaart(moederbordNode, processorNode, geheugenNode, listGeheugenkaart);
             queryOptischedrive(listNOptischedrives);
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine("runAllQuery ElapsedMS: " + elapsedMs);
         }
     }
 }

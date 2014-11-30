@@ -48,6 +48,8 @@ namespace MatcherPrototype
         public string Model { get; set; }
         public string Kloksnelheid { get; set; }
         public string Cores { get; set; }
+        public int MinimumKloksnelheid { get; set; }
+        public int MaximumKloksnelheid { get; set; }
     }
 
     class GrafischeKaart : Components

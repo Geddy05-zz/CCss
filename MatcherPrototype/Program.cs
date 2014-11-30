@@ -21,12 +21,28 @@ namespace MatcherPrototype
             List<Hardeschijf> listNodeHardeschijf = new List<Hardeschijf>();
             List<Optischedrives> listNodeOptishcedrives = new List<Optischedrives>();
 
+            // Create the objects for this test
+            Moederbord moederbordInput = new Moederbord();
+            moederbordInput.Geheugenslot = "2";
+
+            CPU processorInput = new CPU();
+            processorInput.Cores = "4";
+            processorInput.Model = "i5";
+            processorInput.MinimumKloksnelheid = 2;
+            processorInput.MaximumKloksnelheid = 4;
+
+            GeheugenKaart geheugenInput = new GeheugenKaart();
+            geheugenInput.Geheugen = "8gb";
+
+
+
+
 
             Console.WriteLine("-------Request Nodes-------");
 
             QueryManager qm = new QueryManager();
-            
-            qm.runAllQuery(listNodeMoederbord,listNodeProcessor,listNodeGeheugenKaart,listNodeOptishcedrives);
+
+            qm.runAllQuery(moederbordInput, processorInput, geheugenInput, listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart, listNodeOptishcedrives);
            
             foreach (Moederbord m in listNodeMoederbord)
             {
