@@ -20,7 +20,7 @@ namespace MatcherPrototype
     {
         public string Socket { get; set; }
         public string Vormfactor { get; set; }
-        public string Geheugenslot { get; set; }
+        public string Geheugenslots { get; set; }
         public string Geheugentype { get; set; }
     }
 
@@ -67,6 +67,8 @@ namespace MatcherPrototype
     {
         public string Soort { get; set; }
         public string Opslag { get; set; }
+        public int MinimumOpslag { get; set; }
+        public int MaximumOpslag { get; set; }
     }
 
     class Optischedrives : Components

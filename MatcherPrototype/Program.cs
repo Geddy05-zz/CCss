@@ -23,7 +23,7 @@ namespace MatcherPrototype
 
             // Create the objects for this test
             Moederbord moederbordInput = new Moederbord();
-            moederbordInput.Geheugenslot = "2";
+            moederbordInput.Geheugenslots = "2";
 
             CPU processorInput = new CPU();
             processorInput.Cores = "4";
@@ -34,6 +34,13 @@ namespace MatcherPrototype
             GeheugenKaart geheugenInput = new GeheugenKaart();
             geheugenInput.Geheugen = "8gb";
 
+            Hardeschijf hardeschijfInput = new Hardeschijf();
+            hardeschijfInput.MinimumOpslag = 200;
+            hardeschijfInput.MaximumOpslag = 600;
+
+            GrafischeKaart grafischekaartInput = new GrafischeKaart();
+            grafischekaartInput.Typegeheugen = "ddr5";
+            grafischekaartInput.Videogeheugen = "2gb";
 
 
 
@@ -42,71 +49,46 @@ namespace MatcherPrototype
 
             QueryManager qm = new QueryManager();
 
-            qm.runAllQuery(moederbordInput, processorInput, geheugenInput, listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart, listNodeOptishcedrives);
-           
+            qm.runAllQuery(moederbordInput, processorInput, geheugenInput, hardeschijfInput, grafischekaartInput, listNodeMoederbord, listNodeProcessor, 
+                listNodeGeheugenKaart, listNodeOptishcedrives, listNodeHardeschijf, listNodeGrafischeKaart);
+
+            Console.WriteLine("show the Motherboard");
+
             foreach (Moederbord m in listNodeMoederbord)
             {
                 //Console.WriteLine("Naam: " + m.Naam);
                 Console.WriteLine("Prijs: " + m.Prijs);
-                //Console.WriteLine("url: " + m.Url);
-                //Console.WriteLine("VormFactor: " +  m.Vormfactor);
-                //Console.WriteLine("Socket: " + m.Socket);
-                //Console.WriteLine("GeheugenType: " + m.Geheugentype);
             }
-
-            Console.WriteLine("Now for the show Processor");
+            
+            Console.WriteLine("show the Processor");
+           
             foreach (CPU m in listNodeProcessor)
             {
                 //Console.WriteLine("Naam: " + m.Naam);
                 Console.WriteLine("Prijs: " + m.Prijs);
             }
 
-            Console.WriteLine("Now for the show GeheugenKaart");
+            Console.WriteLine("show the GeheugenKaart");
+           
+            
             foreach (GeheugenKaart m in listNodeGeheugenKaart)
             {
                 //Console.WriteLine("Naam: " + m.Naam);
                 Console.WriteLine("Prijs: " + m.Prijs);
             }
 
+            Console.WriteLine("Now for the show Hardeschijf");
+           
+            foreach (Hardeschijf h in listNodeHardeschijf)
+            {
+                //Console.WriteLine("Naam: " + m.Naam);
+                Console.WriteLine("Prijs: " + h.Prijs);
+            }
+            
             Console.WriteLine(" listNodeMoederbord: " + listNodeMoederbord.Count()
                 + "\n listNodeProcessor: " + listNodeProcessor.Count()
                 + "\n listNodeGeheugenKaart: " + listNodeGeheugenKaart.Count());
             
-            Console.WriteLine("Now let's take a look at the unsorted list and sort them out"
-            +"\n Calling out the matcher class.");
-            Matcher matcherClass = new Matcher();
-            matcherClass.matchComponentsWithLowestPrice(listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart,listNodeOptishcedrives);
-
-
-            Console.WriteLine("------------------------------------------------------------------");
-            Console.WriteLine("Now for the show Motherboard");
-            foreach (Moederbord m in listNodeMoederbord)
-            {
-                //Console.WriteLine("Naam: " + m.Naam);
-                Console.WriteLine("Prijs: " + m.Prijs);
-            }
-
-            Console.WriteLine("Now for the show Processor");
-            foreach (CPU m in listNodeProcessor)
-            {
-                //Console.WriteLine("Naam: " + m.Naam);
-                Console.WriteLine("Prijs: " + m.Prijs);
-            }
-
-            Console.WriteLine("Now for the show GeheugenKaart");
-            foreach (GeheugenKaart m in listNodeGeheugenKaart)
-            {
-                //Console.WriteLine("Naam: " + m.Naam);
-                Console.WriteLine("Prijs: " + m.Prijs);
-            }
-
-            Console.WriteLine("Now for the show Optischedrives");
-            foreach (Optischedrives m in listNodeOptishcedrives)
-            {
-                //Console.WriteLine("Naam: " + m.Naam);
-                Console.WriteLine("Prijs: " + m.Prijs);
-            }
-
             Console.ReadKey();
         }
     }

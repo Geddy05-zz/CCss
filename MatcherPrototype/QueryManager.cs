@@ -43,7 +43,7 @@ namespace MatcherPrototype
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(p:Processor), (m)-[c]->(g:Geheugen)")
-                .Where((Moederbord m) => m.Geheugenslot == moederbordNode.Geheugenslot)
+                .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
                 .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
                 .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
                 .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
@@ -75,7 +75,7 @@ namespace MatcherPrototype
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(p:Processor), (m)-[c]->(g:Geheugen)")
-                .Where((Moederbord m) => m.Geheugenslot == moederbordNode.Geheugenslot)
+                .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
                 .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
                 .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
                 .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
@@ -107,7 +107,7 @@ namespace MatcherPrototype
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(p:Processor), (m)-[c]->(g:Geheugen)")
-                .Where((Moederbord m) => m.Geheugenslot == moederbordNode.Geheugenslot)
+                .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
                 .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
                 .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
                 .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
@@ -157,7 +157,7 @@ namespace MatcherPrototype
             Console.WriteLine("queryOptischedrives ElapsedMS: " + elapsedMs);
         }
 
-        public void queryHardeschijf(List<Hardeschijf> listHardeschijf)
+        public void queryHardeschijf(Hardeschijf hardeschijfNode, List<Hardeschijf> listHardeschijf)
         {
             // Example query to check how the system takes in the nodes and work with it.
 
@@ -168,6 +168,7 @@ namespace MatcherPrototype
             var result =
                 this.client.Cypher
                 .Match(" (h:Hardeschijf)")
+                .Where("h.Opslag >= " + hardeschijfNode.MinimumOpslag + " AND h.Opslag <= " + hardeschijfNode.MaximumOpslag)
                 .ReturnDistinct((h) => new
                 {
                     listH = h.As<Hardeschijf>(),
@@ -215,7 +216,7 @@ namespace MatcherPrototype
             Console.WriteLine("queryVoeding ElapsedMS: " + elapsedMs);
         }
 
-        public void queryGrafischekaart(List<GrafischeKaart> listGrafischeKaart)
+        public void queryGrafischekaart(GrafischeKaart grafischekaartNode, List<GrafischeKaart> listGrafischeKaart)
         {
             // Example query to check how the system takes in the nodes and work with it.
 
@@ -226,6 +227,7 @@ namespace MatcherPrototype
             var result =
                 this.client.Cypher
                 .Match(" (g:Grafischekaart)")
+                .Where((GrafischeKaart g) => g.Typegeheugen == grafischekaartNode.Typegeheugen && g.Videogeheugen == grafischekaartNode.Videogeheugen )
                 .ReturnDistinct((g) => new
                 {
                     listG = g.As<GrafischeKaart>(),
@@ -285,7 +287,7 @@ namespace MatcherPrototype
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(b:Behuizing)")
-                .Where((Moederbord m) => m.Geheugenslot == moederbordNode.Geheugenslot)
+                .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
                 .ReturnDistinct((b) => new
                 {
                     listB = b.As<Behuizing>(),
@@ -304,7 +306,9 @@ namespace MatcherPrototype
             Console.WriteLine("queryBehuizing ElapsedMS: " + elapsedMs);
         }
 
-        public void runAllQuery(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<Moederbord> ListNodeMoederbord, List<CPU> listProcessor, List<GeheugenKaart> listGeheugenkaart, List<Optischedrives> listNOptischedrives)
+        public void runAllQuery(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode, Hardeschijf hardeschijfNode,
+            GrafischeKaart grafischekaartNode, List<Moederbord> ListNodeMoederbord, List<CPU> listProcessor, 
+            List<GeheugenKaart> listGeheugenkaart,List<Optischedrives> listNOptischedrives, List<Hardeschijf> listHardeschijf, List<GrafischeKaart> listGrafischekaart)
         {
             //Create stopwatch to measure performance
             var watch = Stopwatch.StartNew();
@@ -312,6 +316,8 @@ namespace MatcherPrototype
             queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
             queryProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
             queryGeheugenKaart(moederbordNode, processorNode, geheugenNode, listGeheugenkaart);
+            queryHardeschijf(hardeschijfNode, listHardeschijf);
+            queryGrafischekaart(grafischekaartNode, listGrafischekaart);
             queryOptischedrive(listNOptischedrives);
 
             watch.Stop();
