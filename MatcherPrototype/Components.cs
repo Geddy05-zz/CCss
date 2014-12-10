@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace MatcherPrototype
 {
-    // The class attributes needs to be of the same name as the Node properties otherwise the data
-    // will not be passed on properly.
-    class Components
+    /* This class are the model that represents the nodes in Neo4j database with their
+    properties. */
+    public abstract class Components
     {
         public string Naam { get; set; }
         public string Prijs { get; set; }
         public string Url { get; set; }
-
     }
 
     class Moederbord : Components
@@ -74,6 +73,23 @@ namespace MatcherPrototype
     class Optischedrives : Components
     {
         public string Categorie { get; set; }
+    }
+
+    //This class is only for testing purpose
+    class SearchPropertiesModel
+    {
+        public string ProcessorType { get; set; }
+        public string ProcessorSnelheid { get; set; }
+        public string ProcessorCores { get; set; }
+        public string GeheugenSlots { get; set; }
+        public string GeheugenSnelheid { get; set; }
+        public string GrafischekaartVideogeheugen { get; set; }
+        public string GrafischkaartType { get; set; }
+        public string HardeschijfType { get; set; }
+        public string HardescrhijfOpslag { get; set; }
+        public string HardeschijfRPM { get; set; }
+        public string OptischeDrivesCatergorie { get; set; }
+        public string BehuizingVormfactor { get; set; }
     }
 
 }

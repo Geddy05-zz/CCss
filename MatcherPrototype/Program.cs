@@ -10,6 +10,24 @@ namespace MatcherPrototype
     {
         static void Main(string[] args)
         {
+            Dictionary<string, Components> dictionary = new Dictionary<string, Components>();
+            Moederbord mb = new Moederbord();
+            mb.Socket = "1150";
+            dictionary.Add("Moederboard", mb);
+            Moederbord mb2 = (Moederbord)dictionary["Moederboard"];
+
+            Dictionary<string, Components> dictionary2 = dictionary;
+            Console.WriteLine("MB " + mb.Socket);
+            Console.WriteLine("MB2 " + mb2.Socket);
+
+            Moederbord mb3 = (Moederbord)dictionary["Moederboard"];
+            Console.WriteLine("MB " + mb.Socket);
+            Console.WriteLine("MB3 " + mb3.Socket);
+
+
+            
+            
+            /*
             //Create the lists to hold the objects 
             List<Moederbord> listNodeMoederbord = new List<Moederbord>();
             List<CPU> listNodeProcessor = new List<CPU>();
@@ -89,6 +107,7 @@ namespace MatcherPrototype
                 + "\n listNodeProcessor: " + listNodeProcessor.Count()
                 + "\n listNodeGeheugenKaart: " + listNodeGeheugenKaart.Count());
             
+             */
             Console.ReadKey();
         }
     }
