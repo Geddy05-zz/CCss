@@ -53,7 +53,7 @@ namespace Simple_solutions
         public void runMatcherProgram()
         {
             //Run the query to retrieve the data from the database. 
-            QueryManager qm = new QueryManager();
+            QueryManager qm = new QueryManager(); 
             qm.runAllQuery(searchPropertiesModel, listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart, listNodeOptischedrives,
             listNodeHardeschijf, listNodeGrafischeKaart, listNodeCPUKoeler, listNodeVoeding, listNodeBehuizing);
 
