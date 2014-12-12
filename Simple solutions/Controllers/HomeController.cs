@@ -142,11 +142,11 @@ namespace Simple_solutions.Matcher
         public ActionResult About()
         {
             var searchResults = TempData["results"] as MatcherMainProgram;
-            ViewBag.processorType = searchResults.listNodeGrafischeKaart[0].Videogeheugen; 
-            ViewBag.processorsnelheid = "test";
-            ViewBag.processorcores = "test";
-            ViewBag.geheugenslots = "test";
-            ViewBag.geheugensnelheid = "test";
+            ViewBag.processorType = searchResults.listNodeProcessor[0].Model;
+            ViewBag.processorsnelheid = searchResults.listNodeProcessor[0].Kloksnelheid;
+            ViewBag.processorcores = searchResults.listNodeProcessor[0].Cores;
+            ViewBag.geheugenslots = searchResults.listNodeGeheugenKaart[0].Geheugenslots;
+            ViewBag.geheugensnelheid = searchResults.listNodeGeheugenKaart[0].Geheugenkloksnelheid;
             ViewBag.grafischekaartvideogeheugen = "test";
             ViewBag.grafischekaarttype = "test";
             ViewBag.hardeschijftype = "test";
