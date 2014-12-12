@@ -1,0 +1,181 @@
+﻿
+@{
+
+}
+@section featured {
+
+<script src="~/Scripts/jquery.js"></script>
+<script>
+	$(function(){
+	  $('.drop').click(function(){
+		$(this).next('.dropdown').slideToggle();
+		$(this).toggleClass('active');
+	});
+
+		$(function() {
+   		 $("img")
+        .click(function() {
+				if ($(this).attr("src").indexOf("On") > -1){
+					var src = $(this).attr("src").replace('On','');
+            		 $(this).attr("src", src);
+				}
+				else {
+					 var src = $(this).attr("src").match(/[^\.]+/) + "On.png";
+            		 $(this).attr("src", src);
+				}
+       		 })
+		});
+	});
+
+
+
+</script>
+<div id="wrapper">
+    <form id="builder" method="post">
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+
+
+            <div class="contentContainer">
+
+                <div class="item">
+                    <a class="drop" href="#"><img src="~/Images/processor.png" alt="processor" /></a>
+                    <div class="dropdown">
+                        <div class="dropdownContainer">
+
+                            <h3>TYPE</h3>
+
+                            @Html.DropDownList("processortypeResult", ViewData["processortypeDD"] as List<SelectListItem>)
+
+
+                            <h3>SNELHEID</h3>
+
+                            @Html.DropDownList("processorsnelheidResult", ViewData["processorsnelheidDD"] as List<SelectListItem>)
+
+                            <h3>CORES</h3>
+
+
+                            @Html.DropDownList("processorcoresResult", ViewData["processorcoresDD"] as List<SelectListItem>)
+
+
+                        </div><!--end dropdownContainer-->
+                    </div><!--end dropdown-->
+                </div><!--end item-->
+
+                <div class="item">
+                    <a class="drop" href="#"><img src="images/moederbord.png" alt="moederbord" /></a>
+
+                    <div class="dropdown">
+                        <div class="dropdownContainer">
+
+                            <h3>GEHEUGENSLOTS</h3>
+
+                            @Html.DropDownList("geheugenslotsResult", ViewData["geheugenslotsDD"] as List<SelectListItem>)
+
+                        </div><!--end dropdownContainer-->
+                    </div><!--end dropdown-->
+                </div><!--end item-->
+
+                <div class="item">
+                    <a class="drop" href="#"><img src="images/geheugen.png" alt="geheugen" /></a>
+
+                    <div class="dropdown">
+                        <div class="dropdownContainer">
+
+                            <h3>SNELHEID</h3>
+
+                            @Html.DropDownList("geheugensnelheidResult", ViewData["geheugensnelheidDD"] as List<SelectListItem>)
+
+                        </div><!--end dropdownContainer-->
+                    </div><!--end dropdown-->
+                </div><!--end item-->
+
+                <div class="item">
+                    <a class="drop" href="#"><img src="images/grafischekaart.png" alt="grafischekaart" /></a>
+
+                    <div class="dropdown">
+                        <div class="dropdownContainer">
+
+                            <h3>VIDEOGEHEUGEN</h3>
+
+                            @Html.DropDownList("grafischekaartvideogeheugenResult", ViewData["grafischekaartvideogeheugenDD"] as List<SelectListItem>)
+
+                            <h3>TYPE</h3>
+
+                            @Html.DropDownList("grafischekaarttypeResult", ViewData["grafischekaarttypeDD"] as List<SelectListItem>)
+
+                        </div><!--end dropdownContainer-->
+                    </div><!--end dropdown-->
+                </div><!--end item-->
+
+
+
+            </div><!--end contenContainer-->
+
+            <div class="contentContainer">
+
+
+                <div class="item">
+                    <a class="drop" href="#"><img src="images/hardeschijf.png" alt="hardeschijf" /></a>
+
+                    <div class="dropdown">
+                        <div class="dropdownContainer">
+
+                            <h3>SOORT</h3>
+
+                            @Html.DropDownList("hardeschijftypeResult", ViewData["hardeschijftypeDD"] as List<SelectListItem>)
+
+                            <h3>OPSLAG</h3>
+
+                            @Html.DropDownList("hardeschijfopslagResult", ViewData["hardeschijfopslagDD"] as List<SelectListItem>)
+
+      
+
+                        </div><!--end dropdownContainer-->
+                    </div><!--end dropdown-->
+                </div><!--end item-->
+
+                <div class="item">
+                    <a class="drop" href="#"><img src="images/optischedrives.png" alt="optischedrives" /></a>
+
+                    <div class="dropdown">
+                        <div class="dropdownContainer">
+
+                            <h3>CATEGORIE</h3>
+
+                            @Html.DropDownList("optischedrivescategorieResult", ViewData["optischedrivescategorieDD"] as List<SelectListItem>)
+
+
+                        </div><!--end dropdownContainer-->
+                    </div><!--end dropdown-->
+                </div><!--end item-->
+
+                <div class="item">
+                    <a class="drop" href="#"><img src="images/behuizing.png" alt="behuizing" /></a>
+
+                    <div class="dropdown">
+                        <div class="dropdownContainer">
+
+                            <h3>VORMFACTOR</h3>
+
+                            @Html.DropDownList("behuizingvormfactorResult", ViewData["behuizingvormfactorDD"] as List<SelectListItem>)
+
+                        </div><!--end dropdownContainer-->
+                    </div><!--end dropdown-->
+                </div><!--end item-->
+
+                <div id="submit">
+
+                    <a href="#"><img src="images/admin.png" alt="admin" /></a>
+
+                    <input type="submit" value="">
+
+
+                </div><!--end submit-->
+
+            </div><!--end contenContainer-->
+        }
+    </form>
+</div>
+
+}
