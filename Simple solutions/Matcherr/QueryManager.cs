@@ -96,7 +96,7 @@ namespace Simple_solutions
             var elapsedMs = watch.ElapsedMilliseconds;
             Console.WriteLine("queryProcessor ElapsedMS: " + elapsedMs);
         }
-
+        
         public void queryGeheugenKaart(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<GeheugenKaart> listGeheugenkaart)
         {
             // Example query to check how the system takes in the nodes and work with it.
@@ -340,7 +340,7 @@ namespace Simple_solutions
 
             queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
             queryProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
-            queryGeheugenKaart(moederbordNode, processorNode, geheugenNode, listGeheugenkaart);
+            //queryGeheugenKaart(moederbordNode, processorNode, geheugenNode, listGeheugenkaart);
             queryHardeschijf(hardeschijfNode, listHardeschijf);
             queryGrafischekaart(grafischekaartNode, listGrafischekaart);
             queryOptischedrive(listNOptischedrives);

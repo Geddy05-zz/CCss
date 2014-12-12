@@ -10,7 +10,7 @@ namespace Simple_solutions.Matcher
 {
     public class HomeController : Controller
     {
-        private MatcherMainProgram prog;
+          MatcherMainProgram prog;
 
         public ActionResult Index()
         {
@@ -134,14 +134,15 @@ namespace Simple_solutions.Matcher
             prog = new MatcherMainProgram(searchResults);
             prog.runMatcherProgram();
 
-            TempData["results"] = searchResults;
+
+            TempData["results"] = prog;
             return RedirectToAction("About");
         }
         
         public ActionResult About()
         {
-            var searchResults = TempData["results"] as SearchPropertiesModel;
-            ViewBag.processorType = prog.listNodeProcessor[0].Model;
+            var searchResults = TempData["results"] as MatcherMainProgram;
+            ViewBag.processorType = searchResults.listNodeGrafischeKaart[0].Videogeheugen;
             ViewBag.processorsnelheid = "test";
             ViewBag.processorcores = "test";
             ViewBag.geheugenslots = "test";
