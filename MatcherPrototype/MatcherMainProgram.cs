@@ -33,15 +33,15 @@ namespace MatcherPrototype
          */
         private void initiateComponentsList()
         {
-            List<Moederbord> listNodeMoederbord = new List<Moederbord>();
-            List<CPU> listNodeProcessor = new List<CPU>();
-            List<GeheugenKaart> listNodeGeheugenKaart = new List<GeheugenKaart>();
-            List<CPUKoeler> listNodeCPUKoeler = new List<CPUKoeler>();
-            List<Voeding> listNodeVoeding = new List<Voeding>();
-            List<GrafischeKaart> listNodeGrafischeKaart = new List<GrafischeKaart>();
-            List<Behuizing> listNodeBehuizing = new List<Behuizing>();
-            List<Hardeschijf> listNodeHardeschijf = new List<Hardeschijf>();
-            List<Optischedrives> listNodeOptischedrives = new List<Optischedrives>();
+            listNodeMoederbord = new List<Moederbord>();
+            listNodeProcessor = new List<CPU>();
+            listNodeGeheugenKaart = new List<GeheugenKaart>();
+            listNodeCPUKoeler = new List<CPUKoeler>();
+            listNodeVoeding = new List<Voeding>();
+            listNodeGrafischeKaart = new List<GrafischeKaart>();
+            listNodeBehuizing = new List<Behuizing>();
+            listNodeHardeschijf = new List<Hardeschijf>();
+            listNodeOptischedrives = new List<Optischedrives>();
         }
 
         /* The runMatchProgram runs all the necessary functions to get

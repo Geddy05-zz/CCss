@@ -11,6 +11,7 @@ namespace MatcherPrototype
     class QueryManager
     {
         private GraphClient client;
+        private string serverAddress = "http://145.24.222.101:8001/db/data";
 
         private void initClientConnection()
         {
@@ -20,15 +21,16 @@ namespace MatcherPrototype
                 {
                     return;
                 }
-                //http://145.24.222.101:8001/db/data
+                
                 this.client = new GraphClient(new Uri("http://localhost:7474/db/data"));
+
                 this.client.Connect();
+                
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Could not make connection to database, check if database server is on and try again.");
             }
-
 
         }
 
@@ -67,7 +69,7 @@ namespace MatcherPrototype
         public void queryProcessor(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<CPU> listProcessor)
         {
             // Example query to check how the system takes in the nodes and work with it.
-
+            //To do, change 
             //Create stopwatch to measure performance
             var watch = Stopwatch.StartNew();
 
@@ -305,13 +307,37 @@ namespace MatcherPrototype
             var elapsedMs = watch.ElapsedMilliseconds;
             Console.WriteLine("queryBehuizing ElapsedMS: " + elapsedMs);
         }
-
-        public void runAllQuery(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode, Hardeschijf hardeschijfNode,
-            GrafischeKaart grafischekaartNode, List<Moederbord> ListNodeMoederbord, List<CPU> listProcessor, 
-            List<GeheugenKaart> listGeheugenkaart,List<Optischedrives> listNOptischedrives, List<Hardeschijf> listHardeschijf, List<GrafischeKaart> listGrafischekaart)
+        
+        public void runAllQuery(SearchPropertiesModel searchPropertiesModel, List<Moederbord> ListNodeMoederbord, List<CPU> listProcessor, List<GeheugenKaart> listGeheugenkaart,List<Optischedrives> listNOptischedrives,
+            List<Hardeschijf> listHardeschijf, List<GrafischeKaart> listGrafischekaart, List<CPUKoeler> listCPUKoeler, 
+            List<Voeding> listVoeding, List<Behuizing> listBehuizing)
         {
             //Create stopwatch to measure performance
             var watch = Stopwatch.StartNew();
+
+            //Create objects to pass in the followings function
+
+            Moederbord moederbordNode = new Moederbord();
+            
+            
+            CPU processorNode = new CPU();
+            processorNode.Cores = "4";
+            processorNode.Model = "i5";
+            processorNode.MinimumKloksnelheid = 2;
+            processorNode.MaximumKloksnelheid = 4;
+
+            GeheugenKaart geheugenNode = new GeheugenKaart();
+            geheugenNode.Geheugenslots;
+            geheugenNode.Geheugensnelheid;
+
+            Hardeschijf hardeschijfNode = new Hardeschijf();
+            hardeschijfNode.Soort;
+            hardeschijfNode.MinimumOpslag;
+            hardeschijfNode.MaximumOpslag;
+
+            GrafischeKaart grafischekaartNode = new GrafischeKaart();
+            grafischekaartNode.Videogeheugen;
+            grafischekaartNode.Typegeheugen;
 
             queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
             queryProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
@@ -319,10 +345,14 @@ namespace MatcherPrototype
             queryHardeschijf(hardeschijfNode, listHardeschijf);
             queryGrafischekaart(grafischekaartNode, listGrafischekaart);
             queryOptischedrive(listNOptischedrives);
+            queryKoeler(processorNode, listCPUKoeler);
+            queryVoeding(listVoeding);
+            queryBehuizing(moederbordNode, listBehuizing);
 
             watch.Stop();
             var elapsedMs = watch.ElapsedMilliseconds;
             Console.WriteLine("runAllQuery ElapsedMS: " + elapsedMs);
         }
+         
     }
 }

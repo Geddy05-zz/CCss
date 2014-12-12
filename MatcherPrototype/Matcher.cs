@@ -10,9 +10,11 @@ namespace MatcherPrototype
     class Matcher
     {
         //The matcher class has the functions to sort the component lists and create a computer package 
-        public void matchComponentsWithLowestPrice(List<Moederbord> listMoederbordsUnsorted, List<CPU> listCPUUnsorted, List<GeheugenKaart> listGeheugenUnsorted,
-            List<Optischedrives> listOptischedrivesUnsorted,List<Hardeschijf> listHardeschijfUnsorted, List<CPUKoeler> listCPUKoelerUnsorted
-            , List<Voeding> listVoedingUnsorted, List<Behuizing> listBehuizingUnsorted, List<GrafischeKaart> listGrafischekaartUnsorted)
+        public void matchComponentsWithLowestPrice(List<Moederbord> listMoederbordsUnsorted, List<CPU> listCPUUnsorted 
+            , List<GeheugenKaart> listGeheugenUnsorted, List<Optischedrives> listOptischedrivesUnsorted,List<Hardeschijf> listHardeschijfUnsorted 
+            , List<GrafischeKaart> listGrafischekaartUnsorted, List<CPUKoeler> listCPUKoelerUnsorted, List<Voeding> listVoedingUnsorted
+            , List<Behuizing> listBehuizingUnsorted
+            )
         {
             var watch = Stopwatch.StartNew();
 
