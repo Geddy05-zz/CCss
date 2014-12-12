@@ -142,7 +142,7 @@ namespace Simple_solutions.Matcher
         public ActionResult About()
         {
             var searchResults = TempData["results"] as MatcherMainProgram;
-            ViewBag.processorType = searchResults.listNodeGrafischeKaart[0].Videogeheugen;
+            ViewBag.processorType = searchResults.listNodeGrafischeKaart[0].Videogeheugen; 
             ViewBag.processorsnelheid = "test";
             ViewBag.processorcores = "test";
             ViewBag.geheugenslots = "test";
