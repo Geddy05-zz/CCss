@@ -134,11 +134,11 @@
         <div class="resultaten">
 
             <div class="resultatenLinks">
-
+              
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.grafischekaartnaam</td>
                     </tr>
                     <tr>
                         <td class="key">Geheugen</td>
@@ -154,10 +154,11 @@
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">@ViewBag.grafischekaartPrijs</h2>
+                <a id="kopen" href="@ViewBag.grafischekaartUrl"></a>
+               
 
-            </div><!--end resultatenRechts-->
+        </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 

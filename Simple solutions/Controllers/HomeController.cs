@@ -55,13 +55,13 @@ namespace Simple_solutions.Matcher
             ViewData["geheugenslotsDD"] = geheugenslots;
 
             List<SelectListItem> geheugensnelheid = new List<SelectListItem>();
-            geheugensnelheid.Add(new SelectListItem { Text = "", Value = "1" });
-            geheugensnelheid.Add(new SelectListItem { Text = "1 gb", Value = "1" });
-            geheugensnelheid.Add(new SelectListItem { Text = "2 gb", Value = "2" });
-            geheugensnelheid.Add(new SelectListItem { Text = "4 gb", Value = "4" });
-            geheugensnelheid.Add(new SelectListItem { Text = "8 gb", Value = "8" });
-            geheugensnelheid.Add(new SelectListItem { Text = "16 gb", Value = "16" });
-            geheugensnelheid.Add(new SelectListItem { Text = "32 gb", Value = "32" });
+            geheugensnelheid.Add(new SelectListItem { Text = "", Value = "1gb" });
+            geheugensnelheid.Add(new SelectListItem { Text = "1 gb", Value = "1gb" });
+            geheugensnelheid.Add(new SelectListItem { Text = "2 gb", Value = "2gb" });
+            geheugensnelheid.Add(new SelectListItem { Text = "4 gb", Value = "4gb" });
+            geheugensnelheid.Add(new SelectListItem { Text = "8 gb", Value = "8gb" });
+            geheugensnelheid.Add(new SelectListItem { Text = "16 gb", Value = "16gb" });
+            geheugensnelheid.Add(new SelectListItem { Text = "32 gb", Value = "32gb" });
             ViewData["geheugensnelheidDD"] = geheugensnelheid;
 
             List<SelectListItem> grafischekaartvideogeheugen = new List<SelectListItem>();
@@ -147,8 +147,11 @@ namespace Simple_solutions.Matcher
             ViewBag.processorcores = "test";
             ViewBag.geheugenslots = "test";
             ViewBag.geheugensnelheid = "test";
-            ViewBag.grafischekaartvideogeheugen = "test";
-            ViewBag.grafischekaarttype = "test";
+            ViewBag.grafischekaartvideogeheugen = searchResults.listNodeGrafischeKaart[0].Videogeheugen;
+            ViewBag.grafischekaarttype = searchResults.listNodeGrafischeKaart[0].Typegeheugen;
+            ViewBag.grafischekaartnaam = searchResults.listNodeGrafischeKaart[0].Naam;
+            ViewBag.grafischekaartPrijs = searchResults.listNodeGrafischeKaart[0].Prijs;
+            ViewBag.grafischekaartUrl = searchResults.listNodeGrafischeKaart[0].Url;
             ViewBag.hardeschijftype = "test";
             ViewBag.hardeschijfopslag = "test";
             ViewBag.hardeschijfrpm = "test";
