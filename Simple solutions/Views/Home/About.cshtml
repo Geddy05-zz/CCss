@@ -1,0 +1,367 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<div id="wrapper">
+
+    <div class="listitem">
+
+        <img src="~/Images/processor.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                    </tr>
+                    <tr>
+                        <td class="key">TYPE</td>
+                        <td class="value">@ViewBag.processorType</td>
+                    </tr>
+
+                    <tr class="bg">
+                        <td class="key">Kloksnelheid</td>
+                        <td class="value">@ViewBag.processorsnelheid</td>
+                    </tr>
+                    <tr>
+                        <td class="key">CORES</td>
+                        <td class="value">@ViewBag.processorcores</td>
+                    </tr>
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">€ 94,95</h2>
+                <a id="kopen" href="#"></a>
+
+            </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+
+    <div class="listitem">
+
+        <img src="~/Images/moederbord.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                    </tr>
+                    <tr>
+                        <td class="key">TYPE</td>
+                        <td class="value">A8</td>
+                    </tr>
+
+                    <tr class="bg">
+                        <td class="key">Kloksnelheid</td>
+                        <td class="value">3.6 GHZ</td>
+                    </tr>
+                    <tr>
+                        <td class="key">CORES</td>
+                        <td class="value">4</td>
+                    </tr>
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">€ 94,95</h2>
+                <a id="kopen" href="#"></a>
+
+            </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+    <div class="listitem">
+
+        <img src="~/Images/geheugen.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Slot</td>
+                        <td class="value">@ViewBag.geheugenslots</td>
+                    </tr>
+
+                    <tr class="bg">
+                        <td class="key">Werk geheugen</td>
+                        <td class="value">@ViewBag.geheugensnelheid</td>
+                    </tr>
+                   
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">€ 94,95</h2>
+                <a id="kopen" href="#"></a>
+
+            </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+
+    <div class="listitem">
+
+        <img src="~/Images/grafischekaart.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+              
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">@ViewBag.grafischekaartnaam</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Geheugen</td>
+                        <td class="value">@ViewBag.grafischekaartvideogeheugen</td>
+                    </tr>
+
+                    <tr class="bg">
+                        <td class="key">Type</td>
+                        <td class="value">@ViewBag.grafischekaarttype</td>
+                    </tr>
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">@ViewBag.grafischekaartPrijs</h2>
+                <a id="kopen" href="@ViewBag.grafischekaartUrl"></a>
+               
+
+        </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+
+    <div class="listitem">
+
+        <img src="~/Images/hardeschijf.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                    </tr>
+                    <tr>
+                        <td class="key">TYPE</td>
+                        <td class="value">@ViewBag.hardeschijftype</td>
+                    </tr>
+
+                    <tr class="bg">
+                        <td class="key">Snelheid</td>
+                        <td class="value">@ViewBag.hardeschijfrpm</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Opslag</td>
+                        <td class="value">@ViewBag.hardeschijfopslag/td>
+                    </tr>
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">€ 94,95</h2>
+                <a id="kopen" href="#"></a>
+
+            </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+    <div class="listitem">
+
+        <img src="~/Images/optischedrives.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Categorie</td>
+                        <td class="value">@ViewBag.optischedrivescategorie</td>
+                    </tr>
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">€ 94,95</h2>
+                <a id="kopen" href="#"></a>
+
+            </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+
+    <div class="listitem">
+
+        <img src="~/Images/behuizing.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Vormfactor</td>
+                        <td class="value">@ViewBag.behuizingvormfactor</td>
+                    </tr>
+
+                    <tr class="bg">
+                        <td class="key">Kloksnelheid</td>
+                        <td class="value">3.6 GHZ</td>
+                    </tr>
+                    <tr>
+                        <td class="key">CORES</td>
+                        <td class="value">4</td>
+                    </tr>
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">€ 94,95</h2>
+                <a id="kopen" href="#"></a>
+
+            </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+    <div class="listitem">
+
+        <img src="~/Images/voeding.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                    </tr>
+                    <tr>
+                        <td class="key">TYPE</td>
+                        <td class="value">A8</td>
+                    </tr>
+
+                    <tr class="bg">
+                        <td class="key">Kloksnelheid</td>
+                        <td class="value">3.6 GHZ</td>
+                    </tr>
+                    <tr>
+                        <td class="key">CORES</td>
+                        <td class="value">4</td>
+                    </tr>
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">€ 94,95</h2>
+                <a id="kopen" href="#"></a>
+
+            </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+    <div class="listitem">
+
+        <img src="~/Images/koeler.png" alt="processor" />
+
+
+        <div class="resultaten">
+
+            <div class="resultatenLinks">
+
+                <table>
+                    <tr class="bg">
+                        <td class="key">NAAM</td>
+                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                    </tr>
+                    <tr>
+                        <td class="key">TYPE</td>
+                        <td class="value">A8</td>
+                    </tr>
+
+                    <tr class="bg">
+                        <td class="key">Kloksnelheid</td>
+                        <td class="value">3.6 GHZ</td>
+                    </tr>
+                    <tr>
+                        <td class="key">CORES</td>
+                        <td class="value">4</td>
+                    </tr>
+                </table>
+
+            </div><!--end resultatenLinks-->
+
+            <div class="resultatenRechts">
+                <h2 id="prijs">€ 94,95</h2>
+                <a id="kopen" href="#"></a>
+
+            </div><!--end resultatenRechts-->
+
+        </div><!--end resultaten-->
+
+    </div><!--end listitem-->
+
+
+
+</div><!--end wrapper-->
