@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MatcherPrototype
@@ -13,6 +14,26 @@ namespace MatcherPrototype
         public string Naam { get; set; }
         public string Prijs { get; set; }
         public string Url { get; set; }
+
+        public int setMinimumRange(string componentRange)
+        {
+            //This is the pattern to remove the minimum out of the string componentrange and convert as integer
+            String patternMinimumOfTheRange = @"^(\d*)";
+            int rangeMinimum = Convert.ToInt32(Regex.Match(componentRange, patternMinimumOfTheRange).ToString());
+
+            //return the minimum of the range as integer
+            return rangeMinimum;
+        }
+
+        public int setMaximumRange(string componentRange)
+        {
+            //This is the pattern to remove the maximum out of the string componentrange and convert as integer
+            String patternMaximumOfTheRange = @"(\d*)$";
+            int rangeMaximum = rangeMaximum = Convert.ToInt32(Regex.Match(componentRange, patternMaximumOfTheRange).ToString());
+
+            //return the maximum of the range as integer.
+            return rangeMaximum;
+        }
     }
 
     class Moederbord : Components
@@ -49,6 +70,20 @@ namespace MatcherPrototype
         public string Cores { get; set; }
         public int MinimumKloksnelheid { get; set; }
         public int MaximumKloksnelheid { get; set; }
+
+        public void setMinimumAndMaximumClockFrequency(string processorClockFrequencyRange)
+        {
+            /*The minimum and the maximum of the range in the string format
+            will be removed and converted into integers.*/
+            String patternFirstInteger = @"^\d*";
+            String patternSecondInteger = @"$\d*";
+            int rangeMinimum = Convert.ToInt32(Regex.Match(processorClockFrequencyRange, patternFirstInteger).ToString());
+            int rangeMaximum = Convert.ToInt32(Regex.Match(processorClockFrequencyRange, patternSecondInteger).ToString());
+            
+            //Stores the minimum and the maximum of the range in the following variable 
+            this.MinimumKloksnelheid = rangeMinimum;
+            this.MaximumKloksnelheid = rangeMaximum;
+        }
     }
 
     class GrafischeKaart : Components

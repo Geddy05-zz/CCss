@@ -48,6 +48,7 @@ namespace MatcherPrototype
          * the nodes from the neo4J database and pickout the ones with
          * the lowest price.
          */
+        /*
         public void runMatcherProgram()
         {
             //Run the query to retrieve the data from the database.
@@ -59,5 +60,6 @@ namespace MatcherPrototype
             matcher.matchComponentsWithLowestPrice(listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart, listNodeOptischedrives,
             listNodeHardeschijf, listNodeGrafischeKaart, listNodeCPUKoeler, listNodeVoeding, listNodeBehuizing);
         }
+         */
     }
 }
