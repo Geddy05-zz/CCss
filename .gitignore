@@ -7,6 +7,7 @@
 *.sln.docstates
 
 # Build results
+<<<<<<< HEAD
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -18,11 +19,24 @@ bld/
 
 # Roslyn cache directories
 *.ide/
+=======
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+
+# Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
+!packages/*/build/
+>>>>>>> origin/master
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+<<<<<<< HEAD
 #NUNIT
 *.VisualState.xml
 TestResult.xml
@@ -35,6 +49,10 @@ dlldata.c
 *_i.c
 *_p.c
 *_i.h
+=======
+*_i.c
+*_p.c
+>>>>>>> origin/master
 *.ilk
 *.meta
 *.obj
@@ -54,12 +72,18 @@ dlldata.c
 *.vssscc
 .builds
 *.pidb
+<<<<<<< HEAD
 *.svclog
 *.scc
 
 # Chutzpah Test files
 _Chutzpah*
 
+=======
+*.log
+*.scc
+
+>>>>>>> origin/master
 # Visual C++ cache files
 ipch/
 *.aps
@@ -73,19 +97,25 @@ ipch/
 *.vsp
 *.vspx
 
+<<<<<<< HEAD
 # TFS 2012 Local Workspace
 $tf/
 
+=======
+>>>>>>> origin/master
 # Guidance Automation Toolkit
 *.gpState
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
+<<<<<<< HEAD
 *.DotSettings.user
 
 # JustCode is a .NET coding addin-in
 .JustCode
+=======
+>>>>>>> origin/master
 
 # TeamCity is a build add-in
 _TeamCity*
@@ -94,6 +124,7 @@ _TeamCity*
 *.dotCover
 
 # NCrunch
+<<<<<<< HEAD
 _NCrunch_*
 .*crunch*.local.xml
 
@@ -104,6 +135,11 @@ AutoTest.Net/
 # Web workbench (sass)
 .sass-cache/
 
+=======
+*.ncrunch*
+.*crunch*.local.xml
+
+>>>>>>> origin/master
 # Installshield output folder
 [Ee]xpress/
 
@@ -121,6 +157,7 @@ DocProject/Help/html
 publish/
 
 # Publish Web Output
+<<<<<<< HEAD
 *.[Pp]ublish.xml
 *.azurePubxml
 ## TODO: Comment the next line if you want to checkin your
@@ -142,6 +179,16 @@ packages/*
 
 # Windows Azure Build Output
 csx/
+=======
+*.Publish.xml
+
+# NuGet Packages Directory
+## TODO: If you have NuGet Package Restore enabled, uncomment the next line
+#packages/
+
+# Windows Azure Build Output
+csx
+>>>>>>> origin/master
 *.build.csdef
 
 # Windows Store app package directory
@@ -155,23 +202,35 @@ ClientBin/
 ~$*
 *~
 *.dbmdl
+<<<<<<< HEAD
 *.dbproj.schemaview
 *.pfx
 *.publishsettings
 node_modules/
+=======
+*.[Pp]ublish.xml
+*.pfx
+*.publishsettings
+>>>>>>> origin/master
 
 # RIA/Silverlight projects
 Generated_Code/
 
+<<<<<<< HEAD
 # Backup & report files from converting an old project file
 # to a newer Visual Studio version. Backup files are not needed,
 # because we have git ;-)
+=======
+# Backup & report files from converting an old project file to a newer
+# Visual Studio version. Backup files are not needed, because we have git ;-)
+>>>>>>> origin/master
 _UpgradeReport_Files/
 Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
 # SQL Server files
+<<<<<<< HEAD
 *.mdf
 *.ldf
 
@@ -187,3 +246,30 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+=======
+App_Data/*.mdf
+App_Data/*.ldf
+
+
+#LightSwitch generated files
+GeneratedArtifacts/
+_Pvt_Extensions/
+ModelManifest.xml
+
+# =========================
+# Windows detritus
+# =========================
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac desktop service store files
+.DS_Store
+>>>>>>> origin/master
