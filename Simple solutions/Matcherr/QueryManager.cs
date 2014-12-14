@@ -13,6 +13,7 @@ namespace Simple_solutions
     {
         private GraphClient client;
         private String serverAddress = "http://145.24.222.101:8001/db/data";
+        private String serverAddressForTestOnly = "http://localhost:7474/db/data";
 
         private void initClientConnection()
         {
@@ -22,12 +23,12 @@ namespace Simple_solutions
                 {
                     return;
                 }
-                //http://145.24.222.101:8001/db/data
-                this.client = new GraphClient(new Uri("http://localhost:7474/db/data"));
+                this.client = new GraphClient(new Uri(serverAddressForTestOnly));
                 this.client.Connect();
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.StackTrace);
                 Console.WriteLine("Could not make connection to database, check if database server is on and try again.");
             }
 
@@ -36,7 +37,7 @@ namespace Simple_solutions
 
         public void queryMoederbord(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<Moederbord> listMoederB)
         {
-            // Example query to check how the system takes in the nodes and work with it.
+            // This query is to return the motherbord node.
 
             initClientConnection();
             var result =
@@ -63,7 +64,7 @@ namespace Simple_solutions
 
         public void queryProcessor(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<CPU> listProcessor)
         {
-            // Example query to check how the system takes in the nodes and work with it.
+            // This query is to return the CPU node.
 
             initClientConnection();
             var result =
@@ -90,7 +91,7 @@ namespace Simple_solutions
         
         public void queryGeheugenKaart(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<GeheugenKaart> listGeheugenkaart)
         {
-            // Example query to check how the system takes in the nodes and work with it.
+            // This query is to return the RAM node.
 
             initClientConnection();
             var result =
@@ -117,7 +118,8 @@ namespace Simple_solutions
 
         public void queryOptischedrive(List<Optischedrives> listOptischeDrives)
         {
-            // Example query to check how the system takes in the nodes and work with it.
+            // This query is to return the optical drive node.
+            // To Do: update this query to be able to use the information from the view
 
             initClientConnection();
             var result =
@@ -140,7 +142,7 @@ namespace Simple_solutions
 
         public void queryHardeschijf(Hardeschijf hardeschijfNode, List<Hardeschijf> listHardeschijf)
         {
-            // Example query to check how the system takes in the nodes and work with it.
+            // This query is to return the hard drive node.
 
             initClientConnection();
             var result =
@@ -164,7 +166,7 @@ namespace Simple_solutions
 
         public void queryVoeding(List<Voeding> listVoeding)
         {
-            // Example query to check how the system takes in the nodes and work with it.
+            // This query is to retrieve the psu node.
 
             initClientConnection();
             var result =
@@ -187,7 +189,7 @@ namespace Simple_solutions
 
         public void queryGrafischekaart(GrafischeKaart grafischekaartNode, List<GrafischeKaart> listGrafischeKaart)
         {
-            // Example query to check how the system takes in the nodes and work with it.
+            // This query is to return the grafic Card node.
 
             initClientConnection();
             var result =
@@ -211,7 +213,7 @@ namespace Simple_solutions
 
         public void queryKoeler(CPU processorNode,List<CPUKoeler> listCPUKoeler)
         {
-            // Example query to check how the system takes in the nodes and work with it.
+            // This query is to retrieve the cpu cooler node.
 
             initClientConnection();
             var result =
@@ -235,10 +237,7 @@ namespace Simple_solutions
 
         public void queryBehuizing(Moederbord moederbordNode, List<Behuizing> listBehuizing)
         {
-            // Example query to check how the system takes in the nodes and work with it.
-
-            //Create stopwatch to measure performance
-            var watch = Stopwatch.StartNew();
+            // To DO: Query needs to be updated for the behuizing.
 
             initClientConnection();
             var result =
@@ -265,7 +264,7 @@ namespace Simple_solutions
             List<Voeding> listVoeding, List<Behuizing> listBehuizing)
         {
 
-            //Create objects to pass in the followings function
+            //Create objects to With the properties needed to run the queries.
 
             Moederbord moederbordNode = new Moederbord();
             moederbordNode.Geheugenslots = searchPropertiesModel.geheugenslots;
@@ -277,13 +276,9 @@ namespace Simple_solutions
             processorNode.MinimumKloksnelheid = processorNode.setMinimumRange(searchPropertiesModel.processorsnelheid);
             processorNode.MaximumKloksnelheid = processorNode.setMaximumRange(searchPropertiesModel.processorsnelheid);
 
-            //Console.WriteLine(processorNode.MinimumKloksnelheid);
-            //Console.WriteLine(processorNode.MaximumKloksnelheid);
-            //Console.ReadKey();
-
             GeheugenKaart geheugenNode = new GeheugenKaart();
             geheugenNode.Geheugenslots = searchPropertiesModel.geheugenslots;
-            geheugenNode.Geheugenkloksnelheid = searchPropertiesModel.geheugensnelheid;
+            geheugenNode.Geheugen = searchPropertiesModel.geheugensnelheid;
 
             Hardeschijf hardeschijfNode = new Hardeschijf();
             hardeschijfNode.Soort = searchPropertiesModel.hardeschijftype;
@@ -294,6 +289,7 @@ namespace Simple_solutions
             grafischekaartNode.Videogeheugen = searchPropertiesModel.grafischekaartvideogeheugen;
             grafischekaartNode.Typegeheugen = searchPropertiesModel.grafischekaarttype;
 
+            //Run all the queries necesary to retrieve the nodes
             queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
             queryProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
             queryGeheugenKaart(moederbordNode, processorNode, geheugenNode, listGeheugenkaart);
