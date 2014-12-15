@@ -23,7 +23,7 @@ namespace Simple_solutions
                 {
                     return;
                 }
-                this.client = new GraphClient(new Uri(serverAddressForTestOnly));
+                this.client = new GraphClient(new Uri(serverAddress));
                 this.client.Connect();
             }
             catch (Exception ex)
@@ -116,15 +116,15 @@ namespace Simple_solutions
 
         }
 
-        public void queryOptischedrive(List<Optischedrives> listOptischeDrives)
+        public void queryOptischedrive(Optischedrives optischeDrivesNode, List<Optischedrives> listOptischeDrives)
         {
             // This query is to return the optical drive node.
-            // To Do: update this query to be able to use the information from the view
 
             initClientConnection();
             var result =
                 this.client.Cypher
                 .Match(" (o:Optischedrives)")
+                .Where((Optischedrives o) => o.Categorie == optischeDrivesNode.Categorie)
                 .ReturnDistinct((o) => new
                 {
                     listO = o.As<Optischedrives>(),
@@ -149,6 +149,7 @@ namespace Simple_solutions
                 this.client.Cypher
                 .Match(" (h:Hardeschijf)")
                 .Where("h.Opslag >= " + hardeschijfNode.MinimumOpslag + " AND h.Opslag <= " + hardeschijfNode.MaximumOpslag)
+                .AndWhere((Hardeschijf h) => h.Soort == hardeschijfNode.Soort)
                 .ReturnDistinct((h) => new
                 {
                     listH = h.As<Hardeschijf>(),
@@ -218,8 +219,9 @@ namespace Simple_solutions
             initClientConnection();
             var result =
                 this.client.Cypher
-                .Match(" (p:Processor)-[a]-(k:Koeler)")
+                .Match(" (p:Processor),(k:Koeler)")
                 .Where((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Socket = k.Socket")
                 .ReturnDistinct((k) => new
                 {
                     listK = k.As<CPUKoeler>(),
@@ -264,7 +266,7 @@ namespace Simple_solutions
             List<Voeding> listVoeding, List<Behuizing> listBehuizing)
         {
 
-            //Create objects to With the properties needed to run the queries.
+            //Create objects With the properties needed to run the queries.
 
             Moederbord moederbordNode = new Moederbord();
             moederbordNode.Geheugenslots = searchPropertiesModel.geheugenslots;
@@ -289,13 +291,16 @@ namespace Simple_solutions
             grafischekaartNode.Videogeheugen = searchPropertiesModel.grafischekaartvideogeheugen;
             grafischekaartNode.Typegeheugen = searchPropertiesModel.grafischekaarttype;
 
+            Optischedrives optischedrivesNode = new Optischedrives();
+            optischedrivesNode.Categorie = searchPropertiesModel.optischedrivescategorie;
+
             //Run all the queries necesary to retrieve the nodes
             queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
             queryProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
             queryGeheugenKaart(moederbordNode, processorNode, geheugenNode, listGeheugenkaart);
             queryHardeschijf(hardeschijfNode, listHardeschijf);
             queryGrafischekaart(grafischekaartNode, listGrafischekaart);
-            queryOptischedrive(listNOptischedrives);
+            queryOptischedrive(optischedrivesNode,listNOptischedrives);
             queryKoeler(processorNode, listCPUKoeler);
             queryVoeding(listVoeding);
             queryBehuizing(moederbordNode, listBehuizing);
