@@ -12,11 +12,11 @@
         <div class="resultaten">
 
             <div class="resultatenLinks">
-
+      
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.processorNaam</td>
                     </tr>
                     <tr>
                         <td class="key">TYPE</td>
@@ -25,19 +25,23 @@
 
                     <tr class="bg">
                         <td class="key">Kloksnelheid</td>
-                        <td class="value">@ViewBag.processorsnelheid</td>
+                        <td class="value">@ViewBag.processorSnelheid</td>
                     </tr>
                     <tr>
                         <td class="key">CORES</td>
-                        <td class="value">@ViewBag.processorcores</td>
+                        <td class="value">@ViewBag.processorCores</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Socket</td>
+                        <td class="value">@ViewBag.processorSocket</td>
                     </tr>
                 </table>
 
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">€ @ViewBag.processorPrijs</h2>
+                <a id="kopen" href="@ViewBag.processorUrl"></a>
 
             </div><!--end resultatenRechts-->
 
@@ -49,7 +53,7 @@
     <div class="listitem">
 
         <img src="~/Images/moederbord.png" alt="processor" />
-
+       
 
         <div class="resultaten">
 
@@ -58,28 +62,32 @@
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.moederbordNaam</td>
                     </tr>
                     <tr>
                         <td class="key">TYPE</td>
-                        <td class="value">A8</td>
+                        <td class="value">@ViewBag.moederbordType</td>
                     </tr>
 
                     <tr class="bg">
-                        <td class="key">Kloksnelheid</td>
-                        <td class="value">3.6 GHZ</td>
+                        <td class="key">Aantal Slots</td>
+                        <td class="value">@ViewBag.moederbordSlots</td>
                     </tr>
                     <tr>
-                        <td class="key">CORES</td>
-                        <td class="value">4</td>
+                        <td class="key">Formfactor</td>
+                        <td class="value">@ViewBag.moederbordFormfactor</td>
+                    </tr>
+                    <tr>
+                        <td class="key">Socket</td>
+                        <td class="value">@ViewBag.moederbordSocket</td>
                     </tr>
                 </table>
 
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">€ @ViewBag.moederbordPrijs</h2>
+                <a id="kopen" href="@ViewBag.moederbordUrl"></a>
 
             </div><!--end resultatenRechts-->
 
@@ -91,7 +99,6 @@
 
         <img src="~/Images/geheugen.png" alt="processor" />
 
-
         <div class="resultaten">
 
             <div class="resultatenLinks">
@@ -99,16 +106,24 @@
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.geheugenNaam</td>
                     </tr>
                     <tr>
                         <td class="key">Slot</td>
-                        <td class="value">@ViewBag.geheugenslots</td>
+                        <td class="value">@ViewBag.geheugenSlots</td>
                     </tr>
 
                     <tr class="bg">
                         <td class="key">Werk geheugen</td>
-                        <td class="value">@ViewBag.geheugensnelheid</td>
+                        <td class="value">@ViewBag.geheugen</td>
+                    </tr>
+                    <tr class="bg">
+                        <td class="key">Klok snelheid</td>
+                        <td class="value">@ViewBag.geheugenSnelheid</td>
+                    </tr>
+                    <tr class="bg">
+                        <td class="key">Type</td>
+                        <td class="value">@ViewBag.geheugenType</td>
                     </tr>
                    
                 </table>
@@ -116,8 +131,8 @@
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">€ @ViewBag.geheugenPrijs</h2>
+                <a id="kopen" href="@ViewBag.geheugenUrl"></a>
 
             </div><!--end resultatenRechts-->
 
@@ -154,7 +169,7 @@
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">@ViewBag.grafischekaartPrijs</h2>
+                <h2 id="prijs">€ @ViewBag.grafischekaartPrijs</h2>
                 <a id="kopen" href="@ViewBag.grafischekaartUrl"></a>
                
 
@@ -177,28 +192,24 @@
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.hardeschijfNaam</td>
                     </tr>
                     <tr>
                         <td class="key">TYPE</td>
-                        <td class="value">@ViewBag.hardeschijftype</td>
+                        <td class="value">@ViewBag.hardeschijfType</td>
                     </tr>
 
                     <tr class="bg">
-                        <td class="key">Snelheid</td>
-                        <td class="value">@ViewBag.hardeschijfrpm</td>
-                    </tr>
-                    <tr>
                         <td class="key">Opslag</td>
-                        <td class="value">@ViewBag.hardeschijfopslag/td>
+                        <td class="value">@ViewBag.hardeschijfOpslag</td>
                     </tr>
                 </table>
 
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">€ @ViewBag.hardeschijfPrijs</h2>
+                <a id="kopen" href="@ViewBag.harderschijfUrl"></a>
 
             </div><!--end resultatenRechts-->
 
@@ -210,7 +221,6 @@
 
         <img src="~/Images/optischedrives.png" alt="processor" />
 
-
         <div class="resultaten">
 
             <div class="resultatenLinks">
@@ -218,19 +228,19 @@
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.optischedrivesNaam </td>
                     </tr>
                     <tr>
                         <td class="key">Categorie</td>
-                        <td class="value">@ViewBag.optischedrivescategorie</td>
+                        <td class="value">@ViewBag.optischedrivesCategoriee</td>
                     </tr>
                 </table>
 
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">€ @ViewBag.optischedrivesPrijs</h2>
+                <a id="kopen" href="@ViewBag.optischedrivesUrl"></a>
 
             </div><!--end resultatenRechts-->
 
@@ -251,28 +261,19 @@
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.behuizingNaam</td>
                     </tr>
                     <tr>
                         <td class="key">Vormfactor</td>
-                        <td class="value">@ViewBag.behuizingvormfactor</td>
-                    </tr>
-
-                    <tr class="bg">
-                        <td class="key">Kloksnelheid</td>
-                        <td class="value">3.6 GHZ</td>
-                    </tr>
-                    <tr>
-                        <td class="key">CORES</td>
-                        <td class="value">4</td>
+                        <td class="value">@ViewBag.behuizingVormfactor</td>
                     </tr>
                 </table>
 
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">€ @ViewBag.behuizingPrijs</h2>
+                <a id="kopen" href="@ViewBag.behuizingUrl"></a>
 
             </div><!--end resultatenRechts-->
 
@@ -292,28 +293,19 @@
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.voedingNaam</td>
                     </tr>
                     <tr>
-                        <td class="key">TYPE</td>
-                        <td class="value">A8</td>
-                    </tr>
-
-                    <tr class="bg">
-                        <td class="key">Kloksnelheid</td>
-                        <td class="value">3.6 GHZ</td>
-                    </tr>
-                    <tr>
-                        <td class="key">CORES</td>
-                        <td class="value">4</td>
+                        <td class="key">Wattage</td>
+                        <td class="value">@ViewBag.voedingWatt</td>
                     </tr>
                 </table>
 
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">€ @ViewBag.voedingPrijs</h2>
+                <a id="kopen" href="@ViewBag.voedingUrl"></a>
 
             </div><!--end resultatenRechts-->
 
@@ -325,7 +317,6 @@
 
         <img src="~/Images/koeler.png" alt="processor" />
 
-
         <div class="resultaten">
 
             <div class="resultatenLinks">
@@ -333,28 +324,19 @@
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
-                        <td class="value">AMD A8-5600K Quad Core 4 x 3.6 GHz Processor (CPU) boxed Socket: AMD FM2</td>
+                        <td class="value">@ViewBag.koelerNaam</td>
                     </tr>
                     <tr>
-                        <td class="key">TYPE</td>
-                        <td class="value">A8</td>
-                    </tr>
-
-                    <tr class="bg">
-                        <td class="key">Kloksnelheid</td>
-                        <td class="value">3.6 GHZ</td>
-                    </tr>
-                    <tr>
-                        <td class="key">CORES</td>
-                        <td class="value">4</td>
+                        <td class="key">Socket</td>
+                        <td class="value">@ViewBag.koelerSocket</td>
                     </tr>
                 </table>
 
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
-                <h2 id="prijs">€ 94,95</h2>
-                <a id="kopen" href="#"></a>
+                <h2 id="prijs">€ @ViewBag.koelerPrijs</h2>
+                <a id="kopen" href="@ViewBag.koelerUrl"></a>
 
             </div><!--end resultatenRechts-->
 

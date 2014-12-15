@@ -98,13 +98,13 @@ namespace Simple_solutions.Matcher
             ViewData["hardeschijfopslagDD"] = hardeschijfopslag;
 
             List<SelectListItem> optischedrivescategorie = new List<SelectListItem>();
-            optischedrivescategorie.Add(new SelectListItem { Text = "", Value = "0" });
-            optischedrivescategorie.Add(new SelectListItem { Text = "BLU-RAY", Value = "blu-ray" });
-            optischedrivescategorie.Add(new SelectListItem { Text = "DVD RW", Value = "dvd rw" });
+            optischedrivescategorie.Add(new SelectListItem { Text = "", Value = "dvd" });
+            optischedrivescategorie.Add(new SelectListItem { Text = "BLU-RAY", Value = "bluray" });
+            optischedrivescategorie.Add(new SelectListItem { Text = "DVD", Value = "dvd" });
             ViewData["optischedrivescategorieDD"] = optischedrivescategorie;
 
             List<SelectListItem> behuizingvormfactor = new List<SelectListItem>();
-            behuizingvormfactor.Add(new SelectListItem { Text = "", Value = "0" });
+            behuizingvormfactor.Add(new SelectListItem { Text = "", Value = "atx" });
             behuizingvormfactor.Add(new SelectListItem { Text = "atx", Value = "atx" });
             behuizingvormfactor.Add(new SelectListItem { Text = "miniatx", Value = "atx" });
             behuizingvormfactor.Add(new SelectListItem { Text = "200-300 RPM", Value = "200-300 RPM" });
@@ -142,21 +142,71 @@ namespace Simple_solutions.Matcher
         public ActionResult About()
         {
             var searchResults = TempData["results"] as MatcherMainProgram;
-            ViewBag.processorType = searchResults.listNodeGrafischeKaart[0].Videogeheugen; 
-            ViewBag.processorsnelheid = "test";
-            ViewBag.processorcores = "test";
-            ViewBag.geheugenslots = "test";
-            ViewBag.geheugensnelheid = "test";
+            //Processor
+            ViewBag.processorType = "type"; //searchResults.listNodeProcessor[0].Model; 
+            ViewBag.processorSnelheid = "2.4 ghz";// searchResults.listNodeProcessor[0].Kloksnelheid;
+            ViewBag.processorCores = "4";// searchResults.listNodeProcessor[0].Cores;
+            ViewBag.processorNaam = "niet de echte naam";// searchResults.listNodeProcessor[0].Naam;
+            ViewBag.processorPrijs = "gratis";// searchResults.listNodeProcessor[0].Prijs;
+            ViewBag.processorSocket = "1150";// searchResults.listNodeProcessor[0].Socket;
+            ViewBag.processorUrl = "#";//searchResults.listNodeProcessor[0].Url;
+
+            //Moederbord
+            ViewBag.moederbordNaam ="moederbord"; //searchResults.listNodeMoederbord[0].Naam;
+            ViewBag.moederbordType ="type"; // searchResults.listNodeMoederbord[0].Geheugentype;
+            ViewBag.moederbordSlots = "slots"; //searchResults.listNodeMoederbord[0].Geheugenslots;
+            ViewBag.moederbordFormfactor = "Vormfactor"; // searchResults.listNodeMoederbord[0].Vormfactor;
+            ViewBag.moederbordSocket = "socket";// searchResults.listNodeMoederbord[0].Socket;
+            ViewBag.moederbordPrijs = "gratis";// searchResults.listNodeMoederbord[0].Prijs;
+            ViewBag.moederbordUrl = "#"; // searchResults.listNodeMoederbord[0].Url;
+
+
+            //Werkgeheugen
+            ViewBag.geheugen = "geheugen";// searchResults.listNodeGeheugenKaart[0].Geheugen;
+            ViewBag.geheugenSnelheid = "8GB";//searchResults.listNodeGeheugenKaart[0].Geheugenkloksnelheid;
+            ViewBag.geheugenSlots = "GEN IDEE";// searchResults.listNodeGeheugenKaart[0].Geheugenslots;
+            ViewBag.geheugenType = "DDR3";// searchResults.listNodeGeheugenKaart[0].Geheugentype;
+            ViewBag.geheugenNaam = "kAREL";// searchResults.listNodeGeheugenKaart[0].Naam;
+            ViewBag.geheugenPrijs = "gratis";// searchResults.listNodeGeheugenKaart[0].Prijs;
+            ViewBag.geheugenUrl = "#";// searchResults.listNodeGeheugenKaart[0].Url;
+
+            //GrafischeKaart
             ViewBag.grafischekaartvideogeheugen = searchResults.listNodeGrafischeKaart[0].Videogeheugen;
             ViewBag.grafischekaarttype = searchResults.listNodeGrafischeKaart[0].Typegeheugen;
             ViewBag.grafischekaartnaam = searchResults.listNodeGrafischeKaart[0].Naam;
             ViewBag.grafischekaartPrijs = searchResults.listNodeGrafischeKaart[0].Prijs;
             ViewBag.grafischekaartUrl = searchResults.listNodeGrafischeKaart[0].Url;
-            ViewBag.hardeschijftype = "test";
-            ViewBag.hardeschijfopslag = "test";
-            ViewBag.hardeschijfrpm = "test";
-            ViewBag.optischedrivescategorie = "test";
-            ViewBag.behuizingvormfactor = "test";
+
+            //Hardeschijf
+            ViewBag.hardeschijfType = "Type";// searchResults.listNodeHardeschijf[0].Soort;
+            ViewBag.hardeschijfOpslag = "Opslag";//searchResults.listNodeHardeschijf[0].Opslag;
+            ViewBag.hardeschijfNaam = "Naam";// searchResults.listNodeHardeschijf[0].Naam;
+            ViewBag.harderschijfPrijs = "Gratis";// searchResults.listNodeHardeschijf[0].Prijs;
+            ViewBag.harderschijfUrl = "#";// searchResults.listNodeHardeschijf[0].Url;
+
+            //OptischeDrive
+            ViewBag.optischedrivesCategorie = searchResults.listNodeOptischedrives[0].Categorie;
+            ViewBag.optischedrivesNaam = searchResults.listNodeOptischedrives[0].Naam;
+            ViewBag.optischedrivesPrijs = searchResults.listNodeOptischedrives[0].Prijs;
+            ViewBag.optischedrivesUrl = searchResults.listNodeOptischedrives[0].Url;
+
+            //Behuizing
+            ViewBag.behuizingVormfactor = "vormFactor";// searchResults.listNodeBehuizing[0].Vormfactor;
+            ViewBag.behuizingNaam = "Naam";// searchResults.listNodeBehuizing[0].Naam;
+            ViewBag.behuizingPrijs = "Gratis"; // searchResults.listNodeBehuizing[0].Prijs;
+            ViewBag.behuizingUrl = "#"; // searchResults.listNodeBehuizing[0].Url;
+
+            //Voeding
+            ViewBag.voedingNaam = "Naam"; // searchResults.listNodeVoeding[0].Naam;
+            ViewBag.voedingWatt = "Wattage"; // searchResults.listNodeVoeding[0].Wattage;
+            ViewBag.voedingPrijs = "Gratis";// searchResults.listNodeVoeding[0].Prijs;
+            ViewBag.voedingUrl = "#";// searchResults.listNodeVoeding[0].Url;
+
+            //Koeler
+            ViewBag.koelerNaam = "Naam";// searchResults.listNodeCPUKoeler[0].Naam;
+            ViewBag.koelerPrijs = "Gratis";// searchResults.listNodeCPUKoeler[0].Prijs;
+            ViewBag.koelerUrl = "#";// searchResults.listNodeCPUKoeler[0].Url;
+            ViewBag.koelerSocket = "Socket";//searchResults.listNodeCPUKoeler[0].Socket;
 
 
             return View();
