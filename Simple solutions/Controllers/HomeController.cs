@@ -106,8 +106,13 @@ namespace Simple_solutions.Matcher
             List<SelectListItem> behuizingvormfactor = new List<SelectListItem>();
             behuizingvormfactor.Add(new SelectListItem { Text = "", Value = "atx" });
             behuizingvormfactor.Add(new SelectListItem { Text = "atx", Value = "atx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "miniatx", Value = "atx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "200-300 RPM", Value = "200-300 RPM" });
+            behuizingvormfactor.Add(new SelectListItem { Text = "nuc", Value = "nuc" });
+            behuizingvormfactor.Add(new SelectListItem { Text = "xlatx", Value = "xlatx" });
+            behuizingvormfactor.Add(new SelectListItem { Text = "e-atx", Value = "e-atx" });
+            behuizingvormfactor.Add(new SelectListItem { Text = "hptx", Value = "hptx" });
+            behuizingvormfactor.Add(new SelectListItem { Text = "itx", Value = "itx" });
+            behuizingvormfactor.Add(new SelectListItem { Text = "microatx", Value = "microatx" });
+            behuizingvormfactor.Add(new SelectListItem { Text = "mini itx", Value = "mini itx" });
             ViewData["behuizingvormfactorDD"] = behuizingvormfactor;
 
             
