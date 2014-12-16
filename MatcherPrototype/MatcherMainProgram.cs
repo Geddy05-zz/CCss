@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Simple_solutions.Models;
 
-namespace Simple_solutions
+namespace MatcherPrototype
 {
     class MatcherMainProgram
     {
@@ -49,19 +48,18 @@ namespace Simple_solutions
          * the nodes from the neo4J database and pickout the ones with
          * the lowest price.
          */
-        
+        /*
         public void runMatcherProgram()
         {
             //Run the query to retrieve the data from the database.
-            QueryManager qm = new QueryManager(); 
+            QueryManager qm = new QueryManager();
             qm.runAllQuery(searchPropertiesModel, listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart, listNodeOptischedrives,
             listNodeHardeschijf, listNodeGrafischeKaart, listNodeCPUKoeler, listNodeVoeding, listNodeBehuizing);
 
-            //Run the match to compare all the nodes and sort them in orde of lowest price.
-            Matcherr matcher = new Matcherr();
+            Matcher matcher = new Matcher();
             matcher.matchComponentsWithLowestPrice(listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart, listNodeOptischedrives,
             listNodeHardeschijf, listNodeGrafischeKaart, listNodeCPUKoeler, listNodeVoeding, listNodeBehuizing);
         }
-        
+         */
     }
 }

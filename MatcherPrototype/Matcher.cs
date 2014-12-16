@@ -5,14 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simple_solutions
+namespace MatcherPrototype
 {
-    class Matcherr
+    class Matcher
     {
         //The matcher class has the functions to sort the component lists and create a computer package 
-        public void matchComponentsWithLowestPrice(List<Moederbord> listMoederbordsUnsorted, List<CPU> listCPUUnsorted, List<GeheugenKaart> listGeheugenUnsorted,
-            List<Optischedrives> listOptischedrivesUnsorted,List<Hardeschijf> listHardeschijfUnsorted,List<GrafischeKaart> listGrafischekaartUnsorted, List<CPUKoeler> listCPUKoelerUnsorted
-            , List<Voeding> listVoedingUnsorted, List<Behuizing> listBehuizingUnsorted)
+        public void matchComponentsWithLowestPrice(List<Moederbord> listMoederbordsUnsorted, List<CPU> listCPUUnsorted 
+            , List<GeheugenKaart> listGeheugenUnsorted, List<Optischedrives> listOptischedrivesUnsorted,List<Hardeschijf> listHardeschijfUnsorted 
+            , List<GrafischeKaart> listGrafischekaartUnsorted, List<CPUKoeler> listCPUKoelerUnsorted, List<Voeding> listVoedingUnsorted
+            , List<Behuizing> listBehuizingUnsorted
+            )
         {
             var watch = Stopwatch.StartNew();
 
@@ -20,7 +22,7 @@ namespace Simple_solutions
             listCPUUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listGeheugenUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listOptischedrivesUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-            listHardeschijfUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".","")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".",""))));
+            listHardeschijfUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listGrafischekaartUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listBehuizingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listVoedingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
