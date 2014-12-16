@@ -148,32 +148,32 @@ namespace Simple_solutions.Matcher
         {
             var searchResults = TempData["results"] as MatcherMainProgram;
             //Processor
-            ViewBag.processorType = "type"; //searchResults.listNodeProcessor[0].Model; 
-            ViewBag.processorSnelheid = "2.4 ghz";// searchResults.listNodeProcessor[0].Kloksnelheid;
-            ViewBag.processorCores = "4";// searchResults.listNodeProcessor[0].Cores;
-            ViewBag.processorNaam = "niet de echte naam";// searchResults.listNodeProcessor[0].Naam;
-            ViewBag.processorPrijs = "gratis";// searchResults.listNodeProcessor[0].Prijs;
-            ViewBag.processorSocket = "1150";// searchResults.listNodeProcessor[0].Socket;
-            ViewBag.processorUrl = "#";//searchResults.listNodeProcessor[0].Url;
+            ViewBag.processorType = searchResults.listNodeProcessor[0].Model; 
+            ViewBag.processorSnelheid = searchResults.listNodeProcessor[0].Kloksnelheid;
+            ViewBag.processorCores = searchResults.listNodeProcessor[0].Cores;
+            ViewBag.processorNaam = searchResults.listNodeProcessor[0].Naam;
+            ViewBag.processorPrijs = searchResults.listNodeProcessor[0].Prijs;
+            ViewBag.processorSocket = searchResults.listNodeProcessor[0].Socket;
+            ViewBag.processorUrl = searchResults.listNodeProcessor[0].Url;
 
             //Moederbord
-            ViewBag.moederbordNaam ="moederbord"; //searchResults.listNodeMoederbord[0].Naam;
-            ViewBag.moederbordType ="type"; // searchResults.listNodeMoederbord[0].Geheugentype;
-            ViewBag.moederbordSlots = "slots"; //searchResults.listNodeMoederbord[0].Geheugenslots;
-            ViewBag.moederbordFormfactor = "Vormfactor"; // searchResults.listNodeMoederbord[0].Vormfactor;
-            ViewBag.moederbordSocket = "socket";// searchResults.listNodeMoederbord[0].Socket;
-            ViewBag.moederbordPrijs = "gratis";// searchResults.listNodeMoederbord[0].Prijs;
-            ViewBag.moederbordUrl = "#"; // searchResults.listNodeMoederbord[0].Url;
+            ViewBag.moederbordNaam =searchResults.listNodeMoederbord[0].Naam;
+            ViewBag.moederbordType = searchResults.listNodeMoederbord[0].Geheugentype;
+            ViewBag.moederbordSlots = searchResults.listNodeMoederbord[0].Geheugenslots;
+            ViewBag.moederbordFormfactor = searchResults.listNodeMoederbord[0].Vormfactor;
+            ViewBag.moederbordSocket =  searchResults.listNodeMoederbord[0].Socket;
+            ViewBag.moederbordPrijs =  searchResults.listNodeMoederbord[0].Prijs;
+            ViewBag.moederbordUrl = searchResults.listNodeMoederbord[0].Url;
 
 
             //Werkgeheugen
-            ViewBag.geheugen = "geheugen";// searchResults.listNodeGeheugenKaart[0].Geheugen;
-            ViewBag.geheugenSnelheid = "8GB";//searchResults.listNodeGeheugenKaart[0].Geheugenkloksnelheid;
-            ViewBag.geheugenSlots = "GEN IDEE";// searchResults.listNodeGeheugenKaart[0].Geheugenslots;
-            ViewBag.geheugenType = "DDR3";// searchResults.listNodeGeheugenKaart[0].Geheugentype;
-            ViewBag.geheugenNaam = "kAREL";// searchResults.listNodeGeheugenKaart[0].Naam;
-            ViewBag.geheugenPrijs = "gratis";// searchResults.listNodeGeheugenKaart[0].Prijs;
-            ViewBag.geheugenUrl = "#";// searchResults.listNodeGeheugenKaart[0].Url;
+            ViewBag.geheugen = searchResults.listNodeGeheugenKaart[0].Geheugen;
+            ViewBag.geheugenSnelheid = searchResults.listNodeGeheugenKaart[0].Geheugenkloksnelheid;
+            ViewBag.geheugenSlots = searchResults.listNodeGeheugenKaart[0].Geheugenslots;
+            ViewBag.geheugenType = searchResults.listNodeGeheugenKaart[0].Geheugentype;
+            ViewBag.geheugenNaam = searchResults.listNodeGeheugenKaart[0].Naam;
+            ViewBag.geheugenPrijs = searchResults.listNodeGeheugenKaart[0].Prijs;
+            ViewBag.geheugenUrl = searchResults.listNodeGeheugenKaart[0].Url;
 
             //GrafischeKaart
             ViewBag.grafischekaartvideogeheugen = searchResults.listNodeGrafischeKaart[0].Videogeheugen;
@@ -183,11 +183,11 @@ namespace Simple_solutions.Matcher
             ViewBag.grafischekaartUrl = searchResults.listNodeGrafischeKaart[0].Url;
 
             //Hardeschijf
-            ViewBag.hardeschijfType = "Type";// searchResults.listNodeHardeschijf[0].Soort;
-            ViewBag.hardeschijfOpslag = "Opslag";//searchResults.listNodeHardeschijf[0].Opslag;
-            ViewBag.hardeschijfNaam = "Naam";// searchResults.listNodeHardeschijf[0].Naam;
-            ViewBag.harderschijfPrijs = "Gratis";// searchResults.listNodeHardeschijf[0].Prijs;
-            ViewBag.harderschijfUrl = "#";// searchResults.listNodeHardeschijf[0].Url;
+            ViewBag.hardeschijfType = searchResults.listNodeHardeschijf[0].Soort;
+            ViewBag.hardeschijfOpslag = searchResults.listNodeHardeschijf[0].Opslag;
+            ViewBag.hardeschijfNaam = searchResults.listNodeHardeschijf[0].Naam;
+            ViewBag.harderschijfPrijs = searchResults.listNodeHardeschijf[0].Prijs;
+            ViewBag.harderschijfUrl = searchResults.listNodeHardeschijf[0].Url;
 
             //OptischeDrive
             ViewBag.optischedrivesCategorie = searchResults.listNodeOptischedrives[0].Categorie;
@@ -196,22 +196,22 @@ namespace Simple_solutions.Matcher
             ViewBag.optischedrivesUrl = searchResults.listNodeOptischedrives[0].Url;
 
             //Behuizing
-            ViewBag.behuizingVormfactor = "vormFactor";// searchResults.listNodeBehuizing[0].Vormfactor;
-            ViewBag.behuizingNaam = "Naam";// searchResults.listNodeBehuizing[0].Naam;
-            ViewBag.behuizingPrijs = "Gratis"; // searchResults.listNodeBehuizing[0].Prijs;
-            ViewBag.behuizingUrl = "#"; // searchResults.listNodeBehuizing[0].Url;
+            ViewBag.behuizingVormfactor = searchResults.listNodeBehuizing[0].Vormfactor;
+            ViewBag.behuizingNaam = searchResults.listNodeBehuizing[0].Naam;
+            ViewBag.behuizingPrijs = searchResults.listNodeBehuizing[0].Prijs;
+            ViewBag.behuizingUrl = searchResults.listNodeBehuizing[0].Url;
 
             //Voeding
-            ViewBag.voedingNaam = "Naam"; // searchResults.listNodeVoeding[0].Naam;
-            ViewBag.voedingWatt = "Wattage"; // searchResults.listNodeVoeding[0].Wattage;
-            ViewBag.voedingPrijs = "Gratis";// searchResults.listNodeVoeding[0].Prijs;
-            ViewBag.voedingUrl = "#";// searchResults.listNodeVoeding[0].Url;
+            ViewBag.voedingNaam = searchResults.listNodeVoeding[0].Naam;
+            ViewBag.voedingWatt = searchResults.listNodeVoeding[0].Wattage;
+            ViewBag.voedingPrijs = searchResults.listNodeVoeding[0].Prijs;
+            ViewBag.voedingUrl = searchResults.listNodeVoeding[0].Url;
 
             //Koeler
-            ViewBag.koelerNaam = "Naam";// searchResults.listNodeCPUKoeler[0].Naam;
-            ViewBag.koelerPrijs = "Gratis";// searchResults.listNodeCPUKoeler[0].Prijs;
-            ViewBag.koelerUrl = "#";// searchResults.listNodeCPUKoeler[0].Url;
-            ViewBag.koelerSocket = "Socket";//searchResults.listNodeCPUKoeler[0].Socket;
+            ViewBag.koelerNaam = searchResults.listNodeCPUKoeler[0].Naam;
+            ViewBag.koelerPrijs = searchResults.listNodeCPUKoeler[0].Prijs;
+            ViewBag.koelerUrl = searchResults.listNodeCPUKoeler[0].Url;
+            ViewBag.koelerSocket = searchResults.listNodeCPUKoeler[0].Socket;
 
 
             return View();
