@@ -20,7 +20,7 @@ namespace Simple_solutions
             listCPUUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listGeheugenUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listOptischedrivesUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-            listHardeschijfUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
+            listHardeschijfUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".","")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".",""))));
             listGrafischekaartUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listBehuizingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
             listVoedingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));

@@ -55,13 +55,13 @@ namespace Simple_solutions.Matcher
             ViewData["geheugenslotsDD"] = geheugenslots;
 
             List<SelectListItem> geheugensnelheid = new List<SelectListItem>();
-            geheugensnelheid.Add(new SelectListItem { Text = "", Value = "1gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "1 gb", Value = "1gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "2 gb", Value = "2gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "4 gb", Value = "4gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "8 gb", Value = "8gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "16 gb", Value = "16gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "32 gb", Value = "32gb" });
+            geheugensnelheid.Add(new SelectListItem { Text = "", Value = "1" });
+            geheugensnelheid.Add(new SelectListItem { Text = "1 gb", Value = "1" });
+            geheugensnelheid.Add(new SelectListItem { Text = "2 gb", Value = "2" });
+            geheugensnelheid.Add(new SelectListItem { Text = "4 gb", Value = "4" });
+            geheugensnelheid.Add(new SelectListItem { Text = "8 gb", Value = "8" });
+            geheugensnelheid.Add(new SelectListItem { Text = "16 gb", Value = "16" });
+            geheugensnelheid.Add(new SelectListItem { Text = "32 gb", Value = "32" });
             ViewData["geheugensnelheidDD"] = geheugensnelheid;
 
             List<SelectListItem> grafischekaartvideogeheugen = new List<SelectListItem>();
@@ -99,8 +99,8 @@ namespace Simple_solutions.Matcher
 
             List<SelectListItem> optischedrivescategorie = new List<SelectListItem>();
             optischedrivescategorie.Add(new SelectListItem { Text = "", Value = "0" });
-            optischedrivescategorie.Add(new SelectListItem { Text = "BLU-RAY", Value = "blu-ray" });
-            optischedrivescategorie.Add(new SelectListItem { Text = "DVD RW", Value = "dvd rw" });
+            optischedrivescategorie.Add(new SelectListItem { Text = "BLU-RAY", Value = "bluray" });
+            optischedrivescategorie.Add(new SelectListItem { Text = "DVD RW", Value = "dvd" });
             ViewData["optischedrivescategorieDD"] = optischedrivescategorie;
 
             List<SelectListItem> behuizingvormfactor = new List<SelectListItem>();
@@ -142,11 +142,11 @@ namespace Simple_solutions.Matcher
         public ActionResult About()
         {
             var searchResults = TempData["results"] as MatcherMainProgram;
-            ViewBag.processorType = searchResults.listNodeGrafischeKaart[0].Videogeheugen; 
-            ViewBag.processorsnelheid = "test";
-            ViewBag.processorcores = "test";
-            ViewBag.geheugenslots = "test";
-            ViewBag.geheugensnelheid = "test";
+            ViewBag.processorType = searchResults.listNodeProcessor[0].Model; 
+            ViewBag.processorsnelheid = searchResults.listNodeProcessor[0].Kloksnelheid + " Ghz";
+            ViewBag.processorcores = searchResults.listNodeProcessor[0].Cores;
+            ViewBag.geheugenslots = searchResults.listNodeGeheugenKaart[0].Geheugenslots;
+            ViewBag.geheugensnelheid = searchResults.listNodeGeheugenKaart[0].Geheugenkloksnelheid;
             ViewBag.grafischekaartvideogeheugen = searchResults.listNodeGrafischeKaart[0].Videogeheugen;
             ViewBag.grafischekaarttype = searchResults.listNodeGrafischeKaart[0].Typegeheugen;
             ViewBag.grafischekaartnaam = searchResults.listNodeGrafischeKaart[0].Naam;
@@ -156,7 +156,7 @@ namespace Simple_solutions.Matcher
             ViewBag.hardeschijfopslag = "test";
             ViewBag.hardeschijfrpm = "test";
             ViewBag.optischedrivescategorie = "test";
-            ViewBag.behuizingvormfactor = "test";
+            ViewBag.behuizingvormfactor = searchResults.listNodeBehuizing[0].Naam;
 
 
             return View();

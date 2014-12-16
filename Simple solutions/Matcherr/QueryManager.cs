@@ -244,8 +244,9 @@ namespace Simple_solutions
             initClientConnection();
             var result =
                 this.client.Cypher
-                .Match(" (m:Moederbord)-[a]-(b:Behuizing)")
+                .Match(" (m:Moederbord),(b:Behuizing)")
                 .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
+                .AndWhere(" m.Vormfactor = b.Vormfactor")
                 .ReturnDistinct((b) => new
                 {
                     listB = b.As<Behuizing>(),
