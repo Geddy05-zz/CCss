@@ -193,7 +193,7 @@ select:focus{
 	position:relative;
 	width:74%;
 	background:#000;
-	height:216px;
+	min-height:216px;
 	float:left;
 }
 
