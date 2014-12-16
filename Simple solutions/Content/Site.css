@@ -8,6 +8,7 @@ a, input { outline: none; }
 
 body {
 	background:url(../Images/bg.png) repeat;
+    color:#FFF;
 }
 
 nav {
