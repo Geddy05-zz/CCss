@@ -14,21 +14,15 @@ namespace Simple_solutions
             List<Optischedrives> listOptischedrivesUnsorted,List<Hardeschijf> listHardeschijfUnsorted,List<GrafischeKaart> listGrafischekaartUnsorted, List<CPUKoeler> listCPUKoelerUnsorted
             , List<Voeding> listVoedingUnsorted, List<Behuizing> listBehuizingUnsorted)
         {
-            var watch = Stopwatch.StartNew();
-
-            listMoederbordsUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-            listCPUUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-            listGeheugenUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-            listOptischedrivesUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
+            listMoederbordsUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listCPUUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listGeheugenUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listOptischedrivesUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
             listHardeschijfUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".","")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".",""))));
-            listGrafischekaartUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-            listBehuizingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-            listVoedingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-            listCPUKoelerUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs).CompareTo(Convert.ToDouble(b.Prijs)));
-
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
-            Console.WriteLine("matchComponentsWithLowestPrice ElapsedMS: " + elapsedMs);
+            listGrafischekaartUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listBehuizingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listVoedingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listCPUKoelerUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
 
         }
     }
