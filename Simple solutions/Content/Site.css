@@ -35,6 +35,7 @@ nav li {
 	line-height:36px;
 	color:#FFF;
 }
+
 nav li a{
 	text-decoration:none;
 	color:#fff;
@@ -81,6 +82,7 @@ input{
 	margin-top:10px;
 	margin-bottom:15px;
 }
+
 .contentContainer{
 	width:1000px;
 	margin:0 auto;
@@ -88,7 +90,6 @@ input{
 	float:left;
 	position:relative;
 }
-
 
 header img {
 	margin-top:45px;
@@ -117,7 +118,6 @@ header h1 span {
 	margin:0 auto;
 }
 
-
 .dropdown{
 	display: none;
 	background:url(../Images/dropdownBg.png) repeat-x;
@@ -127,14 +127,12 @@ header h1 span {
 	position:relative;
 }
 
-
 .item{
 	width:239px;
 	float:left;
 	margin-right:10px;
 	position:relative;
 }
-
 
 h3{
 	color:#f98d0d;
@@ -212,7 +210,6 @@ select:focus{
 	
 /*  RESULTATENPAGINA   */
 
-
 .listitem{
 	width:100%;
 	float:left;
@@ -242,6 +239,7 @@ select:focus{
 	margin-right:10px;
 	
 }
+
 .resultatenRechts h2#prijs{
 	color:#FFF;
 	float:right;
@@ -274,6 +272,7 @@ select:focus{
 	float:left;
 	margin-right:10px;	
 }
+
 .resultatenLinks table{
 
 
@@ -294,8 +293,7 @@ select:focus{
 
 .resultatenLinks td{
 	width:200px;
-	color:#fff;
-	
+	color:#fff;	
 	float:left;
 	margin-right:10px;	
 	font-size:15px;

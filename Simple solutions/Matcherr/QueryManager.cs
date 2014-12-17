@@ -270,30 +270,30 @@ namespace Simple_solutions
             //Create objects With the properties needed to run the queries.
 
             Moederbord moederbordNode = new Moederbord();
-            moederbordNode.Geheugenslots = searchPropertiesModel.geheugenslots;
+            moederbordNode.Geheugenslots = searchPropertiesModel.memorySlots;
 
 
             CPU processorNode = new CPU();
             processorNode.Cores = searchPropertiesModel.processorcores;
             processorNode.Model = searchPropertiesModel.processorType;
-            processorNode.MinimumKloksnelheid = processorNode.setMinimumRange(searchPropertiesModel.processorsnelheid);
-            processorNode.MaximumKloksnelheid = processorNode.setMaximumRange(searchPropertiesModel.processorsnelheid);
+            processorNode.MinimumKloksnelheid = processorNode.setMinimumRange(searchPropertiesModel.processorClockSpeed);
+            processorNode.MaximumKloksnelheid = processorNode.setMaximumRange(searchPropertiesModel.processorClockSpeed);
 
             GeheugenKaart geheugenNode = new GeheugenKaart();
-            geheugenNode.Geheugenslots = searchPropertiesModel.geheugenslots;
-            geheugenNode.Geheugen = searchPropertiesModel.geheugensnelheid;
+            geheugenNode.Geheugenslots = searchPropertiesModel.memorySlots;
+            geheugenNode.Geheugen = searchPropertiesModel.memorySpeed;
 
             Hardeschijf hardeschijfNode = new Hardeschijf();
-            hardeschijfNode.Soort = searchPropertiesModel.hardeschijftype;
-            hardeschijfNode.MinimumOpslag = hardeschijfNode.setMinimumRange(searchPropertiesModel.hardeschijfopslag);
-            hardeschijfNode.MaximumOpslag = hardeschijfNode.setMaximumRange(searchPropertiesModel.hardeschijfopslag);
+            hardeschijfNode.Soort = searchPropertiesModel.hardDrivetype;
+            hardeschijfNode.MinimumOpslag = hardeschijfNode.setMinimumRange(searchPropertiesModel.hardDriveCapacity);
+            hardeschijfNode.MaximumOpslag = hardeschijfNode.setMaximumRange(searchPropertiesModel.hardDriveCapacity);
 
             GrafischeKaart grafischekaartNode = new GrafischeKaart();
-            grafischekaartNode.Videogeheugen = searchPropertiesModel.grafischekaartvideogeheugen;
-            grafischekaartNode.Typegeheugen = searchPropertiesModel.grafischekaarttype;
+            grafischekaartNode.Videogeheugen = searchPropertiesModel.graphicCardSpeed;
+            grafischekaartNode.Typegeheugen = searchPropertiesModel.graphicCardType;
 
             Optischedrives optischedrivesNode = new Optischedrives();
-            optischedrivesNode.Categorie = searchPropertiesModel.optischedrivescategorie;
+            optischedrivesNode.Categorie = searchPropertiesModel.opticalDriveCategory;
 
             //Run all the queries necesary to retrieve the nodes
             queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);

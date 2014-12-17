@@ -10,18 +10,18 @@ namespace Simple_solutions.Models
 {
      public class SearchPropertiesModel
      {
-         public string processorType                { get; set; }
-         public string processorsnelheid            { get; set; }
-         public string processorcores               { get; set; }
-         public string geheugenslots                { get; set; }
-         public string geheugensnelheid             { get; set; }
-         public string grafischekaartvideogeheugen  { get; set; }
-         public string grafischekaarttype           { get; set; }
-         public string hardeschijftype              { get; set; }
-         public string hardeschijfopslag            { get; set; }
-         public string hardeschijfrpm               { get; set; }
-         public string optischedrivescategorie      { get; set; }
-         public string behuizingvormfactor          { get; set; } 
+         public string processorType                  { get; set; }
+         public string processorClockSpeed            { get; set; }
+         public string processorcores                 { get; set; }
+         public string memorySlots                    { get; set; }
+         public string memorySpeed                    { get; set; }
+         public string graphicCardSpeed               { get; set; }
+         public string graphicCardType                { get; set; }
+         public string hardDrivetype                  { get; set; }
+         public string hardDriveCapacity              { get; set; }
+         public string hardDiskrpm                    { get; set; }
+         public string opticalDriveCategory           { get; set; }
+         public string systemUnitFormfactor           { get; set; } 
         
     }
 }

@@ -10,137 +10,137 @@ namespace Simple_solutions.Matcher
 {
     public class HomeController : Controller
     {
-          MatcherMainProgram prog;
+        MatcherMainProgram matcher;
 
         public ActionResult Index()
         {
-            List<SelectListItem> processortype = new List<SelectListItem>();
-            processortype.Add(new SelectListItem { Text = "", Value = "i3" });
-            processortype.Add(new SelectListItem { Text = "i3", Value = "i3" });
-            processortype.Add(new SelectListItem { Text = "i5", Value = "i5" });
-            processortype.Add(new SelectListItem { Text = "i7", Value = "i7" });
-            processortype.Add(new SelectListItem { Text = "g3220", Value = "g3220" });
-            processortype.Add(new SelectListItem { Text = "AMD fx", Value = "fx" });
-            processortype.Add(new SelectListItem { Text = "AMD a10", Value = "a10" });
-            processortype.Add(new SelectListItem { Text = "AMD a4", Value = "a4" });
-            processortype.Add(new SelectListItem { Text = "AMD a8", Value = "a8" });
-            ViewData["processortypeDD"] = processortype;
+            List<SelectListItem> processorType = new List<SelectListItem>();
+            processorType.Add(new SelectListItem { Text = "", Value = "i3" });
+            processorType.Add(new SelectListItem { Text = "i3", Value = "i3" });
+            processorType.Add(new SelectListItem { Text = "i5", Value = "i5" });
+            processorType.Add(new SelectListItem { Text = "i7", Value = "i7" });
+            processorType.Add(new SelectListItem { Text = "g3220", Value = "g3220" });
+            processorType.Add(new SelectListItem { Text = "AMD fx", Value = "fx" });
+            processorType.Add(new SelectListItem { Text = "AMD a10", Value = "a10" });
+            processorType.Add(new SelectListItem { Text = "AMD a4", Value = "a4" });
+            processorType.Add(new SelectListItem { Text = "AMD a8", Value = "a8" });
+            ViewData["processortypeDD"] = processorType;
             
-            List<SelectListItem> processorsnelheid = new List<SelectListItem>();
-            processorsnelheid.Add(new SelectListItem { Text = "", Value = "1 - 2" });
-            processorsnelheid.Add(new SelectListItem { Text = "1-2 GHZ", Value = "1 - 2" });
-            processorsnelheid.Add(new SelectListItem { Text = "2-3 GHZ", Value = "2 - 3" });
-            processorsnelheid.Add(new SelectListItem { Text = "3-4 GHZ", Value = "3 - 4" });
-            processorsnelheid.Add(new SelectListItem { Text = "4-5 GHZ", Value = "4 - 5" });
-            ViewData["processorsnelheidDD"] = processorsnelheid;
+            List<SelectListItem> processorClockSpeed = new List<SelectListItem>();
+            processorClockSpeed.Add(new SelectListItem { Text = "", Value = "1 - 2" });
+            processorClockSpeed.Add(new SelectListItem { Text = "1-2 GHZ", Value = "1 - 2" });
+            processorClockSpeed.Add(new SelectListItem { Text = "2-3 GHZ", Value = "2 - 3" });
+            processorClockSpeed.Add(new SelectListItem { Text = "3-4 GHZ", Value = "3 - 4" });
+            processorClockSpeed.Add(new SelectListItem { Text = "4-5 GHZ", Value = "4 - 5" });
+            ViewData["processorsnelheidDD"] = processorClockSpeed;
 
             
-            List<SelectListItem> processorcores = new List<SelectListItem>();
-            processorcores.Add(new SelectListItem { Text = "", Value = "1" });
-            processorcores.Add(new SelectListItem { Text = "1", Value = "1" });
-            processorcores.Add(new SelectListItem { Text = "2", Value = "2" });
-            processorcores.Add(new SelectListItem { Text = "3", Value = "3" });
-            processorcores.Add(new SelectListItem { Text = "4", Value = "4" });
-            processorcores.Add(new SelectListItem { Text = "6", Value = "6" });
-            processorcores.Add(new SelectListItem { Text = "8", Value ="8" });
-            processorcores.Add(new SelectListItem { Text = "12", Value = "12" });
-            ViewData["processorcoresDD"] = processorcores;
+            List<SelectListItem> processorCores = new List<SelectListItem>();
+            processorCores.Add(new SelectListItem { Text = "", Value = "1" });
+            processorCores.Add(new SelectListItem { Text = "1", Value = "1" });
+            processorCores.Add(new SelectListItem { Text = "2", Value = "2" });
+            processorCores.Add(new SelectListItem { Text = "3", Value = "3" });
+            processorCores.Add(new SelectListItem { Text = "4", Value = "4" });
+            processorCores.Add(new SelectListItem { Text = "6", Value = "6" });
+            processorCores.Add(new SelectListItem { Text = "8", Value ="8" });
+            processorCores.Add(new SelectListItem { Text = "12", Value = "12" });
+            ViewData["processorcoresDD"] = processorCores;
 
-            List<SelectListItem> geheugenslots = new List<SelectListItem>();
-            geheugenslots.Add(new SelectListItem { Text = "", Value = "2" });
-            geheugenslots.Add(new SelectListItem { Text = "2", Value = "2" });
-            geheugenslots.Add(new SelectListItem { Text = "4", Value = "4" });
-            geheugenslots.Add(new SelectListItem { Text = "6", Value = "6" });
-            geheugenslots.Add(new SelectListItem { Text = "8", Value = "8" });
-            ViewData["geheugenslotsDD"] = geheugenslots;
+            List<SelectListItem> memorySlots = new List<SelectListItem>();
+            memorySlots.Add(new SelectListItem { Text = "", Value = "2" });
+            memorySlots.Add(new SelectListItem { Text = "2", Value = "2" });
+            memorySlots.Add(new SelectListItem { Text = "4", Value = "4" });
+            memorySlots.Add(new SelectListItem { Text = "6", Value = "6" });
+            memorySlots.Add(new SelectListItem { Text = "8", Value = "8" });
+            ViewData["geheugenslotsDD"] = memorySlots;
 
-            List<SelectListItem> geheugensnelheid = new List<SelectListItem>();
-            geheugensnelheid.Add(new SelectListItem { Text = "", Value = "1gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "1 gb", Value = "1gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "2 gb", Value = "2gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "4 gb", Value = "4gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "8 gb", Value = "8gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "16 gb", Value = "16gb" });
-            geheugensnelheid.Add(new SelectListItem { Text = "32 gb", Value = "32gb" });
-            ViewData["geheugensnelheidDD"] = geheugensnelheid;
+            List<SelectListItem> memorySpeed = new List<SelectListItem>();
+            memorySpeed.Add(new SelectListItem { Text = "", Value = "1gb" });
+            memorySpeed.Add(new SelectListItem { Text = "1 gb", Value = "1gb" });
+            memorySpeed.Add(new SelectListItem { Text = "2 gb", Value = "2gb" });
+            memorySpeed.Add(new SelectListItem { Text = "4 gb", Value = "4gb" });
+            memorySpeed.Add(new SelectListItem { Text = "8 gb", Value = "8gb" });
+            memorySpeed.Add(new SelectListItem { Text = "16 gb", Value = "16gb" });
+            memorySpeed.Add(new SelectListItem { Text = "32 gb", Value = "32gb" });
+            ViewData["geheugensnelheidDD"] = memorySpeed;
 
-            List<SelectListItem> grafischekaartvideogeheugen = new List<SelectListItem>();
-            grafischekaartvideogeheugen.Add(new SelectListItem { Text = "", Value = "1gb" });
-            grafischekaartvideogeheugen.Add(new SelectListItem { Text = "1gb", Value = "1gb" });
-            grafischekaartvideogeheugen.Add(new SelectListItem { Text = "2gb", Value = "2gb" });
-            grafischekaartvideogeheugen.Add(new SelectListItem { Text = "4gb", Value = "4gb" });
-            grafischekaartvideogeheugen.Add(new SelectListItem { Text = "8gb", Value = "8gb" });
-            grafischekaartvideogeheugen.Add(new SelectListItem { Text = "12gb", Value = "12gb" });
-            ViewData["grafischekaartvideogeheugenDD"] = grafischekaartvideogeheugen;
+            List<SelectListItem> graphicCardSpeed = new List<SelectListItem>();
+            graphicCardSpeed.Add(new SelectListItem { Text = "", Value = "1gb" });
+            graphicCardSpeed.Add(new SelectListItem { Text = "1gb", Value = "1gb" });
+            graphicCardSpeed.Add(new SelectListItem { Text = "2gb", Value = "2gb" });
+            graphicCardSpeed.Add(new SelectListItem { Text = "4gb", Value = "4gb" });
+            graphicCardSpeed.Add(new SelectListItem { Text = "8gb", Value = "8gb" });
+            graphicCardSpeed.Add(new SelectListItem { Text = "12gb", Value = "12gb" });
+            ViewData["grafischekaartvideogeheugenDD"] = graphicCardSpeed;
 
-            List<SelectListItem> grafischekaarttype = new List<SelectListItem>();
-            grafischekaarttype.Add(new SelectListItem { Text = "", Value = "ddr2" });
-            grafischekaarttype.Add(new SelectListItem { Text = "ddr", Value = "ddr" });
-            grafischekaarttype.Add(new SelectListItem { Text = "ddr2", Value = "ddr2" });
-            grafischekaarttype.Add(new SelectListItem { Text = "ddr3", Value = "ddr3" });
-            grafischekaarttype.Add(new SelectListItem { Text = "gddr3", Value = "gddr3" });
-            grafischekaarttype.Add(new SelectListItem { Text = "gddr5", Value = "gddr5" });
-            ViewData["grafischekaarttypeDD"] = grafischekaarttype;
+            List<SelectListItem> graphicCardType = new List<SelectListItem>();
+            graphicCardType.Add(new SelectListItem { Text = "", Value = "ddr2" });
+            graphicCardType.Add(new SelectListItem { Text = "ddr", Value = "ddr" });
+            graphicCardType.Add(new SelectListItem { Text = "ddr2", Value = "ddr2" });
+            graphicCardType.Add(new SelectListItem { Text = "ddr3", Value = "ddr3" });
+            graphicCardType.Add(new SelectListItem { Text = "gddr3", Value = "gddr3" });
+            graphicCardType.Add(new SelectListItem { Text = "gddr5", Value = "gddr5" });
+            ViewData["grafischekaarttypeDD"] = graphicCardType;
 
-            List<SelectListItem> hardeschijftype = new List<SelectListItem>();
-            hardeschijftype.Add(new SelectListItem { Text = "", Value = "hdd" });
-            hardeschijftype.Add(new SelectListItem { Text = "hdd", Value = "hdd" });
-            hardeschijftype.Add(new SelectListItem { Text = "ssd", Value = "ssd" });
-            ViewData["hardeschijftypeDD"] = hardeschijftype;
+            List<SelectListItem> hardDriveType = new List<SelectListItem>();
+            hardDriveType.Add(new SelectListItem { Text = "", Value = "hdd" });
+            hardDriveType.Add(new SelectListItem { Text = "hdd", Value = "hdd" });
+            hardDriveType.Add(new SelectListItem { Text = "ssd", Value = "ssd" });
+            ViewData["hardeschijftypeDD"] = hardDriveType;
 
-            List<SelectListItem> hardeschijfopslag = new List<SelectListItem>();
-            hardeschijfopslag.Add(new SelectListItem { Text = "", Value = "50 - 100" });
-            hardeschijfopslag.Add(new SelectListItem { Text = "50-100 GB", Value = "50 - 100" });
-            hardeschijfopslag.Add(new SelectListItem { Text = "100-200 GB", Value = "100 - 200" });
-            hardeschijfopslag.Add(new SelectListItem { Text = "200-400 GB", Value = "200 - 400" });
-            hardeschijfopslag.Add(new SelectListItem { Text = "400-1000 GB", Value = "400 - 1000" });
-            hardeschijfopslag.Add(new SelectListItem { Text = "1000-2000 GB", Value = "1000 - 2000" });
-            ViewData["hardeschijfopslagDD"] = hardeschijfopslag;
+            List<SelectListItem> hardDriveCapacity = new List<SelectListItem>();
+            hardDriveCapacity.Add(new SelectListItem { Text = "", Value = "50 - 100" });
+            hardDriveCapacity.Add(new SelectListItem { Text = "50-100 GB", Value = "50 - 100" });
+            hardDriveCapacity.Add(new SelectListItem { Text = "100-200 GB", Value = "100 - 200" });
+            hardDriveCapacity.Add(new SelectListItem { Text = "200-400 GB", Value = "200 - 400" });
+            hardDriveCapacity.Add(new SelectListItem { Text = "400-1000 GB", Value = "400 - 1000" });
+            hardDriveCapacity.Add(new SelectListItem { Text = "1000-2000 GB", Value = "1000 - 2000" });
+            ViewData["hardeschijfopslagDD"] = hardDriveCapacity;
 
-            List<SelectListItem> optischedrivescategorie = new List<SelectListItem>();
-            optischedrivescategorie.Add(new SelectListItem { Text = "", Value = "dvd" });
-            optischedrivescategorie.Add(new SelectListItem { Text = "BLU-RAY", Value = "bluray" });
-            optischedrivescategorie.Add(new SelectListItem { Text = "DVD", Value = "dvd" });
-            ViewData["optischedrivescategorieDD"] = optischedrivescategorie;
+            List<SelectListItem> hardDiskRpm = new List<SelectListItem>();
+            hardDiskRpm.Add(new SelectListItem { Text = "", Value = "dvd" });
+            hardDiskRpm.Add(new SelectListItem { Text = "BLU-RAY", Value = "bluray" });
+            hardDiskRpm.Add(new SelectListItem { Text = "DVD", Value = "dvd" });
+            ViewData["optischedrivescategorieDD"] = hardDiskRpm;
 
-            List<SelectListItem> behuizingvormfactor = new List<SelectListItem>();
-            behuizingvormfactor.Add(new SelectListItem { Text = "", Value = "atx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "atx", Value = "atx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "nuc", Value = "nuc" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "xlatx", Value = "xlatx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "e-atx", Value = "e-atx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "hptx", Value = "hptx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "itx", Value = "itx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "microatx", Value = "microatx" });
-            behuizingvormfactor.Add(new SelectListItem { Text = "mini itx", Value = "mini itx" });
-            ViewData["behuizingvormfactorDD"] = behuizingvormfactor;
+            List<SelectListItem> systemUnitFormfactor = new List<SelectListItem>();
+            systemUnitFormfactor.Add(new SelectListItem { Text = "", Value = "atx" });
+            systemUnitFormfactor.Add(new SelectListItem { Text = "atx", Value = "atx" });
+            systemUnitFormfactor.Add(new SelectListItem { Text = "nuc", Value = "nuc" });
+            systemUnitFormfactor.Add(new SelectListItem { Text = "xlatx", Value = "xlatx" });
+            systemUnitFormfactor.Add(new SelectListItem { Text = "e-atx", Value = "e-atx" });
+            systemUnitFormfactor.Add(new SelectListItem { Text = "hptx", Value = "hptx" });
+            systemUnitFormfactor.Add(new SelectListItem { Text = "itx", Value = "itx" });
+            systemUnitFormfactor.Add(new SelectListItem { Text = "microatx", Value = "microatx" });
+            systemUnitFormfactor.Add(new SelectListItem { Text = "mini itx", Value = "mini itx" });
+            ViewData["behuizingvormfactorDD"] = systemUnitFormfactor;
 
             
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string processortypeResult, string processorsnelheidResult, string processorcoresResult, string geheugenslotsResult, string geheugensnelheidResult, string grafischekaartvideogeheugenResult, string grafischekaarttypeResult,
-           string hardeschijftypeResult, string hardeschijfopslagResult, string hardeschijfrpmResult, string optischedrivescategorieResult, string behuizingvormfactorResult)
+        public ActionResult Index(string processorTypeResult, string processorClockSpeedResult, string processorCoresResult, string memorySlotsResult, string memorySpeedResult, string graphicCardSpeedResult, string graphicCardTypeResult,
+           string hardDriveTypeResult, string hardDriveCapacityResult, string hardDriveRpmResult, string opticalDriveCategoryResult, string systemUnitFormfactorResult)
         {
             var searchResults = new SearchPropertiesModel();
-            searchResults.processorType = processortypeResult;
-            searchResults.processorsnelheid = processorsnelheidResult;
-            searchResults.processorcores = processorcoresResult;
-            searchResults.geheugenslots = geheugenslotsResult;
-            searchResults.geheugensnelheid = geheugensnelheidResult;
-            searchResults.grafischekaartvideogeheugen = grafischekaartvideogeheugenResult; 
-            searchResults.grafischekaarttype = grafischekaarttypeResult;
-            searchResults.hardeschijftype = hardeschijftypeResult;
-            searchResults.hardeschijfopslag = hardeschijfopslagResult;
-            searchResults.hardeschijfrpm = hardeschijfrpmResult;
-            searchResults.optischedrivescategorie = optischedrivescategorieResult;
-            searchResults.behuizingvormfactor = behuizingvormfactorResult;
+            searchResults.processorType = processorTypeResult;
+            searchResults.processorClockSpeed = processorClockSpeedResult;
+            searchResults.processorcores = processorCoresResult;
+            searchResults.memorySlots = memorySlotsResult;
+            searchResults.memorySpeed = memorySpeedResult;
+            searchResults.graphicCardSpeed = graphicCardSpeedResult; 
+            searchResults.graphicCardType = graphicCardTypeResult;
+            searchResults.hardDrivetype = hardDriveTypeResult;
+            searchResults.hardDriveCapacity = hardDriveCapacityResult;
+            searchResults.hardDiskrpm = hardDriveRpmResult;
+            searchResults.opticalDriveCategory = opticalDriveCategoryResult;
+            searchResults.systemUnitFormfactor = systemUnitFormfactorResult;
 
-            prog = new MatcherMainProgram(searchResults);
-            prog.runMatcherProgram();
+            matcher = new MatcherMainProgram(searchResults);
+            matcher.runMatcherProgram();
 
 
-            TempData["results"] = prog;
+            TempData["results"] = matcher;
             return RedirectToAction("About");
         }
         
