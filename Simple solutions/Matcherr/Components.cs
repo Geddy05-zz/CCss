@@ -9,6 +9,7 @@ namespace Simple_solutions
 {
     /* This class are the model that represents the nodes in Neo4j database with their
     properties. */
+
     public abstract class Components
     {
         public string Naam { get; set; }

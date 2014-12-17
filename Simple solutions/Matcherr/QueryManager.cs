@@ -239,7 +239,7 @@ namespace Simple_solutions
 
         public void queryBehuizing(Moederbord moederbordNode, List<Behuizing> listBehuizing)
         {
-            // To DO: Query needs to be updated for the behuizing.
+            // This query is to retrieve the behuizing node
 
             initClientConnection();
             var result =
