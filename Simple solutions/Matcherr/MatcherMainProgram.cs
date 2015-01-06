@@ -10,15 +10,15 @@ namespace Simple_solutions
     class MatcherMainProgram
     {
         //List that will contain all of nodes that will be retrieved from the database.
-        public List<Motherboard> listNodeMoederbord;
+        public List<Motherboard> listNodeMotherboard;
         public List<Processor> listNodeProcessor;
-        public List<RAM> listNodeGeheugenKaart;
-        public List<ProcessorCooler> listNodeCPUKoeler;
-        public List<PowerSupply> listNodeVoeding;
-        public List<GraphicCard> listNodeGrafischeKaart;
-        public List<ComputerCase> listNodeBehuizing;
-        public List<HardDrive> listNodeHardeschijf;
-        public List<OpticalDrive> listNodeOptischedrives;
+        public List<RAM> listNodeRAM;
+        public List<ProcessorCooler> listNodeProcessorCooler;
+        public List<PowerSupply> listNodePowerSupply;
+        public List<GraphicCard> listNodeGraphicCard;
+        public List<ComputerCase> listNodeComputerCase;
+        public List<HardDrive> listNodeHardDrive;
+        public List<OpticalDrive> listNodeOpticalDrive;
 
         private SearchPropertiesModel searchPropertiesModel;
 
@@ -34,15 +34,15 @@ namespace Simple_solutions
          */
         private void initiateComponentsList()
         {
-            listNodeMoederbord = new List<Motherboard>();
+            listNodeMotherboard = new List<Motherboard>();
             listNodeProcessor = new List<Processor>();
-            listNodeGeheugenKaart = new List<RAM>();
-            listNodeCPUKoeler = new List<ProcessorCooler>();
-            listNodeVoeding = new List<PowerSupply>();
-            listNodeGrafischeKaart = new List<GraphicCard>();
-            listNodeBehuizing = new List<ComputerCase>();
-            listNodeHardeschijf = new List<HardDrive>();
-            listNodeOptischedrives = new List<OpticalDrive>();
+            listNodeRAM = new List<RAM>();
+            listNodeProcessorCooler = new List<ProcessorCooler>();
+            listNodePowerSupply = new List<PowerSupply>();
+            listNodeGraphicCard = new List<GraphicCard>();
+            listNodeComputerCase = new List<ComputerCase>();
+            listNodeHardDrive = new List<HardDrive>();
+            listNodeOpticalDrive = new List<OpticalDrive>();
         }
 
         /* The runMatchProgram runs all the necessary functions to get
@@ -54,13 +54,13 @@ namespace Simple_solutions
         {
             //Run the query to retrieve the data from the database.
             QueryManager qm = new QueryManager(); 
-            qm.runAllQuery(searchPropertiesModel, listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart, listNodeOptischedrives,
-            listNodeHardeschijf, listNodeGrafischeKaart, listNodeCPUKoeler, listNodeVoeding, listNodeBehuizing);
+            qm.runAllQuery(searchPropertiesModel, listNodeMotherboard, listNodeProcessor, listNodeRAM, listNodeOpticalDrive,
+            listNodeHardDrive, listNodeGraphicCard, listNodeProcessorCooler, listNodePowerSupply, listNodeComputerCase);
 
             //Run the match to compare all the nodes and sort them in orde of lowest price.
             ComponentsMatcher matcher = new ComponentsMatcher();
-            matcher.matchComponentsWithLowestPrice(listNodeMoederbord, listNodeProcessor, listNodeGeheugenKaart, listNodeOptischedrives,
-            listNodeHardeschijf, listNodeGrafischeKaart, listNodeCPUKoeler, listNodeVoeding, listNodeBehuizing);
+            matcher.matchComponentsWithLowestPrice(listNodeMotherboard, listNodeProcessor, listNodeRAM, listNodeOpticalDrive,
+            listNodeHardDrive, listNodeGraphicCard, listNodeProcessorCooler, listNodePowerSupply, listNodeComputerCase);
         }
         
     }

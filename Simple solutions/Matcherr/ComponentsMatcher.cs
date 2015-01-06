@@ -10,19 +10,19 @@ namespace Simple_solutions
     class ComponentsMatcher
     {
         //The matcher class has the functions to sort the component lists and create a computer package 
-        public void matchComponentsWithLowestPrice(List<Motherboard> listMoederbordsUnsorted, List<Processor> listCPUUnsorted, List<RAM> listGeheugenUnsorted,
-            List<OpticalDrive> listOptischedrivesUnsorted,List<HardDrive> listHardeschijfUnsorted,List<GraphicCard> listGrafischekaartUnsorted, List<ProcessorCooler> listCPUKoelerUnsorted
-            , List<PowerSupply> listVoedingUnsorted, List<ComputerCase> listBehuizingUnsorted)
+        public void matchComponentsWithLowestPrice(List<Motherboard> listMotherboardUnsorted, List<Processor> listProcessorUnsorted, List<RAM> listRAMUnsorted,
+            List<OpticalDrive> listOpticalDriveUnsorted,List<HardDrive> listHardDriveUnsorted,List<GraphicCard> listGraphicCardUnsorted, List<ProcessorCooler> listProcessorCoolerUnsorted
+            , List<PowerSupply> listPowerSupplyUnsorted, List<ComputerCase> listComputerCaseUnsorted)
         {
-            listMoederbordsUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
-            listCPUUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
-            listGeheugenUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
-            listOptischedrivesUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
-            listHardeschijfUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".","")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".",""))));
-            listGrafischekaartUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
-            listBehuizingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
-            listVoedingUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
-            listCPUKoelerUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listMotherboardUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listProcessorUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listRAMUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listOpticalDriveUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listHardDriveUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".","")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".",""))));
+            listGraphicCardUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listComputerCaseUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listPowerSupplyUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
+            listProcessorCoolerUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
 
         }
     }
