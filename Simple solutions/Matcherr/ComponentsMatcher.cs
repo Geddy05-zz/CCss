@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Simple_solutions
 {
-    class Matcherr
+    class ComponentsMatcher
     {
         //The matcher class has the functions to sort the component lists and create a computer package 
-        public void matchComponentsWithLowestPrice(List<Moederbord> listMoederbordsUnsorted, List<CPU> listCPUUnsorted, List<GeheugenKaart> listGeheugenUnsorted,
-            List<Optischedrives> listOptischedrivesUnsorted,List<Hardeschijf> listHardeschijfUnsorted,List<GrafischeKaart> listGrafischekaartUnsorted, List<CPUKoeler> listCPUKoelerUnsorted
-            , List<Voeding> listVoedingUnsorted, List<Behuizing> listBehuizingUnsorted)
+        public void matchComponentsWithLowestPrice(List<Motherboard> listMoederbordsUnsorted, List<Processor> listCPUUnsorted, List<RAM> listGeheugenUnsorted,
+            List<OpticalDrive> listOptischedrivesUnsorted,List<HardDrive> listHardeschijfUnsorted,List<GraphicCard> listGrafischekaartUnsorted, List<ProcessorCooler> listCPUKoelerUnsorted
+            , List<PowerSupply> listVoedingUnsorted, List<ComputerCase> listBehuizingUnsorted)
         {
             listMoederbordsUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));
             listCPUUnsorted.Sort((a, b) => Convert.ToDouble(a.Prijs.Replace(".", "")).CompareTo(Convert.ToDouble(b.Prijs.Replace(".", ""))));

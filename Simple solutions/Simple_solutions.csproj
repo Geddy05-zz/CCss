@@ -192,7 +192,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Matcherr\Components.cs" />
-    <Compile Include="Matcherr\Matcher.cs" />
+    <Compile Include="Matcherr\ComponentsMatcher.cs" />
     <Compile Include="Matcherr\MatcherMainProgram.cs" />
     <Compile Include="Matcherr\QueryManager.cs" />
     <Compile Include="Models\AccountModels.cs" />

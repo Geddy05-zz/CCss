@@ -9,6 +9,9 @@ using Simple_solutions.Models;
 
 namespace Simple_solutions
 {
+    /// <summary>
+    /// QueryManager class has all the queries necessary 
+    /// </summary>
     class QueryManager
     {
         private GraphClient client;
@@ -34,8 +37,8 @@ namespace Simple_solutions
 
 
         }
-
-        public void queryMoederbord(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<Moederbord> listMoederB)
+       
+        public void queryReadMotherboard(Motherboard moederbordNode,Processor processorNode,RAM geheugenNode,List<Motherboard> listMoederB)
         {
             // This query is to return the motherbord node.
 
@@ -43,14 +46,14 @@ namespace Simple_solutions
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
-                .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
-                .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
-                .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
+                .Where((Motherboard m) => m.Geheugenslots == moederbordNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((RAM g) => g.Geheugen == geheugenNode.Geheugen)
                 .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
                 .AndWhere("g.Geheugentype = m.Geheugentype")
                 .ReturnDistinct((m) => new
                 {
-                    listM = m.As<Moederbord>(),
+                    listM = m.As<Motherboard>(),
                 })
                 .Results;
                 
@@ -62,7 +65,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryProcessor(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<CPU> listProcessor)
+        public void queryReadProcessor(Motherboard moederbordNode,Processor processorNode,RAM geheugenNode,List<Processor> listProcessor)
         {
             // This query is to return the CPU node.
 
@@ -70,14 +73,14 @@ namespace Simple_solutions
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
-                .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
-                .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
-                .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
+                .Where((Motherboard m) => m.Geheugenslots == moederbordNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((RAM g) => g.Geheugen == geheugenNode.Geheugen)
                 .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
                 .AndWhere("g.Geheugentype = m.Geheugentype")
                 .ReturnDistinct((p) => new
                 {
-                    listP = p.As<CPU>(),
+                    listP = p.As<Processor>(),
                 })
                 .Results;
 
@@ -89,7 +92,7 @@ namespace Simple_solutions
 
         }
         
-        public void queryGeheugenKaart(Moederbord moederbordNode,CPU processorNode,GeheugenKaart geheugenNode,List<GeheugenKaart> listGeheugenkaart)
+        public void queryReadRAM(Motherboard moederbordNode,Processor processorNode,RAM geheugenNode,List<RAM> listGeheugenkaart)
         {
             // This query is to return the RAM node.
 
@@ -97,14 +100,14 @@ namespace Simple_solutions
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
-                .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
-                .AndWhere((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
-                .AndWhere((GeheugenKaart g) => g.Geheugen == geheugenNode.Geheugen)
+                .Where((Motherboard m) => m.Geheugenslots == moederbordNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((RAM g) => g.Geheugen == geheugenNode.Geheugen)
                 .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
                 .AndWhere("g.Geheugentype = m.Geheugentype")
                 .ReturnDistinct((g) => new
                 {
-                    listG = g.As<GeheugenKaart>(),
+                    listG = g.As<RAM>(),
                 })
                 .Results;
 
@@ -116,7 +119,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryOptischedrive(Optischedrives optischeDrivesNode, List<Optischedrives> listOptischeDrives)
+        public void queryReadOpticalDrive(OpticalDrive optischeDrivesNode, List<OpticalDrive> listOptischeDrives)
         {
             // This query is to return the optical drive node.
 
@@ -124,10 +127,10 @@ namespace Simple_solutions
             var result =
                 this.client.Cypher
                 .Match(" (o:Optischedrives)")
-                .Where((Optischedrives o) => o.Categorie == optischeDrivesNode.Categorie)
+                .Where((OpticalDrive o) => o.Categorie == optischeDrivesNode.Categorie)
                 .ReturnDistinct((o) => new
                 {
-                    listO = o.As<Optischedrives>(),
+                    listO = o.As<OpticalDrive>(),
                 })
                 .Limit(500)
                 .Results;
@@ -140,7 +143,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryHardeschijf(Hardeschijf hardeschijfNode, List<Hardeschijf> listHardeschijf)
+        public void queryReadHardDrive(HardDrive hardeschijfNode, List<HardDrive> listHardeschijf)
         {
             // This query is to return the hard drive node.
 
@@ -149,10 +152,10 @@ namespace Simple_solutions
                 this.client.Cypher
                 .Match(" (h:Hardeschijf)")
                 .Where("h.Opslag >= " + hardeschijfNode.MinimumOpslag + " AND h.Opslag <= " + hardeschijfNode.MaximumOpslag)
-                .AndWhere((Hardeschijf h) => h.Soort == hardeschijfNode.Soort)
+                .AndWhere((HardDrive h) => h.Soort == hardeschijfNode.Soort)
                 .ReturnDistinct((h) => new
                 {
-                    listH = h.As<Hardeschijf>(),
+                    listH = h.As<HardDrive>(),
                 })
                 .Limit(500)
                 .Results;
@@ -165,7 +168,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryVoeding(List<Voeding> listVoeding)
+        public void queryReadPowerSupply(List<PowerSupply> listVoeding)
         {
             // This query is to retrieve the psu node.
 
@@ -175,7 +178,7 @@ namespace Simple_solutions
                 .Match(" (v:Voeding)")
                 .ReturnDistinct((v) => new
                 {
-                    listV = v.As<Voeding>(),
+                    listV = v.As<PowerSupply>(),
                 })
                 .Limit(500)
                 .Results;
@@ -188,7 +191,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryGrafischekaart(GrafischeKaart grafischekaartNode, List<GrafischeKaart> listGrafischeKaart)
+        public void queryReadGraphicCard(GraphicCard grafischekaartNode, List<GraphicCard> listGrafischeKaart)
         {
             // This query is to return the grafic Card node.
 
@@ -196,10 +199,10 @@ namespace Simple_solutions
             var result =
                 this.client.Cypher
                 .Match(" (g:Grafischekaart)")
-                .Where((GrafischeKaart g) => g.Typegeheugen == grafischekaartNode.Typegeheugen && g.Videogeheugen == grafischekaartNode.Videogeheugen )
+                .Where((GraphicCard g) => g.Typegeheugen == grafischekaartNode.Typegeheugen && g.Videogeheugen == grafischekaartNode.Videogeheugen )
                 .ReturnDistinct((g) => new
                 {
-                    listG = g.As<GrafischeKaart>(),
+                    listG = g.As<GraphicCard>(),
                 })
                 .Limit(500)
                 .Results;
@@ -212,7 +215,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryKoeler(CPU processorNode,List<CPUKoeler> listCPUKoeler)
+        public void queryReadCooler(Processor processorNode,List<ProcessorCooler> listCPUKoeler)
         {
             // This query is to retrieve the cpu cooler node.
 
@@ -220,11 +223,11 @@ namespace Simple_solutions
             var result =
                 this.client.Cypher
                 .Match(" (p:Processor),(k:Koeler)")
-                .Where((CPU p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .Where((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
                 .AndWhere("p.Socket = k.Socket")
                 .ReturnDistinct((k) => new
                 {
-                    listK = k.As<CPUKoeler>(),
+                    listK = k.As<ProcessorCooler>(),
                 })
                 .Limit(500)
                 .Results;
@@ -237,7 +240,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryBehuizing(Moederbord moederbordNode, List<Behuizing> listBehuizing)
+        public void queryReadComputerCase(Motherboard moederbordNode, List<ComputerCase> listBehuizing)
         {
             // This query is to retrieve the behuizing node
 
@@ -245,11 +248,11 @@ namespace Simple_solutions
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord),(b:Behuizing)")
-                .Where((Moederbord m) => m.Geheugenslots == moederbordNode.Geheugenslots)
+                .Where((Motherboard m) => m.Geheugenslots == moederbordNode.Geheugenslots)
                 .AndWhere(" m.Vormfactor = b.Vormfactor")
                 .ReturnDistinct((b) => new
                 {
-                    listB = b.As<Behuizing>(),
+                    listB = b.As<ComputerCase>(),
                 })
                 .Limit(500)
                 .Results;
@@ -262,49 +265,49 @@ namespace Simple_solutions
 
         }
 
-        public void runAllQuery(SearchPropertiesModel searchPropertiesModel, List<Moederbord> ListNodeMoederbord, List<CPU> listProcessor, List<GeheugenKaart> listGeheugenkaart, List<Optischedrives> listNOptischedrives,
-            List<Hardeschijf> listHardeschijf, List<GrafischeKaart> listGrafischekaart, List<CPUKoeler> listCPUKoeler,
-            List<Voeding> listVoeding, List<Behuizing> listBehuizing)
+        public void runAllQuery(SearchPropertiesModel searchPropertiesModel, List<Motherboard> ListNodeMoederbord, List<Processor> listProcessor, List<RAM> listGeheugenkaart, List<OpticalDrive> listNOptischedrives,
+            List<HardDrive> listHardeschijf, List<GraphicCard> listGrafischekaart, List<ProcessorCooler> listCPUKoeler,
+            List<PowerSupply> listVoeding, List<ComputerCase> listBehuizing)
         {
 
             //Create objects With the properties needed to run the queries.
 
-            Moederbord moederbordNode = new Moederbord();
+            Motherboard moederbordNode = new Motherboard();
             moederbordNode.Geheugenslots = searchPropertiesModel.memorySlots;
 
 
-            CPU processorNode = new CPU();
+            Processor processorNode = new Processor();
             processorNode.Cores = searchPropertiesModel.processorcores;
             processorNode.Model = searchPropertiesModel.processorType;
             processorNode.MinimumKloksnelheid = processorNode.setMinimumRange(searchPropertiesModel.processorClockSpeed);
             processorNode.MaximumKloksnelheid = processorNode.setMaximumRange(searchPropertiesModel.processorClockSpeed);
 
-            GeheugenKaart geheugenNode = new GeheugenKaart();
+            RAM geheugenNode = new RAM();
             geheugenNode.Geheugenslots = searchPropertiesModel.memorySlots;
             geheugenNode.Geheugen = searchPropertiesModel.memorySpeed;
 
-            Hardeschijf hardeschijfNode = new Hardeschijf();
+            HardDrive hardeschijfNode = new HardDrive();
             hardeschijfNode.Soort = searchPropertiesModel.hardDrivetype;
             hardeschijfNode.MinimumOpslag = hardeschijfNode.setMinimumRange(searchPropertiesModel.hardDriveCapacity);
             hardeschijfNode.MaximumOpslag = hardeschijfNode.setMaximumRange(searchPropertiesModel.hardDriveCapacity);
 
-            GrafischeKaart grafischekaartNode = new GrafischeKaart();
+            GraphicCard grafischekaartNode = new GraphicCard();
             grafischekaartNode.Videogeheugen = searchPropertiesModel.graphicCardSpeed;
             grafischekaartNode.Typegeheugen = searchPropertiesModel.graphicCardType;
 
-            Optischedrives optischedrivesNode = new Optischedrives();
+            OpticalDrive optischedrivesNode = new OpticalDrive();
             optischedrivesNode.Categorie = searchPropertiesModel.opticalDriveCategory;
 
             //Run all the queries necesary to retrieve the nodes
-            queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
-            queryProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
-            queryGeheugenKaart(moederbordNode, processorNode, geheugenNode, listGeheugenkaart);
-            queryHardeschijf(hardeschijfNode, listHardeschijf);
-            queryGrafischekaart(grafischekaartNode, listGrafischekaart);
-            queryOptischedrive(optischedrivesNode,listNOptischedrives);
-            queryKoeler(processorNode, listCPUKoeler);
-            queryVoeding(listVoeding);
-            queryBehuizing(moederbordNode, listBehuizing);
+            queryReadMotherboard(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
+            queryReadProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
+            queryReadRAM(moederbordNode, processorNode, geheugenNode, listGeheugenkaart);
+            queryReadHardDrive(hardeschijfNode, listHardeschijf);
+            queryReadGraphicCard(grafischekaartNode, listGrafischekaart);
+            queryReadOpticalDrive(optischedrivesNode,listNOptischedrives);
+            queryReadCooler(processorNode, listCPUKoeler);
+            queryReadPowerSupply(listVoeding);
+            queryReadComputerCase(moederbordNode, listBehuizing);
 
         }
     }
