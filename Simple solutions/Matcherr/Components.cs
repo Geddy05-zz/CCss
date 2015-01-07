@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace Simple_solutions
 {
-    /* This class are the model that represents the nodes in Neo4j database with their
-    properties. */
+    /* These classes are the model that represents the nodes in Neo4j database with their
+       properties.
+     * The properties are in Dutch and starts with capital letter, this is because of the way they
+     * are setup in the neo4j database.*/
+
     public abstract class Components
     {
         public string Naam { get; set; }
@@ -36,7 +39,7 @@ namespace Simple_solutions
         }
     }
 
-    class Moederbord : Components
+    class Motherboard : Components
     {
         public string Socket { get; set; }
         public string Vormfactor { get; set; }
@@ -44,7 +47,7 @@ namespace Simple_solutions
         public string Geheugentype { get; set; }
     }
 
-    class GeheugenKaart : Components
+    class RAM : Components
     {
         public string Geheugenkloksnelheid { get; set; }
         public string Geheugentype { get; set; }
@@ -52,17 +55,17 @@ namespace Simple_solutions
         public string Geheugenslots { get; set; }
     }
 
-    class CPUKoeler : Components 
+    class ProcessorCooler : Components 
     {
         public string Socket { get; set; }
     }
 
-    class Voeding : Components
+    class PowerSupply : Components
     {
         public string Wattage { get; set; }
     }
 
-    class CPU : Components
+    class Processor : Components
     {
         public string Socket { get; set; }
         public string Model { get; set; }
@@ -86,18 +89,18 @@ namespace Simple_solutions
         }
     }
 
-    class GrafischeKaart : Components
+    class GraphicCard : Components
     {
         public string Videogeheugen { get; set; }
         public string Typegeheugen { get; set; }
     }
 
-    class Behuizing : Components
+    class ComputerCase : Components
     {
         public string Vormfactor { get; set; }
     }
 
-    class Hardeschijf : Components
+    class HardDrive : Components
     {
         public string Soort { get; set; }
         public string Opslag { get; set; }
@@ -105,7 +108,7 @@ namespace Simple_solutions
         public int MaximumOpslag { get; set; }
     }
 
-    class Optischedrives : Components
+    class OpticalDrive : Components
     {
         public string Categorie { get; set; }
     }
