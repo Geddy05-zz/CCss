@@ -24,7 +24,7 @@ namespace Simple_solutions.Matcher
             processorType.Add(new SelectListItem { Text = "AMD a10", Value = "a10" });
             processorType.Add(new SelectListItem { Text = "AMD a4", Value = "a4" });
             processorType.Add(new SelectListItem { Text = "AMD a8", Value = "a8" });
-            ViewData["processortypeDD"] = processorType;
+            ViewData["processorTypeDD"] = processorType;
             
             List<SelectListItem> processorClockSpeed = new List<SelectListItem>();
             processorClockSpeed.Add(new SelectListItem { Text = "", Value = "1 - 2" });
@@ -32,7 +32,7 @@ namespace Simple_solutions.Matcher
             processorClockSpeed.Add(new SelectListItem { Text = "2-3 GHZ", Value = "2 - 3" });
             processorClockSpeed.Add(new SelectListItem { Text = "3-4 GHZ", Value = "3 - 4" });
             processorClockSpeed.Add(new SelectListItem { Text = "4-5 GHZ", Value = "4 - 5" });
-            ViewData["processorsnelheidDD"] = processorClockSpeed;
+            ViewData["processorClockSpeedDD"] = processorClockSpeed;
 
             
             List<SelectListItem> processorCores = new List<SelectListItem>();
@@ -44,7 +44,7 @@ namespace Simple_solutions.Matcher
             processorCores.Add(new SelectListItem { Text = "6", Value = "6" });
             processorCores.Add(new SelectListItem { Text = "8", Value ="8" });
             processorCores.Add(new SelectListItem { Text = "12", Value = "12" });
-            ViewData["processorcoresDD"] = processorCores;
+            ViewData["processorCoresDD"] = processorCores;
 
             List<SelectListItem> memorySlots = new List<SelectListItem>();
             memorySlots.Add(new SelectListItem { Text = "", Value = "2" });
@@ -52,7 +52,7 @@ namespace Simple_solutions.Matcher
             memorySlots.Add(new SelectListItem { Text = "4", Value = "4" });
             memorySlots.Add(new SelectListItem { Text = "6", Value = "6" });
             memorySlots.Add(new SelectListItem { Text = "8", Value = "8" });
-            ViewData["geheugenslotsDD"] = memorySlots;
+            ViewData["memorySlotsDD"] = memorySlots;
 
             List<SelectListItem> memorySpeed = new List<SelectListItem>();
             memorySpeed.Add(new SelectListItem { Text = "", Value = "1gb" });
@@ -62,7 +62,7 @@ namespace Simple_solutions.Matcher
             memorySpeed.Add(new SelectListItem { Text = "8 gb", Value = "8gb" });
             memorySpeed.Add(new SelectListItem { Text = "16 gb", Value = "16gb" });
             memorySpeed.Add(new SelectListItem { Text = "32 gb", Value = "32gb" });
-            ViewData["geheugensnelheidDD"] = memorySpeed;
+            ViewData["memorySpeedDD"] = memorySpeed;
 
             List<SelectListItem> graphicCardSpeed = new List<SelectListItem>();
             graphicCardSpeed.Add(new SelectListItem { Text = "", Value = "1gb" });
@@ -71,7 +71,7 @@ namespace Simple_solutions.Matcher
             graphicCardSpeed.Add(new SelectListItem { Text = "4gb", Value = "4gb" });
             graphicCardSpeed.Add(new SelectListItem { Text = "8gb", Value = "8gb" });
             graphicCardSpeed.Add(new SelectListItem { Text = "12gb", Value = "12gb" });
-            ViewData["grafischekaartvideogeheugenDD"] = graphicCardSpeed;
+            ViewData["graphicCardSpeedDD"] = graphicCardSpeed;
 
             List<SelectListItem> graphicCardType = new List<SelectListItem>();
             graphicCardType.Add(new SelectListItem { Text = "", Value = "ddr2" });
@@ -80,13 +80,13 @@ namespace Simple_solutions.Matcher
             graphicCardType.Add(new SelectListItem { Text = "ddr3", Value = "ddr3" });
             graphicCardType.Add(new SelectListItem { Text = "gddr3", Value = "gddr3" });
             graphicCardType.Add(new SelectListItem { Text = "gddr5", Value = "gddr5" });
-            ViewData["grafischekaarttypeDD"] = graphicCardType;
+            ViewData["graphicCardTypeDD"] = graphicCardType;
 
             List<SelectListItem> hardDriveType = new List<SelectListItem>();
             hardDriveType.Add(new SelectListItem { Text = "", Value = "hdd" });
             hardDriveType.Add(new SelectListItem { Text = "hdd", Value = "hdd" });
             hardDriveType.Add(new SelectListItem { Text = "ssd", Value = "ssd" });
-            ViewData["hardeschijftypeDD"] = hardDriveType;
+            ViewData["hardDriveTypeDD"] = hardDriveType;
 
             List<SelectListItem> hardDriveCapacity = new List<SelectListItem>();
             hardDriveCapacity.Add(new SelectListItem { Text = "", Value = "50 - 100" });
@@ -95,13 +95,13 @@ namespace Simple_solutions.Matcher
             hardDriveCapacity.Add(new SelectListItem { Text = "200-400 GB", Value = "200 - 400" });
             hardDriveCapacity.Add(new SelectListItem { Text = "400-1000 GB", Value = "400 - 1000" });
             hardDriveCapacity.Add(new SelectListItem { Text = "1000-2000 GB", Value = "1000 - 2000" });
-            ViewData["hardeschijfopslagDD"] = hardDriveCapacity;
+            ViewData["hardDriveCapacityDD"] = hardDriveCapacity;
 
             List<SelectListItem> hardDiskRpm = new List<SelectListItem>();
             hardDiskRpm.Add(new SelectListItem { Text = "", Value = "dvd" });
             hardDiskRpm.Add(new SelectListItem { Text = "BLU-RAY", Value = "bluray" });
             hardDiskRpm.Add(new SelectListItem { Text = "DVD", Value = "dvd" });
-            ViewData["optischedrivescategorieDD"] = hardDiskRpm;
+            ViewData["opticalDriveCategoryDD"] = hardDiskRpm;
 
             List<SelectListItem> systemUnitFormfactor = new List<SelectListItem>();
             systemUnitFormfactor.Add(new SelectListItem { Text = "", Value = "atx" });
@@ -113,7 +113,7 @@ namespace Simple_solutions.Matcher
             systemUnitFormfactor.Add(new SelectListItem { Text = "itx", Value = "itx" });
             systemUnitFormfactor.Add(new SelectListItem { Text = "microatx", Value = "microatx" });
             systemUnitFormfactor.Add(new SelectListItem { Text = "mini itx", Value = "mini itx" });
-            ViewData["behuizingvormfactorDD"] = systemUnitFormfactor;
+            ViewData["systemUnitFormfactorDD"] = systemUnitFormfactor;
 
             
             return View();

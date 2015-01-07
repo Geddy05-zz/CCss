@@ -196,6 +196,7 @@
     <Compile Include="Matcherr\MatcherMainProgram.cs" />
     <Compile Include="Matcherr\QueryManager.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\MetaData.cs" />
     <Compile Include="Models\Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
