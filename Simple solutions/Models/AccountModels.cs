@@ -16,6 +16,8 @@ namespace Simple_solutions.Models
         }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
+
+        public DbSet<searchResult> searchResults { get; set; }
     }
 
     [Table("UserProfile")]

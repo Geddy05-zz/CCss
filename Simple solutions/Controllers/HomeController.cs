@@ -25,7 +25,7 @@ namespace Simple_solutions.Matcher
             processorType.Add(new SelectListItem { Text = "AMD a4", Value = "a4" });
             processorType.Add(new SelectListItem { Text = "AMD a8", Value = "a8" });
             ViewData["processorTypeDD"] = processorType;
-            
+
             List<SelectListItem> processorClockSpeed = new List<SelectListItem>();
             processorClockSpeed.Add(new SelectListItem { Text = "", Value = "1 - 2" });
             processorClockSpeed.Add(new SelectListItem { Text = "1-2 GHZ", Value = "1 - 2" });
@@ -34,7 +34,7 @@ namespace Simple_solutions.Matcher
             processorClockSpeed.Add(new SelectListItem { Text = "4-5 GHZ", Value = "4 - 5" });
             ViewData["processorClockSpeedDD"] = processorClockSpeed;
 
-            
+
             List<SelectListItem> processorCores = new List<SelectListItem>();
             processorCores.Add(new SelectListItem { Text = "", Value = "1" });
             processorCores.Add(new SelectListItem { Text = "1", Value = "1" });
@@ -42,7 +42,7 @@ namespace Simple_solutions.Matcher
             processorCores.Add(new SelectListItem { Text = "3", Value = "3" });
             processorCores.Add(new SelectListItem { Text = "4", Value = "4" });
             processorCores.Add(new SelectListItem { Text = "6", Value = "6" });
-            processorCores.Add(new SelectListItem { Text = "8", Value ="8" });
+            processorCores.Add(new SelectListItem { Text = "8", Value = "8" });
             processorCores.Add(new SelectListItem { Text = "12", Value = "12" });
             ViewData["processorCoresDD"] = processorCores;
 
@@ -115,7 +115,7 @@ namespace Simple_solutions.Matcher
             systemUnitFormfactor.Add(new SelectListItem { Text = "mini itx", Value = "mini itx" });
             ViewData["systemUnitFormfactorDD"] = systemUnitFormfactor;
 
-            
+
             return View();
         }
         [HttpPost]
@@ -128,7 +128,7 @@ namespace Simple_solutions.Matcher
             searchResults.processorcores = processorCoresResult;
             searchResults.memorySlots = memorySlotsResult;
             searchResults.memorySpeed = memorySpeedResult;
-            searchResults.graphicCardSpeed = graphicCardSpeedResult; 
+            searchResults.graphicCardSpeed = graphicCardSpeedResult;
             searchResults.graphicCardType = graphicCardTypeResult;
             searchResults.hardDrivetype = hardDriveTypeResult;
             searchResults.hardDriveCapacity = hardDriveCapacityResult;
@@ -141,14 +141,14 @@ namespace Simple_solutions.Matcher
 
 
             TempData["results"] = matcher;
-            return RedirectToAction("About");
+            return RedirectToAction("Contact");
         }
-        
+
         public ActionResult About()
         {
             var searchResults = TempData["results"] as MatcherMainProgram;
             //Processor
-            ViewBag.processorType = searchResults.listNodeProcessor[0].Model; 
+            ViewBag.processorType = searchResults.listNodeProcessor[0].Model;
             ViewBag.processorSnelheid = searchResults.listNodeProcessor[0].Kloksnelheid;
             ViewBag.processorCores = searchResults.listNodeProcessor[0].Cores;
             ViewBag.processorNaam = searchResults.listNodeProcessor[0].Naam;
@@ -157,12 +157,12 @@ namespace Simple_solutions.Matcher
             ViewBag.processorUrl = searchResults.listNodeProcessor[0].Url;
 
             //Moederbord
-            ViewBag.moederbordNaam =searchResults.listNodeMotherboard[0].Naam;
+            ViewBag.moederbordNaam = searchResults.listNodeMotherboard[0].Naam;
             ViewBag.moederbordType = searchResults.listNodeMotherboard[0].Geheugentype;
             ViewBag.moederbordSlots = searchResults.listNodeMotherboard[0].Geheugenslots;
             ViewBag.moederbordFormfactor = searchResults.listNodeMotherboard[0].Vormfactor;
-            ViewBag.moederbordSocket =  searchResults.listNodeMotherboard[0].Socket;
-            ViewBag.moederbordPrijs =  searchResults.listNodeMotherboard[0].Prijs;
+            ViewBag.moederbordSocket = searchResults.listNodeMotherboard[0].Socket;
+            ViewBag.moederbordPrijs = searchResults.listNodeMotherboard[0].Prijs;
             ViewBag.moederbordUrl = searchResults.listNodeMotherboard[0].Url;
 
 
