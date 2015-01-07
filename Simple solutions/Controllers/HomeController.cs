@@ -141,7 +141,7 @@ namespace Simple_solutions.Matcher
 
 
             TempData["results"] = matcher;
-            return RedirectToAction("Contact");
+            return RedirectToAction("About");
         }
 
         public ActionResult About()
