@@ -116,7 +116,6 @@ namespace Simple_solutions.Matcher
             systemUnitFormfactor.Add(new SelectListItem { Text = "mini itx", Value = "mini itx" });
             ViewData["systemUnitFormfactorDD"] = systemUnitFormfactor;
 
-
             return View();
         }
         [HttpPost]
@@ -219,6 +218,13 @@ namespace Simple_solutions.Matcher
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult About(string a)
+        {
+            return View();
+        }
+
 
         public ActionResult Contact()
         {
