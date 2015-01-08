@@ -10,6 +10,7 @@ namespace Simple_solutions.Models
 {
      public class SearchPropertiesModel
      {
+         public int ID                                { get; set; }
          public string processorType                  { get; set; }
          public string processorClockSpeed            { get; set; }
          public string processorcores                 { get; set; }
@@ -19,7 +20,6 @@ namespace Simple_solutions.Models
          public string graphicCardType                { get; set; }
          public string hardDrivetype                  { get; set; }
          public string hardDriveCapacity              { get; set; }
-         public string hardDiskrpm                    { get; set; }
          public string opticalDriveCategory           { get; set; }
          public string systemUnitFormfactor           { get; set; } 
         

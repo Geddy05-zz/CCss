@@ -11,6 +11,7 @@ namespace Simple_solutions.Matcher
     public class HomeController : Controller
     {
         MatcherMainProgram matcher;
+        private AdminContext db = new AdminContext();
 
         public ActionResult Index()
         {
@@ -132,9 +133,11 @@ namespace Simple_solutions.Matcher
             searchResults.graphicCardType = graphicCardTypeResult;
             searchResults.hardDrivetype = hardDriveTypeResult;
             searchResults.hardDriveCapacity = hardDriveCapacityResult;
-            searchResults.hardDiskrpm = hardDriveRpmResult;
             searchResults.opticalDriveCategory = opticalDriveCategoryResult;
             searchResults.systemUnitFormfactor = systemUnitFormfactorResult;
+
+            db.SearchPropertiesModels.Add(searchResults);
+            db.SaveChanges();
 
             matcher = new MatcherMainProgram(searchResults);
             matcher.runMatcherProgram();

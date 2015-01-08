@@ -18,6 +18,8 @@ namespace Simple_solutions.Models
         public DbSet<UserProfile> UserProfiles { get; set; }
 
         public DbSet<searchResult> searchResults { get; set; }
+
+        public System.Data.Entity.DbSet<Simple_solutions.Models.SearchPropertiesModel> SearchPropertiesModels { get; set; }
     }
 
     [Table("UserProfile")]

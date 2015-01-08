@@ -24,10 +24,6 @@ namespace Simple_solutions.Models
         public string opticalDriveCategory  {get;set;}
         public string systemUnitFormfactor  {get;set;}
     }
-     public class searchResultDbContext : DbContext
-    {
-        public DbSet searchResults { get; set; }
-    }
 
     public class selled
     {
