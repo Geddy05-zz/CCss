@@ -56,13 +56,13 @@ namespace Simple_solutions.Matcher
             ViewData["memorySlotsDD"] = memorySlots;
 
             List<SelectListItem> memorySpeed = new List<SelectListItem>();
-            memorySpeed.Add(new SelectListItem { Text = "", Value = "1gb" });
-            memorySpeed.Add(new SelectListItem { Text = "1 gb", Value = "1gb" });
-            memorySpeed.Add(new SelectListItem { Text = "2 gb", Value = "2gb" });
-            memorySpeed.Add(new SelectListItem { Text = "4 gb", Value = "4gb" });
-            memorySpeed.Add(new SelectListItem { Text = "8 gb", Value = "8gb" });
-            memorySpeed.Add(new SelectListItem { Text = "16 gb", Value = "16gb" });
-            memorySpeed.Add(new SelectListItem { Text = "32 gb", Value = "32gb" });
+            memorySpeed.Add(new SelectListItem { Text = "", Value = "1" });
+            memorySpeed.Add(new SelectListItem { Text = "1 gb", Value = "1" });
+            memorySpeed.Add(new SelectListItem { Text = "2 gb", Value = "2" });
+            memorySpeed.Add(new SelectListItem { Text = "4 gb", Value = "4" });
+            memorySpeed.Add(new SelectListItem { Text = "8 gb", Value = "8" });
+            memorySpeed.Add(new SelectListItem { Text = "16 gb", Value = "16" });
+            memorySpeed.Add(new SelectListItem { Text = "32 gb", Value = "32" });
             ViewData["memorySpeedDD"] = memorySpeed;
 
             List<SelectListItem> graphicCardSpeed = new List<SelectListItem>();
@@ -136,7 +136,7 @@ namespace Simple_solutions.Matcher
             searchResults.systemUnitFormfactor = systemUnitFormfactorResult;
 
             db.SearchPropertiesModels.Add(searchResults);
-            db.SaveChanges();
+            //db.SaveChanges();
 
             matcher = new MatcherMainProgram(searchResults);
             matcher.runMatcherProgram();
