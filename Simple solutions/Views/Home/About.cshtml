@@ -5,9 +5,9 @@
 <div id="wrapper">
 
     <div class="listitem">
-
+@using (Html.BeginForm(FormMethod.Post))
+        {
         <img src="~/Images/processor.png" alt="processor" />
-
 
         <div class="resultaten">
 
@@ -41,20 +41,18 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.processorPrijs</h2>
-                <a id="kopen" href="@ViewBag.processorUrl"target="_blank"></a>
+                <button type="submit" id="kopen" target="_blank"> Bestel</button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
-
+}
     </div><!--end listitem-->
-
 
     <div class="listitem">
 
         <img src="~/Images/moederbord.png" alt="processor" />
        
-
         <div class="resultaten">
 
             <div class="resultatenLinks">
@@ -248,11 +246,9 @@
 
     </div><!--end listitem-->
 
-
     <div class="listitem">
 
         <img src="~/Images/behuizing.png" alt="processor" />
-
 
         <div class="resultaten">
 
@@ -284,7 +280,6 @@
     <div class="listitem">
 
         <img src="~/Images/voeding.png" alt="processor" />
-
 
         <div class="resultaten">
 
@@ -343,7 +338,5 @@
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
-
 
 </div><!--end wrapper-->
