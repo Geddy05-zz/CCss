@@ -319,10 +319,10 @@ select:focus{
 	position:relative;
 	margin-top:20px;
 	width:100%;
-	
+    margin-left:auto;
 }
 
-#login{
+#login {
     text-align:center;
     width:100%;
     margin:0 auto;
