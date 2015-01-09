@@ -6,6 +6,9 @@ using System.Data;
 using System.Data.Entity;
 using System.Web.Mvc;
 using Simple_solutions.Models;
+using System.Drawing;
+using System.IO;
+using System.Web.Helpers;
 
 namespace Simple_solutions.Controllers
 {
