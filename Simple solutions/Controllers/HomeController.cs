@@ -56,13 +56,13 @@ namespace Simple_solutions.Matcher
             ViewData["memorySlotsDD"] = memorySlots;
 
             List<SelectListItem> memorySpeed = new List<SelectListItem>();
-            memorySpeed.Add(new SelectListItem { Text = "", Value = "1gb" });
-            memorySpeed.Add(new SelectListItem { Text = "1 gb", Value = "1gb" });
-            memorySpeed.Add(new SelectListItem { Text = "2 gb", Value = "2gb" });
-            memorySpeed.Add(new SelectListItem { Text = "4 gb", Value = "4gb" });
-            memorySpeed.Add(new SelectListItem { Text = "8 gb", Value = "8gb" });
-            memorySpeed.Add(new SelectListItem { Text = "16 gb", Value = "16gb" });
-            memorySpeed.Add(new SelectListItem { Text = "32 gb", Value = "32gb" });
+            memorySpeed.Add(new SelectListItem { Text = "", Value = "1" });
+            memorySpeed.Add(new SelectListItem { Text = "1 gb", Value = "1" });
+            memorySpeed.Add(new SelectListItem { Text = "2 gb", Value = "2" });
+            memorySpeed.Add(new SelectListItem { Text = "4 gb", Value = "4" });
+            memorySpeed.Add(new SelectListItem { Text = "8 gb", Value = "8" });
+            memorySpeed.Add(new SelectListItem { Text = "16 gb", Value = "16" });
+            memorySpeed.Add(new SelectListItem { Text = "32 gb", Value = "32" });
             ViewData["memorySpeedDD"] = memorySpeed;
 
             List<SelectListItem> graphicCardSpeed = new List<SelectListItem>();
@@ -148,72 +148,80 @@ namespace Simple_solutions.Matcher
 
         public ActionResult About()
         {
-            var searchResults = TempData["results"] as MatcherMainProgram;
-            //Processor
-            ViewBag.processorType = searchResults.listNodeProcessor[0].Model;
-            ViewBag.processorSnelheid = searchResults.listNodeProcessor[0].Kloksnelheid;
-            ViewBag.processorCores = searchResults.listNodeProcessor[0].Cores;
-            ViewBag.processorNaam = searchResults.listNodeProcessor[0].Naam;
-            ViewBag.processorPrijs = searchResults.listNodeProcessor[0].Prijs;
-            ViewBag.processorSocket = searchResults.listNodeProcessor[0].Socket;
-            ViewBag.processorUrl = searchResults.listNodeProcessor[0].Url;
+            try
+            {
+                var searchResults = TempData["results"] as MatcherMainProgram;
+                //Processor
+                ViewBag.processorType = searchResults.listNodeProcessor[0].Model;
+                ViewBag.processorSnelheid = searchResults.listNodeProcessor[0].Kloksnelheid;
+                ViewBag.processorCores = searchResults.listNodeProcessor[0].Cores;
+                ViewBag.processorNaam = searchResults.listNodeProcessor[0].Naam;
+                ViewBag.processorPrijs = searchResults.listNodeProcessor[0].Prijs;
+                ViewBag.processorSocket = searchResults.listNodeProcessor[0].Socket;
+                ViewBag.processorUrl = searchResults.listNodeProcessor[0].Url;
 
-            //Moederbord
-            ViewBag.moederbordNaam = searchResults.listNodeMotherboard[0].Naam;
-            ViewBag.moederbordType = searchResults.listNodeMotherboard[0].Geheugentype;
-            ViewBag.moederbordSlots = searchResults.listNodeMotherboard[0].Geheugenslots;
-            ViewBag.moederbordFormfactor = searchResults.listNodeMotherboard[0].Vormfactor;
-            ViewBag.moederbordSocket = searchResults.listNodeMotherboard[0].Socket;
-            ViewBag.moederbordPrijs = searchResults.listNodeMotherboard[0].Prijs;
-            ViewBag.moederbordUrl = searchResults.listNodeMotherboard[0].Url;
+                //Moederbord
+                ViewBag.moederbordNaam = searchResults.listNodeMotherboard[0].Naam;
+                ViewBag.moederbordType = searchResults.listNodeMotherboard[0].Geheugentype;
+                ViewBag.moederbordSlots = searchResults.listNodeMotherboard[0].Geheugenslots;
+                ViewBag.moederbordFormfactor = searchResults.listNodeMotherboard[0].Vormfactor;
+                ViewBag.moederbordSocket = searchResults.listNodeMotherboard[0].Socket;
+                ViewBag.moederbordPrijs = searchResults.listNodeMotherboard[0].Prijs;
+                ViewBag.moederbordUrl = searchResults.listNodeMotherboard[0].Url;
 
 
-            //Werkgeheugen
-            ViewBag.geheugen = searchResults.listNodeRAM[0].Geheugen;
-            ViewBag.geheugenSnelheid = searchResults.listNodeRAM[0].Geheugenkloksnelheid;
-            ViewBag.geheugenSlots = searchResults.listNodeRAM[0].Geheugenslots;
-            ViewBag.geheugenType = searchResults.listNodeRAM[0].Geheugentype;
-            ViewBag.geheugenNaam = searchResults.listNodeRAM[0].Naam;
-            ViewBag.geheugenPrijs = searchResults.listNodeRAM[0].Prijs;
-            ViewBag.geheugenUrl = searchResults.listNodeRAM[0].Url;
+                //Werkgeheugen
+                ViewBag.geheugen = searchResults.listNodeRAM[0].Geheugen;
+                ViewBag.geheugenSnelheid = searchResults.listNodeRAM[0].Geheugenkloksnelheid;
+                ViewBag.geheugenSlots = searchResults.listNodeRAM[0].Geheugenslots;
+                ViewBag.geheugenType = searchResults.listNodeRAM[0].Geheugentype;
+                ViewBag.geheugenNaam = searchResults.listNodeRAM[0].Naam;
+                ViewBag.geheugenPrijs = searchResults.listNodeRAM[0].Prijs;
+                ViewBag.geheugenUrl = searchResults.listNodeRAM[0].Url;
 
-            //GrafischeKaart
-            ViewBag.grafischekaartvideogeheugen = searchResults.listNodeGraphicCard[0].Videogeheugen;
-            ViewBag.grafischekaarttype = searchResults.listNodeGraphicCard[0].Typegeheugen;
-            ViewBag.grafischekaartnaam = searchResults.listNodeGraphicCard[0].Naam;
-            ViewBag.grafischekaartPrijs = searchResults.listNodeGraphicCard[0].Prijs;
-            ViewBag.grafischekaartUrl = searchResults.listNodeGraphicCard[0].Url;
+                //GrafischeKaart
+                ViewBag.grafischekaartvideogeheugen = searchResults.listNodeGraphicCard[0].Videogeheugen;
+                ViewBag.grafischekaarttype = searchResults.listNodeGraphicCard[0].Typegeheugen;
+                ViewBag.grafischekaartnaam = searchResults.listNodeGraphicCard[0].Naam;
+                ViewBag.grafischekaartPrijs = searchResults.listNodeGraphicCard[0].Prijs;
+                ViewBag.grafischekaartUrl = searchResults.listNodeGraphicCard[0].Url;
 
-            //Hardeschijf
-            ViewBag.hardeschijfType = searchResults.listNodeHardDrive[0].Soort;
-            ViewBag.hardeschijfOpslag = searchResults.listNodeHardDrive[0].Opslag;
-            ViewBag.hardeschijfNaam = searchResults.listNodeHardDrive[0].Naam;
-            ViewBag.harderschijfPrijs = searchResults.listNodeHardDrive[0].Prijs;
-            ViewBag.harderschijfUrl = searchResults.listNodeHardDrive[0].Url;
+                //Hardeschijf
+                ViewBag.hardeschijfType = searchResults.listNodeHardDrive[0].Soort;
+                ViewBag.hardeschijfOpslag = searchResults.listNodeHardDrive[0].Opslag;
+                ViewBag.hardeschijfNaam = searchResults.listNodeHardDrive[0].Naam;
+                ViewBag.harderschijfPrijs = searchResults.listNodeHardDrive[0].Prijs;
+                ViewBag.harderschijfUrl = searchResults.listNodeHardDrive[0].Url;
 
-            //OptischeDrive
-            ViewBag.optischedrivesCategorie = searchResults.listNodeOpticalDrive[0].Categorie;
-            ViewBag.optischedrivesNaam = searchResults.listNodeOpticalDrive[0].Naam;
-            ViewBag.optischedrivesPrijs = searchResults.listNodeOpticalDrive[0].Prijs;
-            ViewBag.optischedrivesUrl = searchResults.listNodeOpticalDrive[0].Url;
+                //OptischeDrive
+                ViewBag.optischedrivesCategorie = searchResults.listNodeOpticalDrive[0].Categorie;
+                ViewBag.optischedrivesNaam = searchResults.listNodeOpticalDrive[0].Naam;
+                ViewBag.optischedrivesPrijs = searchResults.listNodeOpticalDrive[0].Prijs;
+                ViewBag.optischedrivesUrl = searchResults.listNodeOpticalDrive[0].Url;
 
-            //Behuizing
-            ViewBag.behuizingVormfactor = searchResults.listNodeComputerCase[0].Vormfactor;
-            ViewBag.behuizingNaam = searchResults.listNodeComputerCase[0].Naam;
-            ViewBag.behuizingPrijs = searchResults.listNodeComputerCase[0].Prijs;
-            ViewBag.behuizingUrl = searchResults.listNodeComputerCase[0].Url;
+                //Behuizing
+                ViewBag.behuizingVormfactor = searchResults.listNodeComputerCase[0].Vormfactor;
+                ViewBag.behuizingNaam = searchResults.listNodeComputerCase[0].Naam;
+                ViewBag.behuizingPrijs = searchResults.listNodeComputerCase[0].Prijs;
+                ViewBag.behuizingUrl = searchResults.listNodeComputerCase[0].Url;
 
-            //Voeding
-            ViewBag.voedingNaam = searchResults.listNodePowerSupply[0].Naam;
-            ViewBag.voedingWatt = searchResults.listNodePowerSupply[0].Wattage;
-            ViewBag.voedingPrijs = searchResults.listNodePowerSupply[0].Prijs;
-            ViewBag.voedingUrl = searchResults.listNodePowerSupply[0].Url;
+                //Voeding
+                ViewBag.voedingNaam = searchResults.listNodePowerSupply[0].Naam;
+                ViewBag.voedingWatt = searchResults.listNodePowerSupply[0].Wattage;
+                ViewBag.voedingPrijs = searchResults.listNodePowerSupply[0].Prijs;
+                ViewBag.voedingUrl = searchResults.listNodePowerSupply[0].Url;
 
-            //Koeler
-            ViewBag.koelerNaam = searchResults.listNodeProcessorCooler[0].Naam;
-            ViewBag.koelerPrijs = searchResults.listNodeProcessorCooler[0].Prijs;
-            ViewBag.koelerUrl = searchResults.listNodeProcessorCooler[0].Url;
-            ViewBag.koelerSocket = searchResults.listNodeProcessorCooler[0].Socket;
+                //Koeler
+                ViewBag.koelerNaam = searchResults.listNodeProcessorCooler[0].Naam;
+                ViewBag.koelerPrijs = searchResults.listNodeProcessorCooler[0].Prijs;
+                ViewBag.koelerUrl = searchResults.listNodeProcessorCooler[0].Url;
+                ViewBag.koelerSocket = searchResults.listNodeProcessorCooler[0].Socket;
+            }
+            catch
+            {
+                return RedirectToAction("NotPossible");
+            }
+            
 
 
             return View();
@@ -225,6 +233,11 @@ namespace Simple_solutions.Matcher
             return View();
         }
 
+        public ActionResult NotPossible()
+        {
+            return View();
+        }
+    
 
         public ActionResult Contact()
         {

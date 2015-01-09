@@ -6,6 +6,8 @@
 
 <script src="~/Scripts/jquery.js"></script>
 <script>
+
+
 	$(function(){
 	  $('.drop').click(function(){
 		$(this).next('.dropdown').slideToggle();
@@ -27,10 +29,31 @@
 		});
 	});
 
+    
+	$(function() {
+	    $('.submit').click(function(){
+	        $("#divLoading").show();
+	    })
+	});
+
 
 
 </script>
 <div id="wrapper">
+
+    <!--LOADINGSCREEN-->
+
+    <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: #000; z-index: 30001; opacity: .8; filter: alpha(opacity=70);display:none">
+        <p style="position: absolute; top: 30%; left: 40%;  color: #FFF;">
+            Uw samenstelling wordt gemaakt, een moment geduld aub...
+            <br />
+            <img style="margin:0 auto; margin-top:10px;" src="~/Content/themes/base/images/loading.gif" />    
+        </p>
+    </div>
+
+    <!--end divLoading-->
+
+    
     <form id="builder" method="post">
         @using (Html.BeginForm(FormMethod.Post))
         {
@@ -168,7 +191,7 @@
 
                     <a href="#"><img src="images/admin.png" alt="admin" /></a>
 
-                    <input type="submit" value="">
+                    <input class="submit" type="submit" value="" onclick="Load();">
 
 
                 </div><!--end submit-->
