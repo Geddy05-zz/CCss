@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace Simple_solutions.Controllers
@@ -16,12 +19,10 @@ namespace Simple_solutions.Controllers
             ViewBag.Message = "Test Test";
             return View();
         }
-
         public ActionResult Admin()
         {
             ViewBag.Message = "Test Test";
             return View();
         }
-
     }
 }
