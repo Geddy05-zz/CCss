@@ -221,74 +221,7 @@ namespace Simple_solutions.Matcher
         [HttpPost]
         public ActionResult About(string a)
         {
-            var searchResults = TempData["results"] as MatcherMainProgram;
-
-            //Processor
-            ViewBag.processorType = "test"; //searchResults.listNodeProcessor[0].Model;
-            ViewBag.processorSnelheid = "test"; // searchResults.listNodeProcessor[0].Kloksnelheid;
-            ViewBag.processorCores = "test"; // searchResults.listNodeProcessor[0].Cores;
-            ViewBag.processorNaam = "test"; // searchResults.listNodeProcessor[0].Naam;
-            ViewBag.processorPrijs = "10"; //searchResults.listNodeProcessor[0].Prijs;
-            ViewBag.processorSocket = "test"; // searchResults.listNodeProcessor[0].Socket;
-            ViewBag.processorUrl = "https://github.com/Geddy05/CCss"; //searchResults.listNodeProcessor[0].Url;
-            
-           //Moederbord
-           ViewBag.moederbordNaam = "test"; //searchResults.listNodeMotherboard[0].Naam;
-           ViewBag.moederbordType = "test"; //searchResults.listNodeMotherboard[0].Geheugentype;
-           ViewBag.moederbordSlots = "test"; //searchResults.listNodeMotherboard[0].Geheugenslots;
-           ViewBag.moederbordFormfactor = "test"; // searchResults.listNodeMotherboard[0].Vormfactor;
-           ViewBag.moederbordSocket = "test"; //searchResults.listNodeMotherboard[0].Socket;
-           ViewBag.moederbordPrijs = "10"; //searchResults.listNodeMotherboard[0].Prijs;
-           ViewBag.moederbordUrl = "https://github.com/Geddy05/CCss"; //searchResults.listNodeMotherboard[0].Url;
-
-           //Werkgeheugen
-           ViewBag.geheugen = "test"; //searchResults.listNodeRAM[0].Geheugen;
-           ViewBag.geheugenSnelheid = "test"; //searchResults.listNodeRAM[0].Geheugenkloksnelheid;
-           ViewBag.geheugenSlots = "test"; //searchResults.listNodeRAM[0].Geheugenslots;
-           ViewBag.geheugenType = "test"; //searchResults.listNodeRAM[0].Geheugentype;
-           ViewBag.geheugenNaam = "test"; //searchResults.listNodeRAM[0].Naam;
-           ViewBag.geheugenPrijs = "10"; //searchResults.listNodeRAM[0].Prijs;
-           ViewBag.geheugenUrl = "https://github.com/Geddy05/CCss"; //searchResults.listNodeRAM[0].Url;
-            /*
-           //GrafischeKaart
-           ViewBag.grafischekaartvideogeheugen = "test"; //searchResults.listNodeGraphicCard[0].Videogeheugen;
-           ViewBag.grafischekaarttype = "test"; //searchResults.listNodeGraphicCard[0].Typegeheugen;
-           ViewBag.grafischekaartnaam = "test"; //searchResults.listNodeGraphicCard[0].Naam;
-           ViewBag.grafischekaartPrijs = "10"; //searchResults.listNodeGraphicCard[0].Prijs;
-           ViewBag.grafischekaartUrl = "https://github.com/Geddy05/CCss"; //searchResults.listNodeGraphicCard[0].Url;
-
-           //Hardeschijf
-           ViewBag.hardeschijfType = "test"; //searchResults.listNodeHardDrive[0].Soort;
-           ViewBag.hardeschijfOpslag = "test"; //searchResults.listNodeHardDrive[0].Opslag;
-           ViewBag.hardeschijfNaam = "test"; //searchResults.listNodeHardDrive[0].Naam;
-           ViewBag.harderschijfPrijs = "10"; //searchResults.listNodeHardDrive[0].Prijs;
-           ViewBag.harderschijfUrl = "https://github.com/Geddy05/CCss"; //searchResults.listNodeHardDrive[0].Url;
-
-           //OptischeDrive
-           ViewBag.optischedrivesCategorie = "test"; //searchResults.listNodeOpticalDrive[0].Categorie;
-           ViewBag.optischedrivesNaam = "test"; //searchResults.listNodeOpticalDrive[0].Naam;
-           ViewBag.optischedrivesPrijs = "10"; //searchResults.listNodeOpticalDrive[0].Prijs;
-           ViewBag.optischedrivesUrl = "https://github.com/Geddy05/CCss"; //searchResults.listNodeOpticalDrive[0].Url;
-           
-           //Behuizing
-           ViewBag.behuizingVormfactor = searchResults.listNodeComputerCase[0].Vormfactor;
-           ViewBag.behuizingNaam = searchResults.listNodeComputerCase[0].Naam;
-           ViewBag.behuizingPrijs = searchResults.listNodeComputerCase[0].Prijs;
-           ViewBag.behuizingUrl = searchResults.listNodeComputerCase[0].Url;
-
-           //Voeding
-           ViewBag.voedingNaam = "test"; //searchResults.listNodePowerSupply[0].Naam;
-           ViewBag.voedingWatt = "test"; //searchResults.listNodePowerSupply[0].Wattage;
-           ViewBag.voedingPrijs = "10"; //searchResults.listNodePowerSupply[0].Prijs;
-           ViewBag.voedingUrl = "https://github.com/Geddy05/CCss"; //searchResults.listNodePowerSupply[0].Url;
-
-           //Koeler
-           ViewBag.koelerNaam = "test"; //searchResults.listNodeProcessorCooler[0].Naam;
-           ViewBag.koelerPrijs = "10"; //searchResults.listNodeProcessorCooler[0].Prijs;
-           ViewBag.koelerUrl = "https://github.com/Geddy05/CCss"; //searchResults.listNodeProcessorCooler[0].Url;
-           ViewBag.koelerSocket = "test"; //searchResults.listNodeProcessorCooler[0].Socket;
-
-           */
+          
             return View();
         }
 
