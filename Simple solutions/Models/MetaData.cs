@@ -30,6 +30,6 @@ namespace Simple_solutions.Models
         public int ID { get; set; }
         public string productName { get; set; }
         public string url { get; set; }
-        public double prijs { get; set; }
+        public string prijs { get; set; }
     }
 }

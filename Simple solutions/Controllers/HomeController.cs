@@ -28,7 +28,7 @@ namespace Simple_solutions.Matcher
             ViewData["processorTypeDD"] = processorType;
 
             List<SelectListItem> processorClockSpeed = new List<SelectListItem>();
-            processorClockSpeed.Add(new SelectListItem { Text = "", Value = "1 - 2" });
+            processorClockSpeed.Add(new SelectListItem { Text = "", Value = "3 - 4" });
             processorClockSpeed.Add(new SelectListItem { Text = "1-2 GHZ", Value = "1 - 2" });
             processorClockSpeed.Add(new SelectListItem { Text = "2-3 GHZ", Value = "2 - 3" });
             processorClockSpeed.Add(new SelectListItem { Text = "3-4 GHZ", Value = "3 - 4" });
@@ -36,7 +36,7 @@ namespace Simple_solutions.Matcher
             ViewData["processorClockSpeedDD"] = processorClockSpeed;
 
             List<SelectListItem> processorCores = new List<SelectListItem>();
-            processorCores.Add(new SelectListItem { Text = "", Value = "1" });
+            processorCores.Add(new SelectListItem { Text = "", Value = "2" });
             processorCores.Add(new SelectListItem { Text = "1", Value = "1" });
             processorCores.Add(new SelectListItem { Text = "2", Value = "2" });
             processorCores.Add(new SelectListItem { Text = "3", Value = "3" });
@@ -55,7 +55,7 @@ namespace Simple_solutions.Matcher
             ViewData["memorySlotsDD"] = memorySlots;
 
             List<SelectListItem> memorySpeed = new List<SelectListItem>();
-            memorySpeed.Add(new SelectListItem { Text = "", Value = "1" });
+            memorySpeed.Add(new SelectListItem { Text = "", Value = "4" });
             memorySpeed.Add(new SelectListItem { Text = "1 gb", Value = "1" });
             memorySpeed.Add(new SelectListItem { Text = "2 gb", Value = "2" });
             memorySpeed.Add(new SelectListItem { Text = "4 gb", Value = "4" });
@@ -65,7 +65,7 @@ namespace Simple_solutions.Matcher
             ViewData["memorySpeedDD"] = memorySpeed;
 
             List<SelectListItem> graphicCardSpeed = new List<SelectListItem>();
-            graphicCardSpeed.Add(new SelectListItem { Text = "", Value = "1gb" });
+            graphicCardSpeed.Add(new SelectListItem { Text = "", Value = "2gb" });
             graphicCardSpeed.Add(new SelectListItem { Text = "1gb", Value = "1gb" });
             graphicCardSpeed.Add(new SelectListItem { Text = "2gb", Value = "2gb" });
             graphicCardSpeed.Add(new SelectListItem { Text = "4gb", Value = "4gb" });
@@ -74,7 +74,7 @@ namespace Simple_solutions.Matcher
             ViewData["graphicCardSpeedDD"] = graphicCardSpeed;
 
             List<SelectListItem> graphicCardType = new List<SelectListItem>();
-            graphicCardType.Add(new SelectListItem { Text = "", Value = "ddr2" });
+            graphicCardType.Add(new SelectListItem { Text = "", Value = "ddr3" });
             graphicCardType.Add(new SelectListItem { Text = "ddr", Value = "ddr" });
             graphicCardType.Add(new SelectListItem { Text = "ddr2", Value = "ddr2" });
             graphicCardType.Add(new SelectListItem { Text = "ddr3", Value = "ddr3" });
@@ -158,6 +158,7 @@ namespace Simple_solutions.Matcher
             ViewBag.processorPrijs = searchResults.listNodeProcessor[0].Prijs;
             ViewBag.processorSocket = searchResults.listNodeProcessor[0].Socket;
             ViewBag.processorUrl = searchResults.listNodeProcessor[0].Url;
+            ViewData["Processor"] = 
 
             //Moederbord
             ViewBag.moederbordNaam = searchResults.listNodeMotherboard[0].Naam;
@@ -217,14 +218,20 @@ namespace Simple_solutions.Matcher
 
             return View();
         }
-
+        
         [HttpPost]
-        public ActionResult About(string a)
+        public ActionResult About(string name, string url, string price)
         {
-          
-            return View();
-        }
+            selled sold = new selled();
+            sold.productName = name;
+            sold.prijs = price;
+            sold.url = url;
 
+            db.selleds.Add(sold);
+            db.SaveChanges();
+            
+            return Redirect(url);
+        }
 
         public ActionResult Contact()
         {

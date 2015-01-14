@@ -14,23 +14,35 @@ namespace Simple_solutions.Controllers
 {
     public class AdminController : Controller
     {
-
+        AdminContext db = new AdminContext();
         //
         // GET: /Admin/
 
         public ActionResult Login()
         {
-            AdminContext db = new AdminContext();
             ViewBag.Message = "Test Test";
             return View(db.SearchPropertiesModels.ToList());
         }
 
         public ActionResult Admin()
         {
-             AdminContext db = new AdminContext();
             ViewBag.Message = "Test Test";
             return View();
         }
+
+        public ActionResult Sold()
+        {
+
+
+            return View(db.selleds.GroupBy(s => s.url).Select(g => g.OrderByDescending(p => p.productName).FirstOrDefault()));
+        }
+
+        public ActionResult Search()
+        {
+
+            return View(db.SearchPropertiesModels.ToList());
+        }
+
 
     }
 }

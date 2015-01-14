@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Simple_solutions.Models.selled>
+
+@{
+    ViewBag.Title = "Sold";
+}
+
+
+<table >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prijs)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.url)
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.prijs)
+            </td>
+        </tr>
+    }
+</table>
+
+
+
