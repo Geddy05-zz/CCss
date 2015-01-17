@@ -327,17 +327,17 @@ namespace MatcherPrototype
             processorNode.MaximumKloksnelheid = 4;
 
             GeheugenKaart geheugenNode = new GeheugenKaart();
-            geheugenNode.Geheugenslots;
-            geheugenNode.Geheugensnelheid;
+            //geheugenNode.Geheugenslots;
+            //geheugenNode.Geheugensnelheid;
 
             Hardeschijf hardeschijfNode = new Hardeschijf();
-            hardeschijfNode.Soort;
-            hardeschijfNode.MinimumOpslag;
-            hardeschijfNode.MaximumOpslag;
+            //hardeschijfNode.Soort;
+            //hardeschijfNode.MinimumOpslag;
+            //hardeschijfNode.MaximumOpslag;
 
             GrafischeKaart grafischekaartNode = new GrafischeKaart();
-            grafischekaartNode.Videogeheugen;
-            grafischekaartNode.Typegeheugen;
+            //grafischekaartNode.Videogeheugen;
+            //grafischekaartNode.Typegeheugen;
 
             queryMoederbord(moederbordNode, processorNode, geheugenNode, ListNodeMoederbord);
             queryProcessor(moederbordNode, processorNode, geheugenNode, listProcessor);
