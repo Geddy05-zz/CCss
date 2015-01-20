@@ -280,6 +280,10 @@
     <Compile Include="Migrations\201501121114109_selled.Designer.cs">
       <DependentUpon>201501121114109_selled.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501141017106_searchResult.cs" />
+    <Compile Include="Migrations\201501141017106_searchResult.Designer.cs">
+      <DependentUpon>201501141017106_searchResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AdminContext.cs" />
@@ -439,6 +443,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501121114109_selled.resx">
       <DependentUpon>201501121114109_selled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501141017106_searchResult.resx">
+      <DependentUpon>201501141017106_searchResult.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

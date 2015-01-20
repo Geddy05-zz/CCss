@@ -328,3 +328,41 @@ select:focus{
     margin:0 auto;
     padding-top:150px;
 }
+
+#searchresults{
+    margin:auto;
+    text-align:center;
+    background:#000;
+}
+
+#searchresults th {
+    min-height:30px;
+    width:100px;
+    }
+
+
+#searchresults td {
+    border-width: 1px;
+    border-bottom-color: #333;
+    border-bottom-style: solid;
+}
+
+button{
+    background:url(../Images/kopen.png) no-repeat;
+    width:225px;
+	height:40px;
+	float:right;
+	margin-right:20px;
+	margin-top:15px;
+	border:none;
+}
+
+button:hover {
+    background:url(../Images/kopenOn.png) no-repeat;
+	width:225px;
+	height:40px;
+	float:right;
+	margin-right:20px;
+	margin-top:15px;
+	border:none;
+}
