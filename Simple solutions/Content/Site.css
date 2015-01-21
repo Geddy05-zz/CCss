@@ -366,3 +366,17 @@ button:hover {
 	margin-top:15px;
 	border:none;
 }
+
+#Sold {
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    background-color: #000;
+}
+
+#Sold td{
+    max-width: 450px;
+    overflow:hidden;
+}
+

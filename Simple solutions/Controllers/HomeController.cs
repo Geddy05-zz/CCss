@@ -142,7 +142,7 @@ namespace Simple_solutions.Matcher
 
 
             TempData["results"] = matcher;
-            //return Redirect("javascript:window.open('http://www.google.com','_blank')");
+  
             return RedirectToAction("About");
         }
 
