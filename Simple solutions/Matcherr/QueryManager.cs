@@ -357,27 +357,6 @@ namespace Simple_solutions
                 listComputerCase.Add(a.listB);
             }
 
-            //if the first query did not yield any result.
-            if(listComputerCase.Count() == 0)
-            {
-                result =
-                this.client.Cypher
-                .Match(" (m:Moederbord),(b:Behuizing)")
-                .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
-                .AndWhere(" m.Vormfactor = b.Vormfactor")
-                .ReturnDistinct((b) => new
-                {
-                    listB = b.As<ComputerCase>(),
-                })
-                .Limit(500)
-                .Results;
-
-                foreach (var a in result)
-                {
-                    listComputerCase.Add(a.listB);
-                }
-            }
-
         }
 
         public void runAllQuery(SearchPropertiesModel searchPropertiesModel, List<Motherboard> listMotherboard, List<Processor> listProcessor, List<RAM> listRAM, List<OpticalDrive> listOpticalDrive,
@@ -414,6 +393,7 @@ namespace Simple_solutions
             opticalDriveNode.Categorie = searchPropertiesModel.opticalDriveCategory;
 
             //Run all the queries necesary to retrieve the nodes
+            queryReadComputerCase(motherboardNode, listComputerCase);
             queryReadMotherboard(motherboardNode, processorNode, ramNode, listMotherboard);
             queryReadProcessor(motherboardNode, processorNode, ramNode, listProcessor);
             queryReadRAM(motherboardNode, processorNode, ramNode, listRAM);
@@ -422,7 +402,7 @@ namespace Simple_solutions
             queryReadOpticalDrive(opticalDriveNode,listOpticalDrive);
             queryReadCooler(processorNode, listProcessorCooler);
             queryReadPowerSupply(listPowerSupply);
-            queryReadComputerCase(motherboardNode, listComputerCase);
+            
 
         }
     }
