@@ -46,6 +46,7 @@ namespace Simple_solutions
             // This query is to return the motherbord node.
 
             initClientConnection();
+
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
@@ -59,11 +60,32 @@ namespace Simple_solutions
                     listM = m.As<Motherboard>(),
                 })
                 .Results;
-                
-
+               
             foreach(var a in result)
             {
                 listMotherboard.Add(a.listM);
+            }
+
+            //if the first query did not yield any result.
+            if(listMotherboard.Count == 0)
+            {
+                result =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((RAM g) => g.Geheugen == ramNode.Geheugen)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .ReturnDistinct((m) => new
+                {
+                    listM = m.As<Motherboard>(),
+                })
+                .Results;
+
+                foreach (var a in result)
+                {
+                    listMotherboard.Add(a.listM);
+                }
             }
 
         }
@@ -93,6 +115,28 @@ namespace Simple_solutions
                 listProcessor.Add(a.listP);
             }
 
+            //if the first query did not yield any result.
+            if(listProcessor.Count == 0)
+            {
+                result =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((RAM g) => g.Geheugen == RAMNode.Geheugen)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .ReturnDistinct((p) => new
+                {
+                    listP = p.As<Processor>(),
+                })
+                .Results;
+
+                foreach (var a in result)
+                {
+                    listProcessor.Add(a.listP);
+                }
+            }
+
         }
         
         public void queryReadRAM(Motherboard motherboardNode,Processor processorNode,RAM RAMNode,List<RAM> listRAM)
@@ -100,6 +144,7 @@ namespace Simple_solutions
             // This query is to return the RAM node.
 
             initClientConnection();
+
             var result =
                 this.client.Cypher
                 .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
@@ -115,9 +160,32 @@ namespace Simple_solutions
                 .Results;
 
 
+
             foreach (var a in result)
             {
                 listRAM.Add(a.listG);
+            }
+
+            //if the first query did not yield any result.
+            if(listRAM.Count == 0)
+            {
+                result =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere((RAM g) => g.Geheugen == RAMNode.Geheugen)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .ReturnDistinct((g) => new
+                {
+                    listG = g.As<RAM>(),
+                })
+                .Results;
+
+                foreach (var a in result)
+                {
+                    listRAM.Add(a.listG);
+                }
             }
 
         }
@@ -216,6 +284,29 @@ namespace Simple_solutions
                 listGraphicCard.Add(a.listG);
             }
 
+            //if the first query did not yield any result. 
+            if(listGraphicCard.Count == 0)
+            {
+                var Videogeheugen = graphicCardNode.Videogeheugen.Split('g');
+                graphicCardNode.Videogeheugen = Videogeheugen[0];
+                
+                
+                result =
+                this.client.Cypher
+                .Match(" (g:Grafischekaart)")
+                .Where(" g.Typegeheugen = " + "'" + graphicCardNode.Typegeheugen + "'" + " AND g.Videogeheugen = " + Convert.ToInt32(graphicCardNode.Videogeheugen))
+                .ReturnDistinct((g) => new
+                {
+                    listG = g.As<GraphicCard>(),
+                })
+                .Limit(500)
+                .Results;
+
+                foreach (var a in result)
+                {
+                    listGraphicCard.Add(a.listG);
+                }
+            }
         }
 
         public void queryReadCooler(Processor processorNode,List<ProcessorCooler> listProcessorCooler)
@@ -264,6 +355,27 @@ namespace Simple_solutions
             foreach (var a in result)
             {
                 listComputerCase.Add(a.listB);
+            }
+
+            //if the first query did not yield any result.
+            if(listComputerCase.Count() == 0)
+            {
+                result =
+                this.client.Cypher
+                .Match(" (m:Moederbord),(b:Behuizing)")
+                .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
+                .AndWhere(" m.Vormfactor = b.Vormfactor")
+                .ReturnDistinct((b) => new
+                {
+                    listB = b.As<ComputerCase>(),
+                })
+                .Limit(500)
+                .Results;
+
+                foreach (var a in result)
+                {
+                    listComputerCase.Add(a.listB);
+                }
             }
 
         }
