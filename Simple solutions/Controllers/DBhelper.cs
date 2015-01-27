@@ -19,7 +19,7 @@ namespace Simple_solutions.Controllers {
             server = "localhost";
             database = "pcbuilder";
             uid = "root";
-            password = "Nocando123";
+            password = "90Cmm77";
             string connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
            /* String typeDiversityQuery = "SELECT type, count(DISTINCT url) as count FROM pcbuilder.products group by type order by type;";
