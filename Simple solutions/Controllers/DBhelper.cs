@@ -19,25 +19,10 @@ namespace Simple_solutions.Controllers {
             server = "localhost";
             database = "pcbuilder";
             uid = "root";
-            password = "Nocando123";
+            password = "90Cmm77";
             string connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
-           /* String typeDiversityQuery = "SELECT type, count(DISTINCT url) as count FROM pcbuilder.products group by type order by type;";
-            List<String> typeDiversityColumnNames = new List<String>(2);
-            typeDiversityColumnNames.Add("type");
-            typeDiversityColumnNames.Add("count");
-
-            List<string>[] typeDiversityResult = Select(typeDiversityQuery, 2, typeDiversityColumnNames);
-            ViewBag.CountBehuizing = typeDiversityResult[1][0];
-            ViewBag.CountGeheugen = typeDiversityResult[1][1];
-            ViewBag.CountGrafischekaart = typeDiversityResult[1][2];
-            ViewBag.CountHardeschijf = typeDiversityResult[1][3];
-            ViewBag.CountKoeler = typeDiversityResult[1][4];
-            ViewBag.CountMoederbord = typeDiversityResult[1][5];
-            ViewBag.CountOptischedrives = typeDiversityResult[1][6];
-            ViewBag.CountProcessor = typeDiversityResult[1][7];
-            ViewBag.CountProcessorKoeler = typeDiversityResult[1][8];
-            ViewBag.Voeding = typeDiversityResult[1][9];*/
+        
         }
 
         public void FetchMysqlData() {
