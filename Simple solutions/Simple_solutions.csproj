@@ -281,6 +281,14 @@
     <Compile Include="Migrations\201501081225462_AdminContext.Designer.cs">
       <DependentUpon>201501081225462_AdminContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501121114109_selled.cs" />
+    <Compile Include="Migrations\201501121114109_selled.Designer.cs">
+      <DependentUpon>201501121114109_selled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501141017106_searchResult.cs" />
+    <Compile Include="Migrations\201501141017106_searchResult.Designer.cs">
+      <DependentUpon>201501141017106_searchResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AdminContext.cs" />
@@ -343,7 +351,6 @@
     <Content Include="Views\selleds\Details.cshtml" />
     <Content Include="Views\selleds\Edit.cshtml" />
     <Content Include="Views\selleds\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\server.pubxml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -389,19 +396,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\_references.js" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -438,6 +432,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501081225462_AdminContext.resx">
       <DependentUpon>201501081225462_AdminContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501121114109_selled.resx">
+      <DependentUpon>201501121114109_selled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501141017106_searchResult.resx">
+      <DependentUpon>201501141017106_searchResult.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

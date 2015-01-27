@@ -3,7 +3,7 @@
 @{
         ViewBag.Title = "Admin";
 }
-<!--Load the AJAX API-->
+    <!--Load the AJAX API-->
 <script type="text/javascript" src="https://www.google.com/jsapi?autoload={
     'modules':[{
     'name':'visualization',
@@ -11,7 +11,7 @@
     'packages':['corechart']
     }]}">
 </script>
-<script type="text/javascript">
+    <script type="text/javascript">
 
     var dataArrayOne = [];
     var dataArrayTwo = [];
@@ -23,11 +23,11 @@
     
     function PriceChange() {
 
-        google.setOnLoadCallback(drawChart);
+      google.setOnLoadCallback(drawChart);
 
-        function drawChart() {
+      function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                
+
                 ['Datum', 'Behuizing', 'Geheugen', 'Grafischekaart', 'Hardeschijf', 'Koeler', 'Moederbord', 'Optischedrives', 'Processor', 'Processorkoeler', 'Voeding'],
                 [new Date(2015, 1, 5), dataArrayOne[0], dataArrayOne[1], dataArrayOne[2], dataArrayOne[3], dataArrayOne[4], dataArrayOne[5], dataArrayOne[6], dataArrayOne[7], dataArrayOne[8], dataArrayOne[9]],
                 [new Date(2015, 1, 6), dataArrayOne[10], dataArrayOne[11], dataArrayOne[12], dataArrayOne[13], dataArrayOne[14], dataArrayOne[15], dataArrayOne[16], dataArrayOne[17], dataArrayOne[18], dataArrayOne[19]],
@@ -52,10 +52,10 @@
 
         google.setOnLoadCallback(drawChart);
         function drawChart() {
-            var data = new google.visualization.DataTable();
+        var data = new google.visualization.DataTable();
             data.addColumn('string', 'Type');
             data.addColumn('number', 'Amount');
-            data.addRows([
+        data.addRows([
                 ["Behuizing", CountBehuizing],
                 ['Geheugen', CountGeheugen],
                 ['Grafischekaart', CountGrafischekaart],
@@ -66,19 +66,19 @@
                 ['Processor', CountProcessor],
                 ['Processorkoeler', CountProcessorKoeler],
                 ['Voeding', Voeding],
-            ]);
+        ]);
 
             var options = {'title':'Producten', 'width':400, 'height':900};
             var chart = new google.visualization.PieChart(document.getElementById('chart'));
-            chart.draw(data, options);
-        }
+        chart.draw(data, options);
+      }
     }
-</script>
+    </script>
 <div id="wrapper">
     <nav>
 
         <ul>
-            <li>@Html.ActionLink("Prijsverloop per producttype", "PriceChanges")</li>
+            <li><a href="#">Prijsverloop per producttype</a></li>
             <li><a href="#">Meest gekochte producten</a></li>
             <li><a href="#">Meest gezochte paketten</a></li>
             <li><a href="#">Meest gezocht producten</a></li>
