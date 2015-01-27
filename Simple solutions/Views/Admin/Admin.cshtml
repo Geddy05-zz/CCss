@@ -3,59 +3,107 @@
 @{
         ViewBag.Title = "Admin";
 }
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+<!--Load the AJAX API-->
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={
+    'modules':[{
+    'name':'visualization',
+    'version':'1',
+    'packages':['corechart']
+    }]}">
+</script>
+<script type="text/javascript">
 
-      // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
+    var dataArrayOne = [];
+    var dataArrayTwo = [];
+    var dataArraThree = [];
 
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart);
+    function insertIntoArray(data, array) {
+        array.push(data);
+    }
+    
+    function PriceChange() {
 
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
+        google.setOnLoadCallback(drawChart);
 
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
-        ]);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                
+                ['Datum', 'Behuizing', 'Geheugen', 'Grafischekaart', 'Hardeschijf', 'Koeler', 'Moederbord', 'Optischedrives', 'Processor', 'Processorkoeler', 'Voeding'],
+                [new Date(2015, 1, 5), dataArrayOne[0], dataArrayOne[1], dataArrayOne[2], dataArrayOne[3], dataArrayOne[4], dataArrayOne[5], dataArrayOne[6], dataArrayOne[7], dataArrayOne[8], dataArrayOne[9]],
+                [new Date(2015, 1, 6), dataArrayOne[10], dataArrayOne[11], dataArrayOne[12], dataArrayOne[13], dataArrayOne[14], dataArrayOne[15], dataArrayOne[16], dataArrayOne[17], dataArrayOne[18], dataArrayOne[19]],
+                [new Date(2015, 1, 7), dataArrayOne[20], dataArrayOne[21], dataArrayOne[22], dataArrayOne[23], dataArrayOne[24], dataArrayOne[25], dataArrayOne[26], dataArrayOne[27], dataArrayOne[28], dataArrayOne[29]],
+                [new Date(2015, 1, 10), dataArrayOne[30], dataArrayOne[31], dataArrayOne[32], dataArrayOne[33], dataArrayOne[34], dataArrayOne[35], dataArrayOne[36], dataArrayOne[37], dataArrayOne[38], dataArrayOne[39]]
+            ]);
 
-        // Set chart options
-        var options = {'title':'How Much Pizza I Ate Last Night',
-                       'width':400,
-                       'height':300};
+            var options = {
+                title: 'Company Performance',
+                curveType: 'function',
+                legend: { position: 'bottom' },
+            };
 
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart'));
+
+            chart.draw(data, options);
+        }
+    }
+
+    function TypeDiversity() {
+
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Type');
+            data.addColumn('number', 'Amount');
+            data.addRows([
+                ["Behuizing", CountBehuizing],
+                ['Geheugen', CountGeheugen],
+                ['Grafischekaart', CountGrafischekaart],
+                ['Hardeschijf', CountHardeschijf],
+                ['Koeler', CountKoeler],
+                ['Moederbord', CountMoederbord],
+                ["Optischedrives", CountOptischedrives],
+                ['Processor', CountProcessor],
+                ['Processorkoeler', CountProcessorKoeler],
+                ['Voeding', Voeding],
+            ]);
+
+            var options = {'title':'Producten', 'width':400, 'height':900};
+            var chart = new google.visualization.PieChart(document.getElementById('chart'));
+            chart.draw(data, options);
+        }
+    }
+</script>
 <div id="wrapper">
     <nav>
 
         <ul>
-            <li>@Html.ActionLink("Prijs verloop", "Admin", "Admin")</li>
-            <li>@Html.ActionLink("Meest gezochte samenstellin", "Search", "Admin")</li>
-            <li>@Html.ActionLink("Meest verkochte producten", "Sold", "Admin")</li>
+            <li>@Html.ActionLink("Prijsverloop per producttype", "PriceChanges")</li>
+            <li><a href="#">Meest gekochte producten</a></li>
+            <li><a href="#">Meest gezochte paketten</a></li>
+            <li><a href="#">Meest gezocht producten</a></li>
         </ul>
 
     </nav>
     <div id="adminContent">
         <!--Div that will hold the pie chart-->
-        <div id="chart_div"></div>
+        <div id="chart" style="height: 900px"></div>
         <h3>Admin</h3>
+        @{
+            foreach (var a in (List<String>)@ViewData["gemiddeldePrijs"]) {
+                <script>
+                    insertIntoArray(@a, dataArrayOne);
+                </script>
+            }
 
-    </table>
-
+            foreach (var a in (List<String>)@ViewData["timestamp"]) {
+                <script>
+                    insertIntoArray(@a, dataArrayTwo);
+                </script>
+            }
+        }
+        <script>
+            PriceChange();
+        </script>
     </div><!--end content-->
 </div>
