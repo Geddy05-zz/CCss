@@ -9,7 +9,6 @@ using Simple_solutions.Models;
 using System.Drawing;
 using System.IO;
 using System.Web.Helpers;
-using MySql.Data.MySqlClient;
 using System.Web.UI;
 using System.Collections;
 
