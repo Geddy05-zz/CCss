@@ -18,6 +18,7 @@ namespace Simple_solutions.Controllers
     {
         private DBhelper dbHelper;
         private String query;
+        AdminContext db = new AdminContext();
 
         public ActionResult Login()
         {
@@ -44,5 +45,20 @@ namespace Simple_solutions.Controllers
             
             return View();
         }
+
+        public ActionResult Sold()
+        {
+
+
+            return View(db.selleds.GroupBy(s => s.url).Select(g => g.OrderByDescending(p => p.productName).FirstOrDefault()));
+        }
+
+        public ActionResult Search()
+        {
+
+            return View(db.SearchPropertiesModels.ToList());
+        }
+
+
     }
 }
