@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Simple_solutions.Models.selled>
+
+@{
+    ViewBag.Title = "Sold";
+}
+
+<div id="wrapper">
+    <nav>
+
+        <ul>
+            <li>@Html.ActionLink("Prijs verloop", "Admin", "Admin")</li>
+            <li>@Html.ActionLink("Meest gezochte samenstellin", "Search", "Admin")</li>
+            <li>@Html.ActionLink("Meest verkochte producten", "Sold", "Admin")</li>
+        </ul>
+
+    </nav>
+
+
+    <table id="Sold">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.productName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prijs)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.url)
+                </td>
+                <td >€ &nbsp; 
+                    @Html.DisplayFor(modelItem => item.prijs)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

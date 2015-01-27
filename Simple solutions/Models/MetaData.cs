@@ -20,7 +20,6 @@ namespace Simple_solutions.Models
         public string graphicCardType       {get;set;}
         public string hardDriveType         {get;set;}
         public string hardDriveCapacity     {get;set;}
-        public string hardDriveRpm          {get;set;}
         public string opticalDriveCategory  {get;set;}
         public string systemUnitFormfactor  {get;set;}
     }
@@ -30,6 +29,6 @@ namespace Simple_solutions.Models
         public int ID { get; set; }
         public string productName { get; set; }
         public string url { get; set; }
-        public double prijs { get; set; }
+        public string prijs { get; set; }
     }
 }

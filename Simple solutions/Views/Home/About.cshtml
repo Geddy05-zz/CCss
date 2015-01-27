@@ -1,18 +1,18 @@
 ﻿@{
     ViewBag.Title = "About";
 }
+<script src="~/Scripts/jquery.js"></script>
 
 <div id="wrapper">
-
+    @using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+    { 
     <div class="listitem">
-@using (Html.BeginForm(FormMethod.Post))
-        {
         <img src="~/Images/processor.png" alt="processor" />
 
         <div class="resultaten">
 
             <div class="resultatenLinks">
-      
+
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
@@ -34,6 +34,9 @@
                     <tr>
                         <td class="key">Socket</td>
                         <td class="value">@ViewBag.processorSocket</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.processorNaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.processorUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.processorprijs"></td>
                     </tr>
                 </table>
 
@@ -41,18 +44,20 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.processorPrijs</h2>
-                <button type="submit" id="kopen" target="_blank"> Bestel</button>
+                <button id="kopen" type="submit"></button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
-}
-    </div><!--end listitem-->
 
+    </div><!--end listitem-->
+    }
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+    {
     <div class="listitem">
 
         <img src="~/Images/moederbord.png" alt="processor" />
-       
+
         <div class="resultaten">
 
             <div class="resultatenLinks">
@@ -78,6 +83,9 @@
                     <tr>
                         <td class="key">Socket</td>
                         <td class="value">@ViewBag.moederbordSocket</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.moederbordNaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.moederbordUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.moederbordPrijs"></td>
                     </tr>
                 </table>
 
@@ -85,14 +93,16 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.moederbordPrijs</h2>
-                <a id="kopen" href="@ViewBag.moederbordUrl" target=" _blank"></a>
+                <button id="kopen" type="submit"></button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
+}
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+    {
     <div class="listitem">
 
         <img src="~/Images/geheugen.png" alt="processor" />
@@ -122,23 +132,27 @@
                     <tr class="bg">
                         <td class="key">Type</td>
                         <td class="value">@ViewBag.geheugenType</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.geheugenNaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.geheugenUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.geheugenPrijs"></td>
                     </tr>
-                   
+
                 </table>
 
             </div><!--end resultatenLinks-->
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.geheugenPrijs</h2>
-                <a id="kopen" href="@ViewBag.geheugenUrl" target=" _blank"></a>
+                <button id="kopen" type="submit"></button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
-
+}
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+{ 
     <div class="listitem">
 
         <img src="~/Images/grafischekaart.png" alt="processor" />
@@ -147,7 +161,7 @@
         <div class="resultaten">
 
             <div class="resultatenLinks">
-              
+
                 <table>
                     <tr class="bg">
                         <td class="key">NAAM</td>
@@ -161,6 +175,9 @@
                     <tr class="bg">
                         <td class="key">Type</td>
                         <td class="value">@ViewBag.grafischekaarttype</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.grafischekaartnaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.grafischekaartUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.grafischekaartPrijs"></td>
                     </tr>
                 </table>
 
@@ -168,17 +185,18 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.grafischekaartPrijs</h2>
-                <a id="kopen" href="@ViewBag.grafischekaartUrl" target=" _blank"></a>
-               
+                <button id="kopen" type="submit"></button>
+
 
         </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
-
-    <div class="listitem">
+}
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+{
+        <div class="listitem">
 
         <img src="~/Images/hardeschijf.png" alt="processor" />
 
@@ -200,6 +218,9 @@
                     <tr class="bg">
                         <td class="key">Opslag</td>
                         <td class="value">@ViewBag.hardeschijfOpslag</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.hardeschijfNaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.harderschijfUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.harderschijfPrijs"></td>
                     </tr>
                 </table>
 
@@ -207,14 +228,16 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.harderschijfPrijs</h2>
-                <a id="kopen" href="@ViewBag.harderschijfUrl" target=" _blank"></a>
+                <button id="kopen" type="submit"></button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
+}
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+{
     <div class="listitem">
 
         <img src="~/Images/optischedrives.png" alt="processor" />
@@ -231,6 +254,9 @@
                     <tr>
                         <td class="key">Categorie</td>
                         <td class="value">@ViewBag.optischedrivesCategoriee</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.optischedrivesNaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.optischedrivesUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.optischedrivesPrijs"></td>
                     </tr>
                 </table>
 
@@ -238,14 +264,16 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.optischedrivesPrijs</h2>
-                <a id="kopen" href="@ViewBag.optischedrivesUrl" target=" _blank"></a>
+                <button id="kopen" type="submit"></button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
+}
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+{
     <div class="listitem">
 
         <img src="~/Images/behuizing.png" alt="processor" />
@@ -262,6 +290,9 @@
                     <tr>
                         <td class="key">Vormfactor</td>
                         <td class="value">@ViewBag.behuizingVormfactor</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.behuizingNaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.behuizingUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.behuizingPrijs"></td>
                     </tr>
                 </table>
 
@@ -269,14 +300,16 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.behuizingPrijs</h2>
-                <a id="kopen" href="@ViewBag.behuizingUrl" target=" _blank"></a>
+                <button id="kopen" type="submit"></button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
+}
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+{
     <div class="listitem">
 
         <img src="~/Images/voeding.png" alt="processor" />
@@ -293,6 +326,9 @@
                     <tr>
                         <td class="key">Wattage</td>
                         <td class="value">@ViewBag.voedingWatt</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.voedingNaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.voedingUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.voedingPrijs"></td>
                     </tr>
                 </table>
 
@@ -300,14 +336,16 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.voedingPrijs</h2>
-                <a id="kopen" href="@ViewBag.voedingUrl" target=" _blank"></a>
+                <button id="kopen" type="submit"></button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
+}
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { target = "_blank" }))
+{
     <div class="listitem">
 
         <img src="~/Images/koeler.png" alt="processor" />
@@ -324,6 +362,9 @@
                     <tr>
                         <td class="key">Socket</td>
                         <td class="value">@ViewBag.koelerSocket</td>
+                        <td style="display:none"> <input type="text" id="name" name="name" value="@ViewBag.koelerNaam"></td>
+                        <td style="display:none"> <input type="text" id="url" name="url" value="@ViewBag.koelerUrl"></td>
+                        <td style="display:none"> <input type="text" id="price" name="price" value="@ViewBag.koelerPrijs"></td>
                     </tr>
                 </table>
 
@@ -331,12 +372,12 @@
 
             <div class="resultatenRechts">
                 <h2 id="prijs">€ @ViewBag.koelerPrijs</h2>
-                <a id="kopen" href="@ViewBag.koelerUrl" target=" _blank"></a>
+                <button id="kopen" type="submit"></button>
 
             </div><!--end resultatenRechts-->
 
         </div><!--end resultaten-->
 
     </div><!--end listitem-->
-
+}
 </div><!--end wrapper-->
