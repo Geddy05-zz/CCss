@@ -145,10 +145,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.3.2.2\lib\net45\Microsoft.Web.WebPages.OAuth.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MySql.Data.6.9.5\lib\net45\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="Neo4jClient">
       <HintPath>..\packages\Neo4jClient.1.0.0.662\lib\net40\Neo4jClient.dll</HintPath>
     </Reference>
@@ -261,7 +257,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\DBhelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchPropertiesModels2Controller.cs" />
     <Compile Include="Controllers\selledsController.cs" />
@@ -280,6 +275,14 @@
     <Compile Include="Migrations\201501081225462_AdminContext.cs" />
     <Compile Include="Migrations\201501081225462_AdminContext.Designer.cs">
       <DependentUpon>201501081225462_AdminContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501121114109_selled.cs" />
+    <Compile Include="Migrations\201501121114109_selled.Designer.cs">
+      <DependentUpon>201501121114109_selled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501141017106_searchResult.cs" />
+    <Compile Include="Migrations\201501141017106_searchResult.Designer.cs">
+      <DependentUpon>201501141017106_searchResult.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -328,22 +331,8 @@
     <Content Include="Images\nav.png" />
     <Content Include="Images\navHover.png" />
     <Content Include="Images\sep.png" />
-    <Content Include="Views\SearchPropertiesModels2\Create.cshtml" />
-    <Content Include="Views\SearchPropertiesModels2\Delete.cshtml" />
-    <Content Include="Views\SearchPropertiesModels2\Details.cshtml" />
-    <Content Include="Views\SearchPropertiesModels2\Edit.cshtml" />
-    <Content Include="Views\SearchPropertiesModels2\Index.cshtml" />
-    <Content Include="Views\Sold\Create.cshtml" />
-    <Content Include="Views\Sold\Delete.cshtml" />
-    <Content Include="Views\Sold\Details.cshtml" />
-    <Content Include="Views\Sold\Edit.cshtml" />
-    <Content Include="Views\Sold\Index.cshtml" />
-    <Content Include="Views\selleds\Create.cshtml" />
-    <Content Include="Views\selleds\Delete.cshtml" />
-    <Content Include="Views\selleds\Details.cshtml" />
-    <Content Include="Views\selleds\Edit.cshtml" />
-    <Content Include="Views\selleds\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\server.pubxml" />
+    <Content Include="Views\Admin\Sold.cshtml" />
+    <Content Include="Views\Admin\Search.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -389,19 +378,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\_references.js" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -418,9 +394,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Views\Web.config" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
@@ -438,6 +412,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501081225462_AdminContext.resx">
       <DependentUpon>201501081225462_AdminContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501121114109_selled.resx">
+      <DependentUpon>201501121114109_selled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501141017106_searchResult.resx">
+      <DependentUpon>201501141017106_searchResult.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

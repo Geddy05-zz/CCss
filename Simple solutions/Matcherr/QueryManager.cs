@@ -16,7 +16,7 @@ namespace Simple_solutions
     {
         private GraphClient client;
         private String serverAddress = "http://145.24.222.101:8001/db/data";
-        private String serverAddressForTestOnly = "http://localhost:7474/db/data";
+
         private void initClientConnection()
         {
             /* this function makes connection with the neo4j database

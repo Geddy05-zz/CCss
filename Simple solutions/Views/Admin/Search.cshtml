@@ -1,0 +1,93 @@
+﻿@model List<Simple_solutions.Models.SearchPropertiesModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<div id="wrapper">
+    <nav>
+
+        <ul>
+            <li>@Html.ActionLink("Prijs verloop", "Admin", "Admin")</li>
+            <li>@Html.ActionLink("Meest gezochte samenstellin", "Search", "Admin")</li>
+            <li>@Html.ActionLink("Meest verkochte producten", "Sold", "Admin")</li>
+        </ul>
+
+    </nav>
+    <table id="searchresults">
+        <tr>
+            <th>
+                processor Type
+            </th>
+            <th>
+                processor ClockSpeed
+            </th>
+            <th>
+                processor Cores
+            </th>
+            <th>
+                memory Slots
+            </th>
+            <th>
+                memory Speed
+            </th>
+            <th>
+                graphic CardSpeed
+            </th>
+            <th>
+                graphic CardType
+            </th>
+            <th>
+                hardDrive Type
+            </th>
+            <th>
+                hardDrive Capacity
+            </th>
+            <th>
+                opticalDrive Category
+            </th>
+            <th>
+                systemUnit Formfactor
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.processorType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.processorClockSpeed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.processorcores)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memorySlots)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memorySpeed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.graphicCardSpeed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.graphicCardType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hardDrivetype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hardDriveCapacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.opticalDriveCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.systemUnitFormfactor)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

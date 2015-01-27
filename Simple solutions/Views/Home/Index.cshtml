@@ -6,6 +6,8 @@
 
 <script src="~/Scripts/jquery.js"></script>
 <script>
+
+
 	$(function(){
 	  $('.drop').click(function(){
 		$(this).next('.dropdown').slideToggle();
@@ -27,10 +29,31 @@
 		});
 	});
 
+    
+	$(function() {
+	    $('.submit').click(function(){
+	        $("#divLoading").show();
+	    })
+	});
+
 
 
 </script>
 <div id="wrapper">
+
+    <!--LOADINGSCREEN-->
+
+    <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: #000; z-index: 30001; opacity: .8; filter: alpha(opacity=70);display:none">
+        <p style="position: absolute; top: 30%; left: 38%;  font-size:18px; font-weight:bold; color: #FFF;">
+            Uw samenstelling wordt gemaakt, een moment geduld aub...
+            <br />
+            <img style="margin:0 auto; margin-top:10px;" src="~/Content/themes/base/images/loading.gif" />    
+        </p>
+    </div>
+
+    <!--end divLoading-->
+
+    
     <form id="builder" method="post">
         @using (Html.BeginForm(FormMethod.Post))
         {
@@ -63,7 +86,7 @@
                 </div><!--end item-->
 
                 <div class="item">
-                    <a class="drop" href="#"><img src="images/moederbord.png" alt="moederbord" /></a>
+                    <a class="drop" href="#"><img src="~/images/moederbord.png" alt="moederbord" /></a>
 
                     <div class="dropdown">
                         <div class="dropdownContainer">
@@ -77,7 +100,7 @@
                 </div><!--end item-->
 
                 <div class="item">
-                    <a class="drop" href="#"><img src="images/geheugen.png" alt="geheugen" /></a>
+                    <a class="drop" href="#"><img src="~/images/geheugen.png" alt="geheugen" /></a>
 
                     <div class="dropdown">
                         <div class="dropdownContainer">
@@ -91,7 +114,7 @@
                 </div><!--end item-->
 
                 <div class="item">
-                    <a class="drop" href="#"><img src="images/grafischekaart.png" alt="grafischekaart" /></a>
+                    <a class="drop" href="#"><img src="~/images/grafischekaart.png" alt="grafischekaart" /></a>
 
                     <div class="dropdown">
                         <div class="dropdownContainer">
@@ -113,7 +136,7 @@
             <div class="contentContainer">
 
                 <div class="item">
-                    <a class="drop" href="#"><img src="images/hardeschijf.png" alt="hardeschijf" /></a>
+                    <a class="drop" href="#"><img src="~/images/hardeschijf.png" alt="hardeschijf" /></a>
 
                     <div class="dropdown">
                         <div class="dropdownContainer">
@@ -131,7 +154,7 @@
                 </div><!--end item-->
 
                 <div class="item">
-                    <a class="drop" href="#"><img src="images/optischedrives.png" alt="optischedrives" /></a>
+                    <a class="drop" href="#"><img src="~/images/optischedrives.png" alt="optischedrives" /></a>
 
                     <div class="dropdown">
                         <div class="dropdownContainer">
@@ -145,7 +168,7 @@
                 </div><!--end item-->
 
                 <div class="item">
-                    <a class="drop" href="#"><img src="images/behuizing.png" alt="behuizing" /></a>
+                    <a class="drop" href="#"><img src="~/images/behuizing.png" alt="behuizing" /></a>
 
                     <div class="dropdown">
                         <div class="dropdownContainer">
@@ -160,9 +183,9 @@
 
                 <div id="submit">
 
-                    <a href="#"><img src="images/admin.png" alt="admin" /></a>
+                    <a href=@Url.Action("Admin", "Admin")><img src="~/images/admin.png" alt="admin" /></a>
 
-                    <input type="submit" value="">
+                    <input class="submit" type="submit" value="" onclick="Load();">
 
 
                 </div><!--end submit-->
