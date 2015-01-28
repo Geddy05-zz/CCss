@@ -86,12 +86,11 @@
     </nav>
     <div id="adminContent">
         <!--Div that will hold the pie chart-->
-        <div id="chart" style="height: 900px"></div>
-        <h3>Admin</h3>
         @{
             foreach (var a in (List<String>)@ViewData["gemiddeldePrijs"]) {
                 <script>
                     insertIntoArray(@a, dataArrayOne);
+                    
                 </script>
             }
 
@@ -100,7 +99,7 @@
                     insertIntoArray(@a, dataArrayTwo);
                 </script>
             }
-        }
+}
         <script>
             PriceChange();
         </script>

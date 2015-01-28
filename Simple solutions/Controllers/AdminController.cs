@@ -32,7 +32,7 @@ namespace Simple_solutions.Controllers
 
             dbHelper = new DBhelper();
             AdminContext db = new AdminContext();
-            query = "SELECT timestamp, AVG(price) as gemiddeldePrijs, type FROM products GROUP BY timestamp, type;";
+            query = "use pcbuilder; SELECT timestamp, AVG(price) as gemiddeldePrijs, type FROM products GROUP BY timestamp, type;";
 
             List<String> columNames = new List<String>(3);
             columNames.Add("timestamp");
@@ -40,6 +40,7 @@ namespace Simple_solutions.Controllers
             columNames.Add("type");
 
             List<string>[] queryResult = dbHelper.Select(query, 2, columNames);
+
             ViewData["timestamp"] = queryResult[0];
             ViewData["gemiddeldePrijs"] = queryResult[1];
             

@@ -25,10 +25,6 @@ namespace Simple_solutions.Controllers {
         
         }
 
-        public void FetchMysqlData() {
-
-        }
-
         private bool OpenConnection() {
             try {
                 connection.Open();
@@ -68,7 +64,6 @@ namespace Simple_solutions.Controllers {
                         result[i].Add(dataReader[columnNames[i]] + "");
                     }
                 }
-
 
                 //close Data Reader
                 dataReader.Close();
