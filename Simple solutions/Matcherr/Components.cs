@@ -22,8 +22,15 @@ namespace Simple_solutions
         {
             //This is the pattern to remove the minimum out of the string componentrange and convert as integer
             String patternMinimumOfTheRange = @"^(\d*)";
-            int rangeMinimum = Convert.ToInt32(Regex.Match(componentRange, patternMinimumOfTheRange).ToString());
-
+            int rangeMinimum;
+            if (componentRange.Equals(null) || componentRange.Equals(""))
+            {
+                rangeMinimum = 0;
+            }
+            else
+            {
+                rangeMinimum = Convert.ToInt32(Regex.Match(componentRange, patternMinimumOfTheRange).ToString());
+            }
             //return the minimum of the range as integer
             return rangeMinimum;
         }
@@ -32,7 +39,16 @@ namespace Simple_solutions
         {
             //This is the pattern to remove the maximum out of the string componentrange and convert as integer
             String patternMaximumOfTheRange = @"(\d*)$";
-            int rangeMaximum = rangeMaximum = Convert.ToInt32(Regex.Match(componentRange, patternMaximumOfTheRange).ToString());
+            int rangeMaximum;
+
+            if (componentRange.Equals(null) || componentRange.Equals(""))
+            {
+                rangeMaximum = 0;
+            }
+            else
+            {
+                rangeMaximum = Convert.ToInt32(Regex.Match(componentRange, patternMaximumOfTheRange).ToString());
+            }
 
             //return the maximum of the range as integer.
             return rangeMaximum;

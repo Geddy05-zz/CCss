@@ -334,7 +334,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryReadComputerCase(Motherboard motherboardNode, List<ComputerCase> listComputerCase)
+        public void queryReadComputerCase(Motherboard motherboardNode, Processor processorNode, List<ComputerCase> listComputerCase)
         {
             // This query is to retrieve the behuizing node
 
@@ -343,7 +343,7 @@ namespace Simple_solutions
                 this.client.Cypher
                 .Match(" (m:Moederbord),(b:Behuizing)")
                 .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
-                //.AndWhere(" m.Vormfactor = b.Vormfactor")
+                .AndWhere(" m.Vormfactor = b.Vormfactor")
                 .ReturnDistinct((b) => new
                 {
                     listB = b.As<ComputerCase>(),
@@ -355,6 +355,26 @@ namespace Simple_solutions
             foreach (var a in result)
             {
                 listComputerCase.Add(a.listB);
+            }
+
+            if(listComputerCase.Count() <= 0)
+            {
+                 result =
+                    this.client.Cypher
+                    .Match(" (m:Moederbord)-[a]-(p:Processor),(b:Behuizing)")
+                    .Where(" m.Vormfactor = b.Vormfactor")
+                    .ReturnDistinct((b) => new
+                    {
+                        listB = b.As<ComputerCase>(),
+                    })
+                    .Limit(500)
+                    .Results;
+
+
+                foreach (var a in result)
+                {
+                    listComputerCase.Add(a.listB);
+                }
             }
 
         }
@@ -655,7 +675,7 @@ namespace Simple_solutions
             queryReadProcessor(motherboardNode, processorNode, ramNode, listProcessor);
             queryReadRAM(motherboardNode, processorNode, ramNode, listRAM);
              */
-            queryReadComputerCase(motherboardNode, listComputerCase);   
+            queryReadComputerCase(motherboardNode, processorNode, listComputerCase);   
             queryReadHardDrive(hardDriveNode, listHardDrive);
             queryReadGraphicCard(graphicCardNode, listGraphicCard);
             queryReadOpticalDrive(opticalDriveNode,listOpticalDrive);
