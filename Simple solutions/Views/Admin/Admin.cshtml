@@ -26,13 +26,17 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var day = date.getDate();
+            var month = date.getMonth();
             var data = google.visualization.arrayToDataTable([
                 
                 ['Datum', 'Behuizing', 'Geheugen', 'Grafischekaart', 'Hardeschijf', 'Koeler', 'Moederbord', 'Optischedrives', 'Processor', 'Processorkoeler', 'Voeding'],
-                [new Date(2015, 1, 5), dataArrayOne[0], dataArrayOne[1], dataArrayOne[2], dataArrayOne[3], dataArrayOne[4], dataArrayOne[5], dataArrayOne[6], dataArrayOne[7], dataArrayOne[8], dataArrayOne[9]],
-                [new Date(2015, 1, 6), dataArrayOne[10], dataArrayOne[11], dataArrayOne[12], dataArrayOne[13], dataArrayOne[14], dataArrayOne[15], dataArrayOne[16], dataArrayOne[17], dataArrayOne[18], dataArrayOne[19]],
-                [new Date(2015, 1, 7), dataArrayOne[20], dataArrayOne[21], dataArrayOne[22], dataArrayOne[23], dataArrayOne[24], dataArrayOne[25], dataArrayOne[26], dataArrayOne[27], dataArrayOne[28], dataArrayOne[29]],
-                [new Date(2015, 1, 10), dataArrayOne[30], dataArrayOne[31], dataArrayOne[32], dataArrayOne[33], dataArrayOne[34], dataArrayOne[35], dataArrayOne[36], dataArrayOne[37], dataArrayOne[38], dataArrayOne[39]]
+                [new Date(year, month, day - 3), dataArrayOne[0], dataArrayOne[1], dataArrayOne[2], dataArrayOne[3], dataArrayOne[4], dataArrayOne[5], dataArrayOne[6], dataArrayOne[7], dataArrayOne[8], dataArrayOne[9]],
+                [new Date(year, month, day - 2), dataArrayOne[10], dataArrayOne[11], dataArrayOne[12], dataArrayOne[13], dataArrayOne[14], dataArrayOne[15], dataArrayOne[16], dataArrayOne[17], dataArrayOne[18], dataArrayOne[19]],
+                [new Date(year, month, day - 1), dataArrayOne[20], dataArrayOne[21], dataArrayOne[22], dataArrayOne[23], dataArrayOne[24], dataArrayOne[25], dataArrayOne[26], dataArrayOne[27], dataArrayOne[28], dataArrayOne[29]],
+                [new Date(year, month, day), dataArrayOne[30], dataArrayOne[31], dataArrayOne[32], dataArrayOne[33], dataArrayOne[34], dataArrayOne[35], dataArrayOne[36], dataArrayOne[37], dataArrayOne[38], dataArrayOne[39]]
             ]);
 
             var options = {
@@ -86,6 +90,7 @@
     </nav>
     <div id="adminContent">
         <!--Div that will hold the pie chart-->
+        <div id="chart" style="height: 900px"></div>
         @{
             foreach (var a in (List<String>)@ViewData["gemiddeldePrijs"]) {
                 <script>
@@ -93,11 +98,13 @@
                     
                 </script>
             }
+         
 
             foreach (var a in (List<String>)@ViewData["timestamp"]) {
                 <script>
                     insertIntoArray(@a, dataArrayTwo);
                 </script>
+
             }
 }
         <script>

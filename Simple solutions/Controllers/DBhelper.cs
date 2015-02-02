@@ -19,7 +19,7 @@ namespace Simple_solutions.Controllers {
             server = "localhost";
             database = "pcbuilder";
             uid = "root";
-            password = "90Cmm77";
+            password = "Nocando123";
             string connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
         
