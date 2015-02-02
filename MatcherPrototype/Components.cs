@@ -36,7 +36,9 @@ namespace MatcherPrototype
         }
     }
 
-    class Moederbord : Components
+    /** Made all component classes public so as to be accessible to the Unit tests**/
+
+    public class Moederbord : Components
     {
         public string Socket { get; set; }
         public string Vormfactor { get; set; }
@@ -44,25 +46,26 @@ namespace MatcherPrototype
         public string Geheugentype { get; set; }
     }
 
-    class GeheugenKaart : Components
+    public class GeheugenKaart : Components
     {
+        /* typo? do not know where geheugenkloksnelheid is further referenced, did not alter*/
         public string Geheugenkloksnelehid { get; set; }
         public string Geheugentype { get; set; }
         public string Geheugen { get; set; }
         public string Geheugenslots { get; set; }
     }
 
-    class CPUKoeler : Components 
+    public class CPUKoeler : Components 
     {
         public string Socket { get; set; }
     }
 
-    class Voeding : Components
+    public class Voeding : Components
     {
         public string Wattage { get; set; }
     }
 
-    class CPU : Components
+    public class CPU : Components
     {
         public string Socket { get; set; }
         public string Model { get; set; }
@@ -86,18 +89,18 @@ namespace MatcherPrototype
         }
     }
 
-    class GrafischeKaart : Components
+    public class GrafischeKaart : Components
     {
         public string Videogeheugen { get; set; }
         public string Typegeheugen { get; set; }
     }
 
-    class Behuizing : Components
+    public class Behuizing : Components
     {
         public string Vormfactor { get; set; }
     }
 
-    class Hardeschijf : Components
+    public class Hardeschijf : Components
     {
         public string Soort { get; set; }
         public string Opslag { get; set; }
@@ -105,7 +108,7 @@ namespace MatcherPrototype
         public int MaximumOpslag { get; set; }
     }
 
-    class Optischedrives : Components
+    public class Optischedrives : Components
     {
         public string Categorie { get; set; }
     }
