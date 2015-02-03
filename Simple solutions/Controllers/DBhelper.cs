@@ -9,7 +9,7 @@ namespace Simple_solutions.Controllers {
     public class DBhelper : Controller {
 
         private MySqlConnection connection;
-        private string server;
+        private string server, port;
         private string database;
         private string uid;
         private string password;
@@ -17,10 +17,11 @@ namespace Simple_solutions.Controllers {
 
         public DBhelper() {
             server = "localhost";
+            port = "8015";
             database = "pcbuilder";
             uid = "root";
             password = "90Cmm77";
-            string connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            string connectionString = "SERVER=" + server + ";" + "PORT=" + port + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
         
         }
@@ -28,8 +29,10 @@ namespace Simple_solutions.Controllers {
         private bool OpenConnection() {
             try {
                 connection.Open();
+                ViewBag.Connection = "connection established";
                 return true;
             } catch (MySqlException ex) {
+                ViewBag.Connection = "connection not established";
                 return false;
             }
         }
