@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MatcherPrototype
 {
-    class Matcher
+    public class Matcher
     {
         //The matcher class has the functions to sort the component lists and create a computer package 
         public void matchComponentsWithLowestPrice(List<Moederbord> listMoederbordsUnsorted, List<CPU> listCPUUnsorted 
