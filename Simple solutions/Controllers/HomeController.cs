@@ -16,7 +16,7 @@ namespace Simple_solutions.Matcher
         public ActionResult Index()
         {
             List<SelectListItem> processorType = new List<SelectListItem>();
-            processorType.Add(new SelectListItem { Text = "", Value = "i3" });
+            processorType.Add(new SelectListItem { Text = "", Value = "" });
             processorType.Add(new SelectListItem { Text = "i3", Value = "i3" });
             processorType.Add(new SelectListItem { Text = "i5", Value = "i5" });
             processorType.Add(new SelectListItem { Text = "i7", Value = "i7" });
@@ -28,7 +28,7 @@ namespace Simple_solutions.Matcher
             ViewData["processorTypeDD"] = processorType;
 
             List<SelectListItem> processorClockSpeed = new List<SelectListItem>();
-            processorClockSpeed.Add(new SelectListItem { Text = "", Value = "3 - 4" });
+            processorClockSpeed.Add(new SelectListItem { Text = "", Value = "" });
             processorClockSpeed.Add(new SelectListItem { Text = "1-2 GHZ", Value = "1 - 2" });
             processorClockSpeed.Add(new SelectListItem { Text = "2-3 GHZ", Value = "2 - 3" });
             processorClockSpeed.Add(new SelectListItem { Text = "3-4 GHZ", Value = "3 - 4" });
@@ -36,7 +36,7 @@ namespace Simple_solutions.Matcher
             ViewData["processorClockSpeedDD"] = processorClockSpeed;
 
             List<SelectListItem> processorCores = new List<SelectListItem>();
-            processorCores.Add(new SelectListItem { Text = "", Value = "2" });
+            processorCores.Add(new SelectListItem { Text = "", Value = "" });
             processorCores.Add(new SelectListItem { Text = "1", Value = "1" });
             processorCores.Add(new SelectListItem { Text = "2", Value = "2" });
             processorCores.Add(new SelectListItem { Text = "3", Value = "3" });
@@ -47,7 +47,7 @@ namespace Simple_solutions.Matcher
             ViewData["processorCoresDD"] = processorCores;
 
             List<SelectListItem> memorySlots = new List<SelectListItem>();
-            memorySlots.Add(new SelectListItem { Text = "", Value = "2" });
+            memorySlots.Add(new SelectListItem { Text = "", Value = "" });
             memorySlots.Add(new SelectListItem { Text = "2", Value = "2" });
             memorySlots.Add(new SelectListItem { Text = "4", Value = "4" });
             memorySlots.Add(new SelectListItem { Text = "6", Value = "6" });
@@ -55,7 +55,7 @@ namespace Simple_solutions.Matcher
             ViewData["memorySlotsDD"] = memorySlots;
 
             List<SelectListItem> memorySpeed = new List<SelectListItem>();
-            memorySpeed.Add(new SelectListItem { Text = "", Value = "4" });
+            memorySpeed.Add(new SelectListItem { Text = "", Value = "" });
             memorySpeed.Add(new SelectListItem { Text = "1 gb", Value = "1" });
             memorySpeed.Add(new SelectListItem { Text = "2 gb", Value = "2" });
             memorySpeed.Add(new SelectListItem { Text = "4 gb", Value = "4" });

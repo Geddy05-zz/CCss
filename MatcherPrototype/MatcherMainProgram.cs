@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MatcherPrototype
 {
-    class MatcherMainProgram
+    public class MatcherMainProgram
     {
         //List that will contain all of nodes that will be retrieved from the database.
         public List<Moederbord> listNodeMoederbord;
@@ -22,7 +22,7 @@ namespace MatcherPrototype
         private SearchPropertiesModel searchPropertiesModel;
 
 
-        public MatcherMainProgram(SearchPropertiesModel spm)
+        private MatcherMainProgram(SearchPropertiesModel spm)
         {
             this.searchPropertiesModel = spm;
             initiateComponentsList();

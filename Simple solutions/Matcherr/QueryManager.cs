@@ -334,7 +334,7 @@ namespace Simple_solutions
 
         }
 
-        public void queryReadComputerCase(Motherboard motherboardNode, List<ComputerCase> listComputerCase)
+        public void queryReadComputerCase(Motherboard motherboardNode, Processor processorNode, List<ComputerCase> listComputerCase)
         {
             // This query is to retrieve the behuizing node
 
@@ -357,12 +357,256 @@ namespace Simple_solutions
                 listComputerCase.Add(a.listB);
             }
 
+            if(listComputerCase.Count() <= 0)
+            {
+                 result =
+                    this.client.Cypher
+                    .Match(" (m:Moederbord)-[a]-(p:Processor),(b:Behuizing)")
+                    .Where(" m.Vormfactor = b.Vormfactor")
+                    .ReturnDistinct((b) => new
+                    {
+                        listB = b.As<ComputerCase>(),
+                    })
+                    .Limit(500)
+                    .Results;
+
+
+                foreach (var a in result)
+                {
+                    listComputerCase.Add(a.listB);
+                }
+            }
+
+        }
+
+        public void queryReadProcessorMotherboardDefined(Processor processorNode, Motherboard motherboardNode, List<Processor> listProcessor, 
+            List<Motherboard> listMotherboard, List<RAM> listRAM)
+        {
+            //this query is run only when the processor and motherboard are defined and we are missing the
+            //ram component(not defined).
+
+            initClientConnection();
+
+            var resultMotherboard =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((m) => new
+                {
+                    listM = m.As<Motherboard>(),
+                })
+                .Results;
+
+            foreach (var a in resultMotherboard)
+            {
+                listMotherboard.Add(a.listM);
+            }
+
+            var resultProcessor =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((p) => new
+                {
+                    listP = p.As<Processor>(),
+                })
+                .Results;
+
+            foreach (var a in resultProcessor)
+            {
+                listProcessor.Add(a.listP);
+            }
+
+            var resultRAM =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Motherboard m) => m.Geheugenslots == motherboardNode.Geheugenslots)
+                .AndWhere((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((g) => new
+                {
+                    listR = g.As<RAM>(),
+                })
+                .Results;
+
+            foreach (var a in resultRAM)
+            {
+                listRAM.Add(a.listR);
+            } 
+        }
+
+        public void queryReadProcessorRAMDefined(Processor processorNode, RAM RAMNode, List<Processor> listProcessor, 
+            List<Motherboard> listMotherboard, List<RAM> listRAM)
+        {
+            //this query is run only when the processor and motherboard are defined and we are missing the
+            //ram component(not defined).
+            
+            initClientConnection();
+
+            var resultMotherboard =
+                this.client.Cypher
+                .Match(" (p:Processor)-[a]-(m:Moederbord),(g:Geheugen)")
+                .Where((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere((RAM g) => g.Geheugen == RAMNode.Geheugen)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((m) => new
+                {
+                    listM = m.As<Motherboard>(),
+                })
+                .Results;
+
+            foreach (var a in resultMotherboard)
+            {
+                listMotherboard.Add(a.listM);
+            }
+
+            var resultProcessor =
+                this.client.Cypher
+                .Match(" (p:Processor)-[a]-(m:Moederbord),(g:Geheugen)")
+                .Where((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere((RAM g) => g.Geheugen == RAMNode.Geheugen)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((p) => new
+                {
+                    listP = p.As<Processor>(),
+                })
+                .Results;
+
+            foreach (var a in resultProcessor)
+            {
+                listProcessor.Add(a.listP);
+            }
+
+            var resultRAM =
+                this.client.Cypher
+                .Match(" (p:Processor)-[a]-(m:Moederbord),(g:Geheugen)")
+                .Where((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere((RAM g) => g.Geheugen == RAMNode.Geheugen)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((g) => new
+                {
+                    listR = g.As<RAM>(),
+                })
+                .Results;
+
+            foreach (var a in resultRAM)
+            {
+                listRAM.Add(a.listR);
+            } 
+        }
+
+        public void queryReadProcessorOnlyDefined(Processor processorNode, List<Processor> listProcessor, 
+            List<Motherboard> listMotherboard, List<RAM> listRAM)
+        {
+            //this query is run only when the processor is defined.
+
+            initClientConnection();
+
+            var resultMotherboard =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((m) => new
+                {
+                    listM = m.As<Motherboard>(),
+                })
+                .Results;
+
+            foreach (var a in resultMotherboard)
+            {
+                listMotherboard.Add(a.listM);
+            }
+
+            var resultProcessor =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((p) => new
+                {
+                    listP = p.As<Processor>(),
+                })
+                .Results;
+
+            foreach (var a in resultProcessor)
+            {
+                listProcessor.Add(a.listP);
+            }
+
+            var resultRAM =
+                this.client.Cypher
+                .Match(" (m:Moederbord)-[a]-(p:Processor),(g:Geheugen)")
+                .Where((Processor p) => p.Model == processorNode.Model && p.Cores == processorNode.Cores)
+                .AndWhere("p.Kloksnelheid >= " + processorNode.MinimumKloksnelheid + " AND p.Kloksnelheid <= " + processorNode.MaximumKloksnelheid)
+                .AndWhere("g.Geheugen = m.Geheugenslots")
+                .ReturnDistinct((g) => new
+                {
+                    listR = g.As<RAM>(),
+                })
+                .Results;
+
+            foreach (var a in resultRAM)
+            {
+                listRAM.Add(a.listR);
+            } 
+        }
+
+        public Boolean isCPUPropertiesFilled(Processor cpu)
+        {
+            //Checks if the properties of the components processor has been filled in by the end-user.
+            Boolean isFilled = false;
+
+            if(cpu.Model.Length > 0  && cpu.Cores.Length > 0)
+            {
+                isFilled = true;
+            }
+
+            return isFilled;
+        }
+
+        public Boolean isMotherboardPropertiesFilled(Motherboard motherboard)
+        {
+            //Checks if the properties of the components motherboard has been filled in by the end-user.
+            Boolean isFilled = false;
+
+            if(motherboard.Geheugenslots.Length > 0)
+            {
+                isFilled = true;
+            }
+
+            return isFilled;
+        }
+
+        public Boolean isRAMPropertiesFilled(RAM ram)
+        {
+            //Checks if the properties of the components ram has been filled in by the end-user.
+            Boolean isFilled = false;
+
+            if(ram.Geheugen.Length > 0)
+            {
+                isFilled = true;
+            }
+
+            return isFilled;
         }
 
         public void runAllQuery(SearchPropertiesModel searchPropertiesModel, List<Motherboard> listMotherboard, List<Processor> listProcessor, List<RAM> listRAM, List<OpticalDrive> listOpticalDrive,
             List<HardDrive> listHardDrive, List<GraphicCard> listGraphicCard, List<ProcessorCooler> listProcessorCooler,
             List<PowerSupply> listPowerSupply, List<ComputerCase> listComputerCase)
-        {
+        {     
 
             //Create objects With the properties needed to run the queries.
 
@@ -392,11 +636,46 @@ namespace Simple_solutions
             OpticalDrive opticalDriveNode = new OpticalDrive();
             opticalDriveNode.Categorie = searchPropertiesModel.opticalDriveCategory;
 
+            //Check if the cpu
+
+            if((isMotherboardPropertiesFilled(motherboardNode)) && (isRAMPropertiesFilled(ramNode)) && (isCPUPropertiesFilled(processorNode)))
+            {
+                queryReadMotherboard(motherboardNode, processorNode, ramNode, listMotherboard);
+                queryReadProcessor(motherboardNode, processorNode, ramNode, listProcessor);
+                queryReadRAM(motherboardNode, processorNode, ramNode, listRAM);
+            }
+            else if (isCPUPropertiesFilled(processorNode))
+            {
+                if (isMotherboardPropertiesFilled(motherboardNode))
+                {
+                    //Run Query with CPU and Motherboard defined
+                    queryReadProcessorMotherboardDefined(processorNode, motherboardNode, listProcessor, listMotherboard, listRAM);
+                }
+                else if(isRAMPropertiesFilled(ramNode))
+                {
+                    //Run Query with CPU and RAM defined
+                    queryReadProcessorRAMDefined(processorNode, ramNode, listProcessor, listMotherboard, listRAM);
+                }
+                else
+                {
+                    //Run Query with CPU only defined. 
+                    queryReadProcessorOnlyDefined(processorNode, listProcessor, listMotherboard, listRAM);
+                }
+            }
+            else
+            {
+                //Abort operation.
+            }
+                
+
+
             //Run all the queries necesary to retrieve the nodes
-            queryReadComputerCase(motherboardNode, listComputerCase);
+            /*
             queryReadMotherboard(motherboardNode, processorNode, ramNode, listMotherboard);
             queryReadProcessor(motherboardNode, processorNode, ramNode, listProcessor);
             queryReadRAM(motherboardNode, processorNode, ramNode, listRAM);
+             */
+            queryReadComputerCase(motherboardNode, processorNode, listComputerCase);   
             queryReadHardDrive(hardDriveNode, listHardDrive);
             queryReadGraphicCard(graphicCardNode, listGraphicCard);
             queryReadOpticalDrive(opticalDriveNode,listOpticalDrive);
